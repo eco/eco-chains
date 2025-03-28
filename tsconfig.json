@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
     "target": "es2019",
-    "module": "commonjs",
-    "types": ["node", "jest"], // Ensures Jest globals are available
-    "declaration": true,
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "types": ["node","jest"], // Ensures Jest globals are available
     "outDir": "dist",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+    "strict": true /* Enable all strict type-checking options. */,
+    "skipLibCheck": true /* Skip type checking of declaration files. */,
+    "resolveJsonModule": true /* Include modules imported with .json extension. */
   },
   "exclude": ["node_modules"]
 }

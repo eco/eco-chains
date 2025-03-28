@@ -68,7 +68,6 @@ export default [
   {
     ignores: [
       'node_modules',
-      'artifacts',
       'cache',
       'coverage',
       'typechain-types',
