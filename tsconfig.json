@@ -3,7 +3,7 @@
     "target": "es2019",
     "module": "NodeNext",
     "moduleResolution": "nodenext",
-    "types": ["node","jest"], // Ensures Jest globals are available
+    "types": ["node", "jest"], // Ensures Jest globals are available
     "outDir": "dist",
     "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
     "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
