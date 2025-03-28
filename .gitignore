@@ -4,7 +4,6 @@ node_modules/
 yarn-debug.log*
 yarn-error.log*
 package-lock.json
-pnpm-lock.yaml
 
 # TypeScript build output
 dist/
