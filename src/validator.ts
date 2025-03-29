@@ -1,41 +1,6 @@
-import { Chain, defineChain } from 'viem'
-import typia, { tags } from "typia"
+import typia from 'typia'
+import { IChain } from './chain.interface'
 
-export type CC = {
-  id: number
-  name?: string
-  nativeCurrency: {
-    decimals: number
-    name: string
-    symbol: string
-  }
+export function validateChain(chainJson: IChain): boolean {
+  return typia.is<IChain>(chainJson)
 }
-interface ICC extends CC {}
-
-export function validateChain(cc: ICC): boolean {
-  return typia.is<ICC>(cc)
-}
-// export const zora = defineChain({
-//   id: 7777777,
-//   name: 'Zora',
-//   nativeCurrency: {
-//     decimals: 18,
-//     name: 'Ether',
-//     symbol: 'ETH',
-//   },
-//   rpcUrls: {
-//     default: {
-//       http: ['https://rpc.zora.energy'],
-//       webSocket: ['wss://rpc.zora.energy'],
-//     },
-//   },
-//   blockExplorers: {
-//     default: { name: 'Explorer', url: 'https://explorer.zora.energy' },
-//   },
-//   contracts: {
-//     multicall3: {
-//       address: '0xcA11bde05977b3631167028862bE2a173976CA11',
-//       blockCreated: 5882,
-//     },
-//   },
-// })
