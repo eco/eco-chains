@@ -7,6 +7,7 @@ import { EcoChainDefinitions } from './index'
 export const ConfigRegex = {
   ALCHEMY_API_KEY: /alchemy\.com\/v2$/,
   INFURA_API_KEY: /infura\.io\/v3$/,
+  FACE_API_KEY: /face\.io\/v1$/,
 }
 
 /**
