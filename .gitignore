@@ -33,5 +33,6 @@ Thumbs.db
 .env.local
 .env.*.local
 
-#Claude
+# Claude and planning files
 CLAUDE.local.md
+plans/
