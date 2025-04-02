@@ -9,7 +9,7 @@ jest.mock('viem', () => {
   }
 })
 describe('Eco Chains', () => {
-  const config = { ALCHEMY_API_KEY: 'api_key_123' }
+  const config = { alchemyKey: 'api_key_123' }
 
   let defaults: any = {},
     alchemy: any = {},
@@ -62,16 +62,14 @@ describe('Eco Chains', () => {
     expect(chain1.rpcUrls.default).toEqual(rpcs.rpcUrls.default)
     expect(chain1.rpcUrls.infura).toEqual(chain1.rpcUrls.infura)
     const alchemyEq = {
-      http: ['https://base-mainnet.g.alchemy.com/v2/' + config.ALCHEMY_API_KEY],
-      webSocket: [
-        'wss://opt-mainnet.g.alchemy.com/v2/' + config.ALCHEMY_API_KEY,
-      ],
+      http: ['https://base-mainnet.g.alchemy.com/v2/' + config.alchemyKey],
+      webSocket: ['wss://opt-mainnet.g.alchemy.com/v2/' + config.alchemyKey],
     }
     expect(chain1.rpcUrls.alchemy).toEqual(alchemyEq)
   })
 
   it('should replace all supported chains with an api key', async () => {
-    const config2 = { ...config, INFURA_API_KEY: 'api_key_456' }
+    const config2 = { ...config, infuraKey: 'api_key_456' }
 
     const rpcs = getRpcUrls({ default: defaults, alchemy, infura })
     mockViemExtract.mockReturnValue(cloneDeep(rpcs))
@@ -80,17 +78,13 @@ describe('Eco Chains', () => {
     const chain1 = obj.getChain(1)
     expect(chain1.rpcUrls.default).toEqual(rpcs.rpcUrls.default)
     const infuraEq = {
-      http: ['https://base-mainnet.g.infura.io/v3/' + config2.INFURA_API_KEY],
-      webSocket: [
-        'wss://base-mainnet.g.infura.io/v3/' + config2.INFURA_API_KEY,
-      ],
+      http: ['https://base-mainnet.g.infura.io/v3/' + config2.infuraKey],
+      webSocket: ['wss://base-mainnet.g.infura.io/v3/' + config2.infuraKey],
     }
     expect(chain1.rpcUrls.infura).toEqual(infuraEq)
     const eq = {
-      http: ['https://base-mainnet.g.alchemy.com/v2/' + config.ALCHEMY_API_KEY],
-      webSocket: [
-        'wss://opt-mainnet.g.alchemy.com/v2/' + config.ALCHEMY_API_KEY,
-      ],
+      http: ['https://base-mainnet.g.alchemy.com/v2/' + config.alchemyKey],
+      webSocket: ['wss://opt-mainnet.g.alchemy.com/v2/' + config.alchemyKey],
     }
     expect(chain1.rpcUrls.alchemy).toEqual(eq)
   })

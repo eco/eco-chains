@@ -77,7 +77,7 @@ This document defines the universal planning methodology only. Domain knowledge,
 1. YOU MUST IMPLEMENT atomic, incremental commits:
 
    - Each commit MUST represent a SINGLE logical change
-   - ALWAYS run `pnpm test && pnpm format` before committing 
+   - ALWAYS run `pnpm test && pnpm format` before committing
    - Commit all changed files after EACH subtask completion with 100% test coverage
    - Verify all tests pass before any commit
    - Write tests BEFORE implementing functionality

@@ -92,7 +92,7 @@ This project uses [Semantic Versioning](https://semver.org/) and [Conventional C
 
 Releases are automatically created when changes are merged to the `main` branch. The version number is determined by the commit messages:
 
-- `fix:` commits trigger patch releases (0.0.x)
+- `fix:` or `perf:` commits trigger patch releases (0.0.x)
 - `feat:` commits trigger minor releases (0.x.0)
 - Commits with `BREAKING CHANGE:` in the message trigger major releases (x.0.0)
 

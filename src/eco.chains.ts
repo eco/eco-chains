@@ -5,9 +5,8 @@ import { EcoChainDefinitions } from './index'
  * Chains that we recognize api key support for
  */
 export const ConfigRegex = {
-  ALCHEMY_API_KEY: /alchemy\.com\/v2$/,
-  INFURA_API_KEY: /infura\.io\/v3$/,
-  FACE_API_KEY: /face\.io\/v1$/,
+  alchemyKey: /alchemy\.com\/v2$/,
+  infuraKey: /infura\.io\/v3$/,
 }
 
 /**
