@@ -32,6 +32,7 @@ export default [
       jest,
     },
     rules: {
+      'no-console': 'error',
       'no-useless-constructor': 'off',
       'no-unused-expressions': 'off',
       'no-plusplus': 'off',

@@ -1,13 +1,17 @@
 {
   "name": "@eco-foundation/eco-chains",
-  "version": "0.0.1-alpha",
+  "version": "0.0.13-alpha",
   "description": "A TypeScript library built with pnpm",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "clean": "rimraf node_modules dist && pnpm store prune",
-    "build": "tsc",
+    "clean": "rimraf dist",
+    "build": "pnpm clean && tsup",
     "test": "jest",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -15,7 +19,6 @@
     "prettier:fix": "prettier . --write",
     "format": "pnpm lint:fix && pnpm prettier:fix",
     "format:check": "pnpm lint && pnpm prettier",
-    "prepublishOnly": "pnpm run build",
     "prepare": "ts-patch install && pnpm run build"
   },
   "repository": {
@@ -25,9 +28,6 @@
   "author": "Stoyan Dimitrov<s.dimitrov19@gmail.com>",
   "license": "MIT",
   "packageManager": "pnpm@10.7.1",
-  "files": [
-    "dist"
-  ],
   "devDependencies": {
     "@eslint/js": "^9.23.0",
     "@types/eslint-plugin-mocha": "^10.4.0",
@@ -55,6 +55,7 @@
     "ts-jest": "^29.2.6",
     "ts-node": "^10.9.2",
     "ts-patch": "^3.3.0",
+    "tsup": "^8.4.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2"
   },
