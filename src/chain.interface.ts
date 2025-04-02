@@ -2,6 +2,7 @@ import { tags } from 'typia'
 import { Chain, ChainConfig, ChainFormatters } from 'viem'
 import { WebsocketTag } from './tags'
 
+// Interface for chains
 export interface IChain<
   formatters extends ChainFormatters | undefined = ChainFormatters | undefined,
   custom extends Record<string, unknown> | undefined =

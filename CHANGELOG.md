@@ -1,9 +1,8 @@
 # 1.0.0 (2025-04-02)
 
-
 ### Bug Fixes
 
-* resolve private repository access for semantic-release ([9e49899](https://github.com/eco/eco-chains/commit/9e49899d15cf9cec8c43ddc8e916feaf396e8ec8))
+- resolve private repository access for semantic-release ([9e49899](https://github.com/eco/eco-chains/commit/9e49899d15cf9cec8c43ddc8e916feaf396e8ec8))
 
 # Changelog
 
