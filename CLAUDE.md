@@ -354,7 +354,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
    - Track cleanup in final stage
    - NEVER commit to git unless explicitly requested
 
-3. YOU ARE REQUIRED TO PERFORM final cleanup:
+4. YOU ARE REQUIRED TO PERFORM final cleanup:
    - Run `pnpm format` to address all code style and linting issues
    - Resolve ALL critical TODOs
    - Run COMPLETE test suite
