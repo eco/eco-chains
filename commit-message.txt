@@ -1,0 +1,15 @@
+fix: consolidate initial implementation of eco-chains
+
+- Add chain definitions for Arbitrum, Base, Eco, Ethereum, Helix, Mantle, Optimism, and Polygon
+- Implement TypeScript interfaces with typia for runtime type checking
+- Add custom WebSocket tag validator
+- Set up build and publish pipeline with semantic-release
+- Configure linting and formatting
+- Add comprehensive test suite
+- Support API key replacement in RPC URLs
+
+This consolidates the initial development of the eco-chains package.
+
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
