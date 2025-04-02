@@ -77,7 +77,7 @@ This document defines the universal planning methodology only. Domain knowledge,
 1. YOU MUST IMPLEMENT atomic, incremental commits:
 
    - Each commit MUST represent a SINGLE logical change
-   - ALWAYS run `pnpm format` before committing to ensure code quality
+   - ALWAYS run `pnpm test && pnpm format` before committing 
    - Commit all changed files after EACH subtask completion with 100% test coverage
    - Verify all tests pass before any commit
    - Write tests BEFORE implementing functionality
@@ -328,13 +328,14 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
 
 #### Code Quality Enforcement
 
-1. YOU MUST RUN code formatting and linting before any commit:
+1. YOU MUST RUN tests, formatting and linting before any commit:
 
+   - ALWAYS execute `pnpm test` to run unit tests before committing
    - ALWAYS execute `pnpm format` to fix code style issues before commits
-   - This command runs both linting fixes and prettier formatting
-   - Command: `pnpm format`
-   - NEVER commit code that doesn't pass formatting checks
-   - VERIFY formatting success before proceeding with commit
+   - These commands ensure functionality and code quality
+   - Command sequence: `pnpm test && pnpm format`
+   - NEVER commit code that doesn't pass tests or formatting checks
+   - VERIFY both test and formatting success before proceeding with commit
 
 2. YOU SHALL FOLLOW this TODO management system:
 
@@ -355,9 +356,9 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
    - NEVER commit to git unless explicitly requested
 
 4. YOU ARE REQUIRED TO PERFORM final cleanup:
+   - Run `pnpm test` to ensure all tests pass
    - Run `pnpm format` to address all code style and linting issues
    - Resolve ALL critical TODOs
-   - Run COMPLETE test suite
    - Document before/after TODOs by category
    - Provide technical justification for any remaining TODOs
    - Confirm ALL temporary files are addressed
