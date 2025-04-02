@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. This file i
 ## [0.0.13-alpha] - Current
 
 ### Features
+
 - Initial setup of eco-chains project
 - Chain definitions for Arbitrum, Base, Eco, Ethereum, Helix, Mantle, Optimism, and Polygon
 - Utilities for managing RPC connections with API key replacements

@@ -18,21 +18,21 @@ pnpm add @eco-foundation/eco-chains
 ## Usage
 
 ```typescript
-import { EcoChains, ethereum, eco } from '@eco-foundation/eco-chains';
+import { EcoChains, ethereum, eco } from '@eco-foundation/eco-chains'
 
 // Initialize EcoChains with API keys
 const chains = new EcoChains({
   infuraKey: 'your-infura-key',
   alchemyKey: 'your-alchemy-key',
-});
+})
 
 // Get a specific chain with updated RPC URLs
-const ethereumChain = chains.getChain(ethereum);
+const ethereumChain = chains.getChain(ethereum)
 
 // Access chain properties
-console.log(ethereumChain.id); // Chain ID
-console.log(ethereumChain.name); // Chain name
-console.log(ethereumChain.rpcUrls); // RPC endpoints with API keys inserted
+console.log(ethereumChain.id) // Chain ID
+console.log(ethereumChain.name) // Chain name
+console.log(ethereumChain.rpcUrls) // RPC endpoints with API keys inserted
 ```
 
 ## Available Chains

@@ -87,6 +87,7 @@ Releases are automated through GitHub Actions when changes are merged to the `ma
 5. Publishes the package to npm
 
 To ensure correct versioning:
+
 - Bug fixes trigger patch releases (0.0.x)
 - New features trigger minor releases (0.x.0)
 - Breaking changes trigger major releases (x.0.0)
