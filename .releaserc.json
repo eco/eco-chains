@@ -1,5 +1,6 @@
 {
   "branches": ["main"],
+  "repositoryUrl": "https://github.com/eco-foundation/eco-chains.git",
   "plugins": [
     [
       "@semantic-release/commit-analyzer",
