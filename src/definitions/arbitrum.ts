@@ -9,4 +9,10 @@ export const arbitrum: Chain = {
       http: ['https://arb-mainnet.g.alchemy.com/v2'],
     },
   },
+  contracts: {
+    ...varbitrum.contracts,
+    hyperlaneMailbox: {
+      address: '0x979Ca5202784112f4738403dBec5D0F3B9daabB9',
+    },
+  },
 }

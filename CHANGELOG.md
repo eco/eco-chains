@@ -1,9 +1,8 @@
 ## [1.0.1](https://github.com/eco/eco-chains/compare/v1.0.0...v1.0.1) (2025-04-02)
 
-
 ### Performance Improvements
 
-* trigger new release ([98f8449](https://github.com/eco/eco-chains/commit/98f84492da67e2497fb626dc90044f222aedc5f0))
+- trigger new release ([98f8449](https://github.com/eco/eco-chains/commit/98f84492da67e2497fb626dc90044f222aedc5f0))
 
 # 1.0.0 (2025-04-02)
 
