@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eco-foundation/eco-chains.git"
+    "url": "git+https://github.com/eco/eco-chains.git"
   },
   "author": "Stoyan Dimitrov<s.dimitrov19@gmail.com>",
   "license": "MIT",
