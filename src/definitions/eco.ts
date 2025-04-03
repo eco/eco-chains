@@ -48,6 +48,9 @@ export const ecoSepolia = /*#__PURE__*/ defineChain({
         address: '0x635f8f0Ae3fEE30C408C5c4E0C44115a2d636e29',
       },
     },
+    hyperlaneMailbox: {
+      address: '0x6966b0E55883d49BFB24539356a2f8A673E02039',
+    },
   },
   sourceId,
   testnet: true,

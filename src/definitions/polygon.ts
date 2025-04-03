@@ -9,4 +9,10 @@ export const polygon: Chain = {
       http: ['https://polygon-mainnet.g.alchemy.com/v2'],
     },
   },
+  contracts: {
+    ...vpolygon.contracts,
+    hyperlaneMailbox: {
+      address: '0x5d934f4e2f797775e53561bB72aca21ba36B96BB',
+    },
+  },
 }
