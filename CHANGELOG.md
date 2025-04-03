@@ -1,21 +1,18 @@
 # 1.0.0 (2025-04-03)
 
-
 ### Bug Fixes
 
-* consolidate initial implementation of eco-chains ([b462102](https://github.com/eco/eco-chains/commit/b462102c3140ea617ef6db250a27eff4d6b98e60))
-* consolidate initial implementation of eco-chains ([01939bd](https://github.com/eco/eco-chains/commit/01939bdf9872e4582697881261076172a38371ea))
-* updating linter and configs, remove plans ([bd8da9d](https://github.com/eco/eco-chains/commit/bd8da9dd288652d4ef9a45fc05c30c9017e6df03))
-
+- consolidate initial implementation of eco-chains ([b462102](https://github.com/eco/eco-chains/commit/b462102c3140ea617ef6db250a27eff4d6b98e60))
+- consolidate initial implementation of eco-chains ([01939bd](https://github.com/eco/eco-chains/commit/01939bdf9872e4582697881261076172a38371ea))
+- updating linter and configs, remove plans ([bd8da9d](https://github.com/eco/eco-chains/commit/bd8da9dd288652d4ef9a45fc05c30c9017e6df03))
 
 ### Features
 
-* **contracts:** add Hyperlane Mailbox addresses to chain definitions for ED-5079 ([e69014b](https://github.com/eco/eco-chains/commit/e69014ba5b9e7e8210dbf4698d6fbebce8c46c2a))
-
+- **contracts:** add Hyperlane Mailbox addresses to chain definitions for ED-5079 ([e69014b](https://github.com/eco/eco-chains/commit/e69014ba5b9e7e8210dbf4698d6fbebce8c46c2a))
 
 ### Performance Improvements
 
-* trigger new release ([09d6bae](https://github.com/eco/eco-chains/commit/09d6baec3037a6bd398c139bd732e89f35cee3cd))
+- trigger new release ([09d6bae](https://github.com/eco/eco-chains/commit/09d6baec3037a6bd398c139bd732e89f35cee3cd))
 
 ## [1.0.1](https://github.com/eco/eco-chains/compare/v1.0.0...v1.0.1) (2025-04-02)
 
