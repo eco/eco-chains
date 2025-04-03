@@ -78,6 +78,7 @@ export default [
       '*.spec.ts',
       'build',
       'lib',
+      'CHANGELOG.md',
     ],
   },
 ]
