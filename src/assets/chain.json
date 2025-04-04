@@ -8,7 +8,7 @@
     "mailbox": "0xd4C1905BB1D26BC93DAC913e13CaCC278CdCC80D"
   },
   "130": {
-    "url": "https://unichain-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
+    "url": "https://unichain-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
     "mailbox": "0x3a464f746D23Ab22155710f44dB16dcA53e0775E"
   },
   "137": {
