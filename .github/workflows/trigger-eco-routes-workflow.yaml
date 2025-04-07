@@ -23,7 +23,6 @@ jobs:
         with:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
-          installation_id: ${{ secrets.INSTALLATION_ID }}
       
       - name: Trigger eco-routes Workflow
         uses: peter-evans/repository-dispatch@v3.0.0
