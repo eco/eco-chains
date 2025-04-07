@@ -16,20 +16,11 @@ jobs:
       - name: Get Tag Name
         id: get_tag
         run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-      
-      - name: Generate GitHub App Token
-        id: create_token
-        uses: tibdex/github-app-token@v2
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
 
-      - run: "echo 'The created token is masked: ${{ steps.create_token.outputs.token }}'"
-      
       - name: Trigger eco-routes Workflow
         uses: peter-evans/repository-dispatch@v3.0.0
         with:
-          token: ${{ steps.create_token.outputs.token }}
+          token: ${{ secrets.GH_TOKEN }}
           repository: eco/eco-routes
           event-type: eco-chains-tag-pushed
           client-payload: '{"tag": "${{ steps.get_tag.outputs.TAG_NAME }}", "repository": "${{ github.repository }}", "sha": "${{ github.sha }}"}'
