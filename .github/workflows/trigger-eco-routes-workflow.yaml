@@ -26,7 +26,7 @@ jobs:
           installation_id: ${{ secrets.INSTALLATION_ID }}
       
       - name: Trigger eco-routes Workflow
-        uses: peter-evans/repository-dispatch@v3
+        uses: peter-evans/repository-dispatch@v3.0.0
         with:
           token: ${{ steps.generate-token.outputs.token }}
           repository: eco/eco-routes
