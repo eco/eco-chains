@@ -1,7 +1,7 @@
 {
   "branches": ["main"],
   "repositoryUrl": "https://github.com/eco/eco-chains.git",
-  "tagFormat": "v1.0.4",
+  "tagFormat": "v${version}",
   "plugins": [
     [
       "@semantic-release/commit-analyzer",
