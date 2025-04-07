@@ -18,12 +18,12 @@ jobs:
         run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
       
       - name: Generate GitHub App Token
-        id: generate-token
+        id: create_token
         uses: tibdex/github-app-token@v2
         with:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
-          
+
       - run: "echo 'The created token is masked: ${{ steps.create_token.outputs.token }}'"
       
       - name: Trigger eco-routes Workflow
