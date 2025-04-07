@@ -29,7 +29,7 @@ jobs:
       - name: Trigger eco-routes Workflow
         uses: peter-evans/repository-dispatch@v3.0.0
         with:
-          token: ${{ steps.create_token.outputs.token  }}
+          token: ${{ steps.create_token.outputs.token }}
           repository: eco/eco-routes
           event-type: eco-chains-tag-pushed
           client-payload: '{"tag": "${{ steps.get_tag.outputs.TAG_NAME }}", "repository": "${{ github.repository }}", "sha": "${{ github.sha }}"}'
