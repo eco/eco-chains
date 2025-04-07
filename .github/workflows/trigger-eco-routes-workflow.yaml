@@ -1,0 +1,37 @@
+name: Trigger eco-routes Release on Tag
+
+on:
+  push:
+    # tags:
+    #   - 'v*'  # Trigger on any tag that starts with 'v'
+
+jobs:
+  trigger-eco-routes:
+    name: Trigger eco-routes Repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      
+      - name: Get Tag Name
+        id: get_tag
+        run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+      
+      - name: Generate GitHub App Token
+        id: generate-token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+          installation_id: ${{ secrets.INSTALLATION_ID }}
+      
+      - name: Trigger eco-routes Workflow
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ steps.generate-token.outputs.token }}
+          repository: eco/eco-routes
+          event-type: eco-chains-tag-pushed
+          client-payload: '{"tag": "${{ steps.get_tag.outputs.TAG_NAME }}", "repository": "${{ github.repository }}", "sha": "${{ github.sha }}"}'
+      
+      - name: Log Success
+        run: echo "Successfully dispatched event to eco-routes repository with tag ${{ steps.get_tag.outputs.TAG_NAME }}"
