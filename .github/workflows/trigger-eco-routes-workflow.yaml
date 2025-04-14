@@ -4,7 +4,16 @@ on:
   push:
     # tags:
     #   - 'v*'  # Trigger on any tag that starts with 'v'
-
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to deploy to"
+        required: true
+        default: "testnet"
+        type: choice
+        options:
+          - testnet
+          - mainnet
 jobs:
   trigger-eco-routes:
     name: Trigger eco-routes Repository
