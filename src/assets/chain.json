@@ -13,7 +13,8 @@
   },
   "137": {
     "url": "https://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
-    "mailbox": "0x5d934f4e2f797775e53561bB72aca21ba36B96BB"
+    "mailbox": "0x5d934f4e2f797775e53561bB72aca21ba36B96BB",
+    "gasMultiplier": 1.5
   },
   "5000": {
     "url": "https://mantle-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",

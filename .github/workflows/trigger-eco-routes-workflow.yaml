@@ -1,0 +1,43 @@
+name: Trigger eco-routes Release on Tag
+
+on:
+  push:
+    # tags:
+    #   - 'v*'  # Trigger on any tag that starts with 'v'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Optional tag number (without 'v' prefix)"
+        required: false
+        type: string
+jobs:
+  trigger-eco-routes:
+    name: Trigger eco-routes Repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      
+      - name: Get Tag Name
+        id: get_tag
+        run: |
+          if [[ -n "${{ inputs.tag }}" ]]; then
+            echo "TAG_NAME=v${{ inputs.tag }}" >> $GITHUB_OUTPUT
+          else
+            echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+            # Fallback if not triggered by tag or input
+            if [[ "$TAG_NAME" == "${GITHUB_REF}" ]]; then
+              echo "TAG_NAME=v1.1.1999" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Trigger eco-routes Workflow
+        uses: peter-evans/repository-dispatch@v3.0.0
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          repository: StoyanD/eco-routes
+          event-type: eco-chains-tag-pushed
+          client-payload: '{"tag": "${{ steps.get_tag.outputs.TAG_NAME }}", "repository": "${{ github.repository }}", "sha": "${{ github.sha }}"}'
+      
+      - name: Log Success
+        run: echo "Successfully dispatched event to eco-routes repository with tag ${{ steps.get_tag.outputs.TAG_NAME }}"
