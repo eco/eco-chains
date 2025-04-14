@@ -2,8 +2,8 @@ name: Trigger eco-routes Release on Tag
 
 on:
   push:
-    # tags:
-    #   - 'v*'  # Trigger on any tag that starts with 'v'
+    tags:
+      - 'v*'  # Trigger on any tag that starts with 'v'
   workflow_dispatch:
     inputs:
       tag:
