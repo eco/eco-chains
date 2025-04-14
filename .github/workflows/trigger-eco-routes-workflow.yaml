@@ -6,14 +6,10 @@ on:
     #   - 'v*'  # Trigger on any tag that starts with 'v'
   workflow_dispatch:
     inputs:
-      environment:
-        description: "Environment to deploy to"
-        required: true
-        default: "testnet"
-        type: choice
-        options:
-          - testnet
-          - mainnet
+      tag:
+        description: "Optional tag number (without 'v' prefix)"
+        required: false
+        type: string
 jobs:
   trigger-eco-routes:
     name: Trigger eco-routes Repository
@@ -24,8 +20,16 @@ jobs:
       
       - name: Get Tag Name
         id: get_tag
-        # run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-        run: echo "TAG_NAME=v1.1.1999" >> $GITHUB_OUTPUT
+        run: |
+          if [[ -n "${{ inputs.tag }}" ]]; then
+            echo "TAG_NAME=v${{ inputs.tag }}" >> $GITHUB_OUTPUT
+          else
+            echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+            # Fallback if not triggered by tag or input
+            if [[ "$TAG_NAME" == "${GITHUB_REF}" ]]; then
+              echo "TAG_NAME=v1.1.1999" >> $GITHUB_OUTPUT
+            fi
+          fi
 
       - name: Trigger eco-routes Workflow
         uses: peter-evans/repository-dispatch@v3.0.0
