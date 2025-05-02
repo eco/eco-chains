@@ -37,7 +37,7 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
           repository: eco/eco-routes-stoyan
           event-type: eco-chains-tag-pushed
-          client-payload: '{"tag": "${{ steps.get_tag.outputs.TAG_NAME }}", "repository": "${{ github.repository }}", "sha": "${{ github.sha }}"}'
+          client-payload: '{"tag": "${{ steps.get_tag.outputs.TAG_NAME }}", "environment": "mainnet", "repository": "${{ github.repository }}", "sha": "${{ github.sha }}"}'
 
       - name: Log Success
         run: echo "Successfully dispatched event to eco-routes repository with tag ${{ steps.get_tag.outputs.TAG_NAME }}"
