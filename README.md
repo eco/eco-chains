@@ -5,14 +5,14 @@ A TypeScript library that provides chain definitions for various blockchain netw
 ## Installation
 
 ```bash
-# Using npm
-npm install @eco-foundation/eco-chains
+# Using pnpm
+pnpm add @eco-foundation/eco-chains
 
 # Using yarn
 yarn add @eco-foundation/eco-chains
 
-# Using pnpm
-pnpm add @eco-foundation/eco-chains
+# Using npm
+npm install @eco-foundation/eco-chains
 ```
 
 ## Usage

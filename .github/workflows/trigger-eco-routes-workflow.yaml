@@ -3,7 +3,7 @@ name: Trigger eco-routes Release on Tag
 on:
   push:
     tags:
-      - 'v*'  # Trigger on any tag that starts with 'v'
+      - 'v*' # Trigger on any tag that starts with 'v'
   workflow_dispatch:
     inputs:
       tag:
@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
-      
+
       - name: Get Tag Name
         id: get_tag
         run: |
@@ -38,6 +38,6 @@ jobs:
           repository: eco/eco-routes-stoyan
           event-type: eco-chains-tag-pushed
           client-payload: '{"tag": "${{ steps.get_tag.outputs.TAG_NAME }}", "repository": "${{ github.repository }}", "sha": "${{ github.sha }}"}'
-      
+
       - name: Log Success
         run: echo "Successfully dispatched event to eco-routes repository with tag ${{ steps.get_tag.outputs.TAG_NAME }}"
