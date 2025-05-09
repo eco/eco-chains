@@ -1,7 +1,10 @@
 name: Release
 
 on:
-  push:
+  workflow_run:
+    workflows: ['CI:Build and Test']
+    types:
+      - completed
     branches:
       - main
 
@@ -15,6 +18,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,6 +26,17 @@ jobs:
           fetch-depth: 0
           persist-credentials: true
           token: ${{ secrets.GH_TOKEN }}
+
+      - name: Get workflow run information
+        id: workflow-run
+        run: |
+          echo "sha=${{ github.event.workflow_run.head_sha }}" >> $GITHUB_OUTPUT
+          echo "Using commit SHA: ${{ github.event.workflow_run.head_sha }}"
+
+      - name: Checkout workflow commit
+        run: |
+          git fetch origin ${{ steps.workflow-run.outputs.sha }}
+          git checkout ${{ steps.workflow-run.outputs.sha }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -59,6 +74,10 @@ jobs:
         run: |
           echo "Using GitHub token with prefix: ${GITHUB_TOKEN:0:4}..."
           echo "Using GH_TOKEN with prefix: ${GH_TOKEN:0:4}..."
+          echo "Workflow SHA: ${{ steps.workflow-run.outputs.sha }}"
           echo "Current branch: $(git branch --show-current)"
+          echo "Current git status: $(git status)"
           echo "Current version in package.json: $(node -p "require('./package.json').version")"
+          echo "Last 3 commits:"
+          git log -3 --oneline
           npx semantic-release --debug
