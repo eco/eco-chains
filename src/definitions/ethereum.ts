@@ -1,6 +1,10 @@
 import { Chain } from 'viem'
 import { mainnet as vmainnet, sepolia as vsepolia } from 'viem/chains'
 
+/**
+ * Ethereum Mainnet chain configuration
+ * Extends viem's mainnet configuration with Eco-specific RPC URLs and contract addresses
+ */
 export const ethereum: Chain = {
   ...vmainnet,
   rpcUrls: {
@@ -17,6 +21,10 @@ export const ethereum: Chain = {
   },
 }
 
+/**
+ * Ethereum Sepolia testnet chain configuration
+ * Extends viem's Sepolia configuration with Eco-specific RPC URLs and contract addresses
+ */
 export const sepolia: Chain = {
   ...vsepolia,
   rpcUrls: {

@@ -36,3 +36,4 @@ Thumbs.db
 # Claude and planning files
 CLAUDE.local.md
 plans/
+**/.claude/settings.local.json

@@ -17,9 +17,11 @@ export * from './definitions/ethereum'
 import { EcoChains } from './eco.chains'
 export * from './eco.chains'
 /**
- * Chains that Eco supports
+ * Collection of all chain definitions supported by Eco
+ * Used as the source for chain configurations in the EcoChains class
+ * Each entry maps a chain name to its configuration
  */
-export const EcoChainDefinitions = {
+export const EcoRoutesChainDefinitions = {
   ecoSepolia,
   helix,
   optimism,
@@ -34,6 +36,6 @@ export const EcoChainDefinitions = {
 }
 
 export default {
-  EcoChainDefinitions,
+  EcoRoutesChainDefinitions: EcoRoutesChainDefinitions,
   EcoChains: EcoChains,
 }

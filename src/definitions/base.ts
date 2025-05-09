@@ -1,6 +1,11 @@
 import { Chain } from 'viem'
 import { base as vbase, baseSepolia as vbases } from 'viem/chains'
 
+/**
+ * Base Mainnet chain configuration
+ * Extends viem's base configuration with Eco-specific RPC URLs and contract addresses
+ * Includes Hyperlane Mailbox contract configuration
+ */
 export const base: Chain = {
   ...vbase,
   rpcUrls: {
@@ -16,6 +21,11 @@ export const base: Chain = {
     },
   },
 }
+/**
+ * Base Sepolia testnet chain configuration
+ * Extends viem's Base Sepolia configuration with Eco-specific RPC URLs and contract addresses
+ * Includes Hyperlane Mailbox contract configuration for the testnet
+ */
 export const baseSepolia: Chain = {
   ...vbases,
   rpcUrls: {
