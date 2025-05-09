@@ -2,7 +2,10 @@ import { tags } from 'typia'
 import { Chain, ChainConfig, ChainFormatters } from 'viem'
 import { WebsocketTag } from './tags'
 
-// Interface for chains
+/**
+ * Core interface for blockchain chains
+ * Extends viem's Chain interface with additional properties required by Eco
+ */
 export interface IChain<
   formatters extends ChainFormatters | undefined = ChainFormatters | undefined,
   custom extends Record<string, unknown> | undefined =

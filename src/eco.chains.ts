@@ -1,16 +1,20 @@
 import { Chain, extractChain } from 'viem'
-import { EcoChainDefinitions } from './index'
+import { EcoRoutesChainDefinitions } from './index'
 
 /**
- * Chains that we recognize api key support for
+ * Regular expressions to identify RPC endpoints that require API keys
+ * These patterns match the base URL patterns before the API key
+ * Key-value pairs map provider names to their respective URL patterns
  */
 export const ConfigRegex = {
-  alchemyKey: /alchemy\.com\/v2$/,
-  infuraKey: /infura\.io\/v3$/,
+  alchemyKey: /alchemy\.com\/v2$/,  // Matches Alchemy endpoint URLs
+  infuraKey: /infura\.io\/v3$/,     // Matches Infura endpoint URLs
 }
 
 /**
- * Get the rpc urls for a chain, api keys for now
+ * Configuration object for API keys used in RPC URLs
+ * Keys correspond to provider names defined in ConfigRegex
+ * Values are the API keys to be inserted into the RPC URLs
  */
 export type EcoChainConfigs = {
   // eslint-disable-next-line no-unused-vars
@@ -33,14 +37,27 @@ export class EcoChains {
    * Retrieves the chain configuration for a given chain ID, replacing API keys
    * in the RPC URLs based on the provided regex patterns.
    *
-   * @param {number} chainID - The ID of the chain to retrieve.
-   * @returns {Chain} - The chain configuration with potentially modified RPC URLs.
+   * This method:
+   * 1. Extracts the chain configuration from EcoChainDefinitions
+   * 2. Identifies RPC URLs that match patterns in ConfigRegex
+   * 3. Appends appropriate API keys to those URLs
+   * 4. Handles both HTTP and WebSocket URLs
+   *
+   * @param {number} chainID - The ID of the chain to retrieve
+   * @returns {Chain} - The chain configuration with API keys inserted into RPC URLs
+   * @throws Will throw an error if the chain ID is not found in EcoChainDefinitions
    */
   getChain(chainID: number): Chain {
     const chain = extractChain({
-      chains: Object.values(EcoChainDefinitions),
+      chains: Object.values(EcoRoutesChainDefinitions),
       id: chainID,
     })
+
+    // Validate that a valid chain configuration was found
+    // If no matching chain ID is found, throw an error
+    if (!chain) {
+      throw new Error(`Chain with ID ${chainID} not found`)
+    }
 
     // Iterate over each RPC URL group in the chain
     // eslint-disable-next-line no-unused-vars
