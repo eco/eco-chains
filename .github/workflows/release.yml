@@ -1,10 +1,7 @@
 name: Release
 
 on:
-  workflow_run:
-    workflows: ['CI:Build and Test']
-    types:
-      - completed
+  push:
     branches:
       - main
 
@@ -81,4 +78,37 @@ jobs:
           echo "Current version in package.json: $(node -p "require('./package.json').version")"
           echo "Last 3 commits:"
           git log -3 --oneline
-          npx semantic-release --debug
+
+          # Run semantic-release with output capture
+          OUTPUT=$(npx semantic-release --debug)
+          echo "$OUTPUT"
+
+          # Extract the version number and release type from semantic-release output
+          if echo "$OUTPUT" | grep -q "The next release version is"; then
+            VERSION=$(echo "$OUTPUT" | grep "The next release version is" | sed -E 's/.*The next release version is ([0-9]+\.[0-9]+\.[0-9]+).*/\1/')
+            echo "new_version=$VERSION" >> $GITHUB_OUTPUT
+            echo "Released version $VERSION"
+
+            # Extract release type directly from semantic-release output
+            if echo "$OUTPUT" | grep -q "Release type: major"; then
+              RELEASE_TYPE="major"
+            elif echo "$OUTPUT" | grep -q "Release type: minor"; then
+              RELEASE_TYPE="minor"
+            else
+              RELEASE_TYPE="patch"
+            fi
+
+            echo "release_type=$RELEASE_TYPE" >> $GITHUB_OUTPUT
+            echo "Release type: $RELEASE_TYPE"
+          else
+            echo "No new version was released"
+          fi
+
+      - name: Manually Trigger eco-routes Workflow
+        if: steps.semantic-release.outputs.new_version
+        uses: peter-evans/repository-dispatch@v3.0.0
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          repository: eco/er-test
+          event-type: eco-chains-tag-pushed
+          client-payload: '{"tag": "v${{ steps.semantic-release.outputs.new_version }}", "release_type": "${{ steps.semantic-release.outputs.release_type }}", "environment": "mainnet", "repository": "${{ github.repository }}", "sha": "${{ steps.workflow-run.outputs.sha }}"}'
