@@ -59,4 +59,6 @@ jobs:
         run: |
           echo "Using GitHub token with prefix: ${GITHUB_TOKEN:0:4}..."
           echo "Using GH_TOKEN with prefix: ${GH_TOKEN:0:4}..."
+          echo "Current branch: $(git branch --show-current)"
+          echo "Current version in package.json: $(node -p "require('./package.json').version")"
           npx semantic-release --debug
