@@ -3,7 +3,7 @@ name: Trigger eco-routes Release on Tag
 on:
   push:
     tags:
-      - 'v*' # Trigger on any tag that starts with 'v'
+      - '*' # Trigger on any tag
   workflow_dispatch:
     inputs:
       tag:
@@ -22,14 +22,30 @@ jobs:
         id: get_tag
         run: |
           if [[ -n "${{ inputs.tag }}" ]]; then
-            echo "TAG_NAME=v${{ inputs.tag }}" >> $GITHUB_OUTPUT
-          else
-            echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-            # Fallback if not triggered by tag or input
-            if [[ "$TAG_NAME" == "${GITHUB_REF}" ]]; then
-              echo "TAG_NAME=v1.1.1999" >> $GITHUB_OUTPUT
+            # If manual input is provided
+            TAG_VALUE="${{ inputs.tag }}"
+            # Add v prefix if not already present
+            if [[ ! "$TAG_VALUE" =~ ^v ]]; then
+              TAG_VALUE="v$TAG_VALUE"
             fi
+            echo "TAG_NAME=$TAG_VALUE" >> $GITHUB_OUTPUT
+          else
+            # Extract tag from ref
+            TAG_VALUE="${GITHUB_REF#refs/tags/}"
+            # Fallback if not triggered by tag
+            if [[ "$TAG_VALUE" == "${GITHUB_REF}" ]]; then
+              TAG_VALUE="v1.1.1999"
+            else
+              # Add v prefix if not already present
+              if [[ ! "$TAG_VALUE" =~ ^v ]]; then
+                TAG_VALUE="v$TAG_VALUE"
+              fi
+            fi
+            echo "TAG_NAME=$TAG_VALUE" >> $GITHUB_OUTPUT
           fi
+
+          # Debug info
+          echo "Using tag: $TAG_VALUE"
 
       - name: Trigger eco-routes Workflow
         uses: peter-evans/repository-dispatch@v3.0.0
