@@ -7,8 +7,8 @@ import { EcoRoutesChainDefinitions } from './index'
  * Key-value pairs map provider names to their respective URL patterns
  */
 export const ConfigRegex = {
-  alchemyKey: /alchemy\.com\/v2$/,  // Matches Alchemy endpoint URLs
-  infuraKey: /infura\.io\/v3$/,     // Matches Infura endpoint URLs
+  alchemyKey: /alchemy\.com\/v2$/, // Matches Alchemy endpoint URLs
+  infuraKey: /infura\.io\/v3$/, // Matches Infura endpoint URLs
 }
 
 /**
