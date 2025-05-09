@@ -15,7 +15,6 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,16 +23,11 @@ jobs:
           persist-credentials: true
           token: ${{ secrets.GH_TOKEN }}
 
-      - name: Get workflow run information
-        id: workflow-run
+      - name: Get commit info
+        id: commit-info
         run: |
-          echo "sha=${{ github.event.workflow_run.head_sha }}" >> $GITHUB_OUTPUT
-          echo "Using commit SHA: ${{ github.event.workflow_run.head_sha }}"
-
-      - name: Checkout workflow commit
-        run: |
-          git fetch origin ${{ steps.workflow-run.outputs.sha }}
-          git checkout ${{ steps.workflow-run.outputs.sha }}
+          echo "sha=${{ github.sha }}" >> $GITHUB_OUTPUT
+          echo "Using commit SHA: ${{ github.sha }}"
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -72,7 +66,7 @@ jobs:
         run: |
           echo "Using GitHub token with prefix: ${GITHUB_TOKEN:0:4}..."
           echo "Using GH_TOKEN with prefix: ${GH_TOKEN:0:4}..."
-          echo "Workflow SHA: ${{ steps.workflow-run.outputs.sha }}"
+          echo "Commit SHA: ${{ steps.commit-info.outputs.sha }}"
           echo "Current branch: $(git branch --show-current)"
           echo "Current git status: $(git status)"
           echo "Current version in package.json: $(node -p "require('./package.json').version")"
@@ -111,4 +105,4 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
           repository: eco/er-test
           event-type: eco-chains-tag-pushed
-          client-payload: '{"tag": "v${{ steps.semantic-release.outputs.new_version }}", "release_type": "${{ steps.semantic-release.outputs.release_type }}", "environment": "mainnet", "repository": "${{ github.repository }}", "sha": "${{ steps.workflow-run.outputs.sha }}"}'
+          client-payload: '{"tag": "v${{ steps.semantic-release.outputs.new_version }}", "release_type": "${{ steps.semantic-release.outputs.release_type }}", "environment": "mainnet", "repository": "${{ github.repository }}", "sha": "${{ steps.commit-info.outputs.sha }}"}'
