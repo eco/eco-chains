@@ -5,6 +5,10 @@
       "channel": "latest"
     },
     {
+      "name": "ED-5079-auto-deploy",
+      "channel": "latest"
+    },
+    {
       "name": "beta",
       "channel": "beta",
       "prerelease": true
