@@ -1,4 +1,4 @@
-## [1.0.2](https://github.com/eco/eco-chains/compare/v1.0.1...v1.0.2) (2025-05-09)
+## [2.0.1](https://github.com/eco/eco-chains/compare/v1.0.1...v1.0.2) (2025-05-09)
 
 
 ### Bug Fixes
