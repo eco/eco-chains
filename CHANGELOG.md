@@ -1,3 +1,11 @@
+## [1.0.4](https://github.com/eco/eco-chains/compare/v1.0.3...v1.0.4) (2025-05-09)
+
+
+### Bug Fixes
+
+* update the run of the release ([cb00a9a](https://github.com/eco/eco-chains/commit/cb00a9a77e657cbe83130a391de451a540ddd403))
+* updating the trigger ([cf5e2d3](https://github.com/eco/eco-chains/commit/cf5e2d38602569c1bdf4d7e98f59a812faa7aca1))
+
 ## [1.0.3](https://github.com/eco/eco-chains/compare/v1.0.2...v1.0.3) (2025-05-09)
 
 
