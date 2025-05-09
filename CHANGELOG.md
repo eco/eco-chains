@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/eco/eco-chains/compare/v1.0.0...v1.0.1) (2025-05-09)
+
+
+### Bug Fixes
+
+* remove branch channel ([7e4af5a](https://github.com/eco/eco-chains/commit/7e4af5ac98f4e4e8bddeb209d6c7211afea849ac))
+* trigger semantic-release with proper commit format ([85d233b](https://github.com/eco/eco-chains/commit/85d233b53704da16a50718ec4e827d36b2026563))
+* update semantic-release configuration ([08cc8ff](https://github.com/eco/eco-chains/commit/08cc8ffb2c5c498538d6b1ab52471683637526e1))
+
 # 1.0.0 (2025-05-09)
 
 
