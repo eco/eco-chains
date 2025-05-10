@@ -27,7 +27,7 @@ export type EcoChainConfigs = {
  * in RPC URLs based on predefined regex patterns.
  */
 export class EcoChains {
-  // The configuration object containing API keys for RPC URLs
+  // The configuration object containing API keys for RPC URLs for each provider
   private configs: EcoChainConfigs
 
   constructor(configs: EcoChainConfigs) {
