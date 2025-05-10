@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/eco/eco-chains/compare/v1.0.4...v1.0.5) (2025-05-10)
+
+
+### Bug Fixes
+
+* clean up ([b947804](https://github.com/eco/eco-chains/commit/b94780475a70be63341f8934552df815a306be1c))
+
 ## [1.0.4](https://github.com/eco/eco-chains/compare/v1.0.3...v1.0.4) (2025-05-09)
 
 
