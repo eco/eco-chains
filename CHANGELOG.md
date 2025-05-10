@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/eco/eco-chains/compare/v1.0.5...v1.0.6) (2025-05-10)
+
+
+### Bug Fixes
+
+* adding comment ([d24ae98](https://github.com/eco/eco-chains/commit/d24ae98512bda961b368b54f465a0db49aef41fb))
+
 ## [1.0.5](https://github.com/eco/eco-chains/compare/v1.0.4...v1.0.5) (2025-05-10)
 
 
