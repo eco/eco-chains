@@ -1,3 +1,11 @@
+## [1.0.7](https://github.com/eco/eco-chains/compare/v1.0.6...v1.0.7) (2025-05-12)
+
+
+### Bug Fixes
+
+* remove the trigger workflow ([c4c19d7](https://github.com/eco/eco-chains/commit/c4c19d7237131ebf8f1f01c395c381e477865112))
+* updating to main eco-routes repo ([94c5bca](https://github.com/eco/eco-chains/commit/94c5bcaeb0917b7b2388717be7d1abcacf3c59e5))
+
 ## [1.0.6](https://github.com/eco/eco-chains/compare/v1.0.5...v1.0.6) (2025-05-10)
 
 
