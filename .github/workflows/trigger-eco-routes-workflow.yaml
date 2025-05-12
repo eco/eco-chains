@@ -53,7 +53,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v3.0.0
         with:
           token: ${{ secrets.GH_TOKEN }}
-          repository: eco/er-test
+          repository: eco/eco-routes
           event-type: eco-chains-tag-pushed
           client-payload: '{"tag": "${{ steps.get_tag.outputs.TAG_NAME }}", "environment": "mainnet", "repository": "${{ github.repository }}", "sha": "${{ github.sha }}"}'
 
