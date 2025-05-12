@@ -1,6 +1,6 @@
-# Contributing to @eco-foundation/eco-chains
+# Contributing to @eco-foundation/chains
 
-Thank you for your interest in contributing to @eco-foundation/eco-chains! This document provides guidelines for contributing to the project.
+Thank you for your interest in contributing to @eco-foundation/chains! This document provides guidelines for contributing to the project.
 
 ## Development Setup
 
@@ -104,4 +104,4 @@ To ensure correct versioning:
 
 If you have questions or need help, please open an issue or contact the maintainers.
 
-Thank you for contributing to @eco-foundation/eco-chains!
+Thank you for contributing to @eco-foundation/chains!

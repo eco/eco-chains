@@ -1,8 +1,8 @@
-# CLAUDE.project.md - Eco-Chains Repository Guide
+# CLAUDE.project.md - Chains Repository Guide
 
 ## Project Overview
 
-This repository contains `@eco-foundation/eco-chains`, a TypeScript library that provides chain definitions for various blockchain networks, with a focus on Eco ecosystem support. The library extends viem's chain interfaces and provides utilities for managing RPC connections with API key replacements.
+This repository contains `@eco-foundation/chains`, a TypeScript library that provides chain definitions for various blockchain networks, with a focus on Eco ecosystem support. The library extends viem's chain interfaces and provides utilities for managing RPC connections with API key replacements.
 
 ## Repository Structure
 
@@ -127,7 +127,7 @@ This repository contains `@eco-foundation/eco-chains`, a TypeScript library that
 
 ## Publishing Process
 
-The package is published to npm as `@eco-foundation/eco-chains`. Publishing is handled through the build process in the CI/CD pipeline.
+The package is published to npm as `@eco-foundation/chains`. Publishing is handled through the build process in the CI/CD pipeline.
 
 ## Contribution Guidelines
 

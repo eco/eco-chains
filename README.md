@@ -1,4 +1,4 @@
-# @eco-foundation/eco-chains
+# @eco-foundation/chains
 
 A TypeScript library that provides chain definitions for various blockchain networks, with a focus on Eco ecosystem support. The library extends viem's chain interfaces and provides utilities for managing RPC connections with API key replacements.
 
@@ -6,19 +6,19 @@ A TypeScript library that provides chain definitions for various blockchain netw
 
 ```bash
 # Using pnpm
-pnpm add @eco-foundation/eco-chains
+pnpm add @eco-foundation/chains
 
 # Using yarn
-yarn add @eco-foundation/eco-chains
+yarn add @eco-foundation/chains
 
 # Using npm
-npm install @eco-foundation/eco-chains
+npm install @eco-foundation/chains
 ```
 
 ## Usage
 
 ```typescript
-import { EcoChains, ethereum, eco } from '@eco-foundation/eco-chains'
+import { EcoChains, ethereum, eco } from '@eco-foundation/chains'
 
 // Initialize EcoChains with API keys
 const chains = new EcoChains({
