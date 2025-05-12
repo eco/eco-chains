@@ -103,6 +103,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v3.0.0
         with:
           token: ${{ secrets.GH_TOKEN }}
-          repository: eco/er-test
+          repository: eco/eco-routes
           event-type: eco-chains-tag-pushed
           client-payload: '{"tag": "v${{ steps.semantic-release.outputs.new_version }}", "release_type": "${{ steps.semantic-release.outputs.release_type }}", "environment": "mainnet", "repository": "${{ github.repository }}", "sha": "${{ steps.commit-info.outputs.sha }}"}'
