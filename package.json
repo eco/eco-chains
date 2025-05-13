@@ -1,6 +1,6 @@
 {
   "name": "@eco-foundation/chains",
-  "version": "1.0.8",
+  "version": "1.0.0",
   "description": "A TypeScript library built with pnpm",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -67,6 +67,9 @@
   "dependencies": {
     "typia": "^8.0.4",
     "viem": "^2.24.1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
