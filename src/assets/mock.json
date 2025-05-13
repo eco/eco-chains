@@ -1,8 +1,4 @@
 {
-  "169": {
-    "url": "https://manta-pacific.calderachain.xyz/http",
-    "router": "0xC41de2A4243e4304813c36Cd8952366DCb36106a"
-  },
   "3441006": {
     "url": "https://pacific-rpc.sepolia-testnet.manta.network/http",
     "router": "0xC41de2A4243e4304813c36Cd8952366DCb36106a"
