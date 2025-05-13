@@ -35,7 +35,7 @@ export const EcoRoutesChainDefinitions = {
   ethereum,
   sepolia,
   manta,
-  mantaSepoliaTestnet
+  mantaSepoliaTestnet,
 }
 
 export default {
