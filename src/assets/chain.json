@@ -43,6 +43,10 @@
     "url": "https://base-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
     "mailbox": "0x6966b0E55883d49BFB24539356a2f8A673E02039"
   },
+  "3441006": {
+    "url": "https://pacific-rpc.sepolia-testnet.manta.network/http",
+    "router": "0xC41de2A4243e4304813c36Cd8952366DCb36106a"
+  },
   "11155111": {
     "url": "https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
     "mailbox": "0xfFAEF09B3cd11D9b20d1a19bECca54EEC2884766"

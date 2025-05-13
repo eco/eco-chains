@@ -70,13 +70,13 @@ export class EcoChains {
         if (apiKeyReplacement) {
           // Replace in http array if it exists
           if (rpcUrlGroup.http) {
-            rpcUrlGroup.http = rpcUrlGroup.http.map((url) =>
+            rpcUrlGroup.http = rpcUrlGroup.http.map((url: any) =>
               regexValue.test(url) ? url + `/${apiKeyReplacement}` : url,
             )
           }
           // Replace in webSocket array if it exists
           if (rpcUrlGroup.webSocket) {
-            rpcUrlGroup.webSocket = rpcUrlGroup.webSocket.map((url) =>
+            rpcUrlGroup.webSocket = rpcUrlGroup.webSocket.map((url: any) =>
               regexValue.test(url) ? url + `/${apiKeyReplacement}` : url,
             )
           }

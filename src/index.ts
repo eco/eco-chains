@@ -15,6 +15,7 @@ export * from './definitions/polygon'
 import { ethereum, sepolia } from './definitions/ethereum'
 export * from './definitions/ethereum'
 import { EcoChains } from './eco.chains'
+import { manta, mantaSepoliaTestnet } from 'viem/chains'
 export * from './eco.chains'
 /**
  * Collection of all chain definitions supported by Eco
@@ -33,6 +34,8 @@ export const EcoRoutesChainDefinitions = {
   polygon,
   ethereum,
   sepolia,
+  manta,
+  mantaSepoliaTestnet,
 }
 
 export default {
