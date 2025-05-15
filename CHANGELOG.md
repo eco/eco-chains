@@ -1,3 +1,10 @@
+## [1.0.12](https://github.com/eco/eco-chains/compare/v1.0.11...v1.0.12) (2025-05-15)
+
+
+### Bug Fixes
+
+* make chains an array with a second mapping by id ([fda1397](https://github.com/eco/eco-chains/commit/fda1397dc127be5f85b88e1ff60918de234a0890))
+
 ## [1.0.11](https://github.com/eco/eco-chains/compare/v1.0.10...v1.0.11) (2025-05-15)
 
 
