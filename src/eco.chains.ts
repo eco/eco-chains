@@ -1,5 +1,5 @@
 import { Chain, extractChain } from 'viem'
-import { EcoRoutesChainDefinitions } from './index'
+import { EcoRoutesChains } from './index'
 
 /**
  * Regular expressions to identify RPC endpoints that require API keys
@@ -50,7 +50,7 @@ export class EcoChains {
    */
   getChain(chainID: number): Chain {
     const chain = extractChain({
-      chains: Object.values(EcoRoutesChainDefinitions),
+      chains: EcoRoutesChains,
       id: chainID,
     })
 

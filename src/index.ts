@@ -22,7 +22,7 @@ import { EcoChains } from './eco.chains'
  * Used as the source for chain configurations in the EcoChains class
  * Each entry maps a chain name to its configuration
  */
-export const EcoRoutesChainDefinitions = {
+export const EcoRoutesChains = [
   ecoSepolia,
   optimism,
   optimismSepolia,
@@ -38,9 +38,18 @@ export const EcoRoutesChainDefinitions = {
   helix,
   celo,
   ink,
-}
+]
+
+export const EcoRouteChainMap = EcoRoutesChains.reduce(
+  (acc, chain) => {
+    acc[chain.id] = chain
+    return acc
+  },
+  {} as Record<number, any>,
+)
 
 export default {
-  EcoRoutesChainDefinitions: EcoRoutesChainDefinitions,
-  EcoChains: EcoChains,
+  EcoRoutesChains,
+  EcoRouteChainMap,
+  EcoChains,
 }
