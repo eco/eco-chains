@@ -1,3 +1,4 @@
+import { Chain } from 'viem'
 import {
   arbitrum,
   base,
@@ -22,7 +23,7 @@ import { EcoChains } from './eco.chains'
  * Used as the source for chain configurations in the EcoChains class
  * Each entry maps a chain name to its configuration
  */
-export const EcoRoutesChains = [
+export const EcoRoutesChains: Chain[] = [
   ecoSepolia,
   optimism,
   optimismSepolia,
@@ -40,7 +41,7 @@ export const EcoRoutesChains = [
   ink,
 ]
 
-export const EcoRouteChainMap = EcoRoutesChains.reduce(
+export const EcoRouteChainMap: Record<number, Chain> = EcoRoutesChains.reduce(
   (acc, chain) => {
     acc[chain.id] = chain
     return acc
