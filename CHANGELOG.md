@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/eco/eco-chains/compare/v1.0.10...v1.0.11) (2025-05-15)
+
+
+### Bug Fixes
+
+* adding unichain, celo, ink ([afb0d8d](https://github.com/eco/eco-chains/commit/afb0d8db82fc86a1a5d13636ddc525690bd034d4))
+
 ## [1.0.10](https://github.com/eco/eco-chains/compare/v1.0.9...v1.0.10) (2025-05-13)
 
 
