@@ -1,6 +1,6 @@
 const mockViemExtract = jest.fn()
-import { EcoChains } from '../eco.chains'
 import { cloneDeep } from 'lodash'
+import { EcoChains } from '../eco.chains'
 
 jest.mock('viem', () => {
   return {
