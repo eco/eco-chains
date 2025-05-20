@@ -18,7 +18,6 @@ import {
 } from './definitions/index'
 import { EcoChains } from './eco.chains'
 
-
 /**
  * Collection of all chain definitions supported by Eco
  * Used as the source for chain configurations in the EcoChains class
