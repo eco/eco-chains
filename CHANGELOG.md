@@ -1,3 +1,10 @@
+## [1.0.16](https://github.com/eco/eco-chains/compare/v1.0.15...v1.0.16) (2025-05-20)
+
+
+### Bug Fixes
+
+* adding custom rpc if it is injected ([a96ecc5](https://github.com/eco/eco-chains/commit/a96ecc5fa144baec6d0ac1f54af5ecc22bddf2d8))
+
 ## [1.0.15](https://github.com/eco/eco-chains/compare/v1.0.14...v1.0.15) (2025-05-20)
 
 
