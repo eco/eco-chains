@@ -10,7 +10,7 @@ export const ethereum: Chain = {
   rpcUrls: {
     ...vmainnet.rpcUrls,
     alchemy: {
-      http: ['https://eth-mainnet.g.alchemy.com/v2'],
+      http: ['https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {
@@ -30,7 +30,7 @@ export const sepolia: Chain = {
   rpcUrls: {
     ...vsepolia.rpcUrls,
     alchemy: {
-      http: ['https://eth-sepolia.g.alchemy.com/v2'],
+      http: ['https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {

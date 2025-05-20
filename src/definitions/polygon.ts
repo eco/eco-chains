@@ -6,7 +6,7 @@ export const polygon: Chain = {
   rpcUrls: {
     ...vpolygon.rpcUrls,
     alchemy: {
-      http: ['https://polygon-mainnet.g.alchemy.com/v2'],
+      http: ['https://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {

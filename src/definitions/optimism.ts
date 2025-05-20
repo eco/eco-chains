@@ -6,7 +6,7 @@ export const optimism: Chain = {
   rpcUrls: {
     ...vop.rpcUrls,
     alchemy: {
-      http: ['https://opt-mainnet.g.alchemy.com/v2'],
+      http: ['https://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {
@@ -22,7 +22,7 @@ export const optimismSepolia: Chain = {
   rpcUrls: {
     ...vops.rpcUrls,
     alchemy: {
-      http: ['https://opt-sepolia.g.alchemy.com/v2'],
+      http: ['https://opt-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {

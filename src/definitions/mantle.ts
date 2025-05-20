@@ -6,7 +6,7 @@ export const mantle: Chain = {
   rpcUrls: {
     ...vmantle.rpcUrls,
     alchemy: {
-      http: ['https://mantle-mainnet.g.alchemy.com/v2'],
+      http: ['https://mantle-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {

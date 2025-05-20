@@ -27,6 +27,10 @@
     "url": "https://base-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
     "mailbox": "0xeA87ae93Fa0019a82A727bfd3eBd1cFCa8f64f1D"
   },
+  "33111": {
+    "url": "https://curtis.rpc.caldera.xyz/${CURTIS_API_KEY}",
+    "router": "0x6f23b0211056035a22430a10fd27ded8547dc377"
+  },
   "42161": {
     "url": "https://arb-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
     "mailbox": "0x979Ca5202784112f4738403dBec5D0F3B9daabB9"
@@ -44,8 +48,8 @@
     "mailbox": "0x6966b0E55883d49BFB24539356a2f8A673E02039"
   },
   "3441006": {
-    "url": "https://pacific-rpc.sepolia-testnet.manta.network/http",
-    "router": "0xC41de2A4243e4304813c36Cd8952366DCb36106a"
+    "url": "http://pacific-rpc.sepolia-testnet.manta.network/${MANTA_API_KEY}",
+    "router": "0x6f23b0211056035a22430a10fd27ded8547dc377"
   },
   "11155111": {
     "url": "https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}",

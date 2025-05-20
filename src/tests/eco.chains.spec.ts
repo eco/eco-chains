@@ -9,23 +9,41 @@ jest.mock('viem', () => {
   }
 })
 describe('Eco Chains', () => {
-  const config = { alchemyKey: 'api_key_123' }
+  const config = {
+    alchemyKey: 'api_key_123',
+    mantaKey: 'manta_key_789',
+    curtisKey: 'curtis_key_xyz',
+  }
 
   let defaults: any = {},
     alchemy: any = {},
-    infura: any = {}
+    infura: any = {},
+    manta: any = {},
+    curtis: any = {}
   beforeEach(() => {
     defaults = {
       http: ['https://etherscan.io/api'],
       webSocket: ['wss://etherscan.io/api'],
     }
     alchemy = {
-      http: ['https://base-mainnet.g.alchemy.com/v2'],
-      webSocket: ['wss://opt-mainnet.g.alchemy.com/v2'],
+      http: ['https://base-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     }
     infura = {
-      http: ['https://base-mainnet.g.infura.io/v3'],
-      webSocket: ['wss://base-mainnet.g.infura.io/v3'],
+      http: ['https://base-mainnet.g.infura.io/v3/${INFURA_API_KEY}'],
+      webSocket: ['wss://base-mainnet.g.infura.io/v3/${INFURA_API_KEY}'],
+    }
+    manta = {
+      http: [
+        'http://pacific-rpc.sepolia-testnet.manta.network/${MANTA_API_KEY}',
+      ],
+      webSocket: [
+        'wss://pacific-rpc.sepolia-testnet.manta.network/${MANTA_API_KEY}',
+      ],
+    }
+    curtis = {
+      http: ['https://curtis.rpc.caldera.xyz/${CURTIS_API_KEY}'],
+      webSocket: ['wss://curtis.rpc.caldera.xyz/${CURTIS_API_KEY}'],
     }
   })
 
@@ -87,6 +105,31 @@ describe('Eco Chains', () => {
       webSocket: ['wss://opt-mainnet.g.alchemy.com/v2/' + config.alchemyKey],
     }
     expect(chain1.rpcUrls.alchemy).toEqual(eq)
+  })
+
+  it('should replace new manta and curtis chains with api keys', async () => {
+    const rpcs = getRpcUrls({ default: defaults, manta, curtis })
+    mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+    const obj = new EcoChains(config)
+    expect(obj).toBeDefined()
+    const chain1 = obj.getChain(1)
+    expect(chain1.rpcUrls.default).toEqual(rpcs.rpcUrls.default)
+
+    const mantaEq = {
+      http: [
+        'http://pacific-rpc.sepolia-testnet.manta.network/' + config.mantaKey,
+      ],
+      webSocket: [
+        'wss://pacific-rpc.sepolia-testnet.manta.network/' + config.mantaKey,
+      ],
+    }
+    expect(chain1.rpcUrls.manta).toEqual(mantaEq)
+
+    const curtisEq = {
+      http: ['https://curtis.rpc.caldera.xyz/' + config.curtisKey],
+      webSocket: ['wss://curtis.rpc.caldera.xyz/' + config.curtisKey],
+    }
+    expect(chain1.rpcUrls.curtis).toEqual(curtisEq)
   })
 
   function getRpcUrls(args: any) {

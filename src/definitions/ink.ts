@@ -10,7 +10,7 @@ export const ink: Chain = {
   rpcUrls: {
     ...vink.rpcUrls,
     alchemy: {
-      http: ['https://ink-mainnet.g.alchemy.com/v2'],
+      http: ['https://ink-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {
