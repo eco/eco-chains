@@ -23,7 +23,6 @@ import { EcoChains } from './eco.chains'
  * Each entry maps a chain name to its configuration
  */
 export const EcoRoutesChains = [
-  ecoSepolia,
   optimism,
   optimismSepolia,
   base,
@@ -38,6 +37,7 @@ export const EcoRoutesChains = [
   helix,
   celo,
   ink,
+  ecoSepolia,
 ]
 
 export const EcoRouteChainMap = EcoRoutesChains.reduce(
