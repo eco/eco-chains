@@ -14,6 +14,7 @@ import {
   optimismSepolia,
   polygon,
   unichain,
+  curtis,
 } from './definitions/index'
 import { EcoChains } from './eco.chains'
 
@@ -33,6 +34,7 @@ export const EcoRoutesChains = [
   ethereum,
   sepolia,
   mantaSepolia,
+  curtis,
   unichain,
   helix,
   celo,
@@ -47,6 +49,8 @@ export const EcoRouteChainMap = EcoRoutesChains.reduce(
   },
   {} as Record<number, any>,
 )
+
+export * from './eco.chains'
 
 export default {
   EcoRoutesChains,
