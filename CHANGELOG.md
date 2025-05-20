@@ -1,3 +1,10 @@
+## [1.0.15](https://github.com/eco/eco-chains/compare/v1.0.14...v1.0.15) (2025-05-20)
+
+
+### Bug Fixes
+
+* export eco chains better ([d31aade](https://github.com/eco/eco-chains/commit/d31aade5648206c3dc73d10733014929f3d97dbf))
+
 ## [1.0.14](https://github.com/eco/eco-chains/compare/v1.0.13...v1.0.14) (2025-05-20)
 
 
