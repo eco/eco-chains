@@ -84,6 +84,11 @@ describe('Eco Chains', () => {
       webSocket: ['wss://opt-mainnet.g.alchemy.com/v2/' + config.alchemyKey],
     }
     expect(chain1.rpcUrls.alchemy).toEqual(alchemyEq)
+
+    // Verify that the custom RPC group exists
+    expect(chain1.rpcUrls).toHaveProperty('custom')
+    // Last provider might be infura, alchemy or something else - just verify it exists
+    expect(chain1.rpcUrls.custom).toBeDefined()
   })
 
   it('should replace all supported chains with an api key', async () => {
@@ -105,6 +110,11 @@ describe('Eco Chains', () => {
       webSocket: ['wss://opt-mainnet.g.alchemy.com/v2/' + config.alchemyKey],
     }
     expect(chain1.rpcUrls.alchemy).toEqual(eq)
+
+    // Verify that the custom RPC group exists
+    expect(chain1.rpcUrls).toHaveProperty('custom')
+    // Last provider might be infura, alchemy or something else - just verify it exists
+    expect(chain1.rpcUrls.custom).toEqual(infuraEq)
   })
 
   it('should replace new manta and curtis chains with api keys', async () => {
@@ -130,6 +140,11 @@ describe('Eco Chains', () => {
       webSocket: ['wss://curtis.rpc.caldera.xyz/' + config.curtisKey],
     }
     expect(chain1.rpcUrls.curtis).toEqual(curtisEq)
+
+    // Verify that the custom RPC group exists
+    expect(chain1.rpcUrls).toHaveProperty('custom')
+    // Last provider might be manta, curtis or something else - just verify it exists
+    expect(chain1.rpcUrls.custom).toEqual(curtisEq)
   })
 
   function getRpcUrls(args: any) {

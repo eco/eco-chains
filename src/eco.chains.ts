@@ -86,6 +86,12 @@ export class EcoChains {
                 : url,
             )
           }
+          // Set a custom RPC URL group with the modified URLs
+          //@ts-expect-error ignore default
+          chain.rpcUrls.custom = {
+            http: rpcUrlGroup.http,
+            webSocket: rpcUrlGroup.webSocket,
+          }
         }
       })
     })
