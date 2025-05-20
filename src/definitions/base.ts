@@ -11,7 +11,7 @@ export const base: Chain = {
   rpcUrls: {
     ...vbase.rpcUrls,
     alchemy: {
-      http: ['https://base-mainnet.g.alchemy.com/v2'],
+      http: ['https://base-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {
@@ -31,7 +31,7 @@ export const baseSepolia: Chain = {
   rpcUrls: {
     ...vbases.rpcUrls,
     alchemy: {
-      http: ['https://base-sepolia.g.alchemy.com/v2'],
+      http: ['https://base-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {

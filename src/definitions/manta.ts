@@ -13,10 +13,18 @@ import { mantaSepoliaTestnet as vmantaSepolia } from 'viem/chains'
 
 export const mantaSepolia: Chain = {
   ...vmantaSepolia,
+  rpcUrls: {
+    ...vmantaSepolia.rpcUrls,
+    caldera: {
+      http: [
+        'http://pacific-rpc.sepolia-testnet.manta.network/${MANTA_API_KEY}',
+      ],
+    },
+  },
   contracts: {
     ...vmantaSepolia.contracts,
     metalayerRouter: {
-      address: '0xC41de2A4243e4304813c36Cd8952366DCb36106a',
+      address: '0x6f23b0211056035a22430a10fd27ded8547dc377',
     },
   },
 }

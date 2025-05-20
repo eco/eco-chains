@@ -7,8 +7,10 @@ import { EcoRoutesChains } from './index'
  * Key-value pairs map provider names to their respective URL patterns
  */
 export const ConfigRegex = {
-  alchemyKey: /alchemy\.com\/v2$/, // Matches Alchemy endpoint URLs
-  infuraKey: /infura\.io\/v3$/, // Matches Infura endpoint URLs
+  alchemyKey: /\$\{ALCHEMY_API_KEY\}/, // Matches Alchemy API key placeholder
+  infuraKey: /\$\{INFURA_API_KEY\}/, // Matches Infura API key placeholder
+  mantaKey: /\$\{MANTA_API_KEY\}/, // Matches Manta API key placeholder
+  curtisKey: /\$\{CURTIS_API_KEY\}/, // Matches Curtis API key placeholder
 }
 
 /**
@@ -71,13 +73,17 @@ export class EcoChains {
           // Replace in http array if it exists
           if (rpcUrlGroup.http) {
             rpcUrlGroup.http = rpcUrlGroup.http.map((url: any) =>
-              regexValue.test(url) ? url + `/${apiKeyReplacement}` : url,
+              regexValue.test(url)
+                ? url.replace(regexValue, apiKeyReplacement)
+                : url,
             )
           }
           // Replace in webSocket array if it exists
           if (rpcUrlGroup.webSocket) {
             rpcUrlGroup.webSocket = rpcUrlGroup.webSocket.map((url: any) =>
-              regexValue.test(url) ? url + `/${apiKeyReplacement}` : url,
+              regexValue.test(url)
+                ? url.replace(regexValue, apiKeyReplacement)
+                : url,
             )
           }
         }

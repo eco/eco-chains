@@ -6,7 +6,7 @@ export const arbitrum: Chain = {
   rpcUrls: {
     ...varbitrum.rpcUrls,
     alchemy: {
-      http: ['https://arb-mainnet.g.alchemy.com/v2'],
+      http: ['https://arb-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {

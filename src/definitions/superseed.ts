@@ -6,7 +6,7 @@ export const superseed: Chain = {
   rpcUrls: {
     ...vsuperseed.rpcUrls,
     alchemy: {
-      http: ['https://superseed-mainnet.g.alchemy.com/v2'],
+      http: ['https://superseed-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {

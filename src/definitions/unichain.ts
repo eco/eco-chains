@@ -6,7 +6,7 @@ export const unichain: Chain = {
   rpcUrls: {
     ...vunichain.rpcUrls,
     alchemy: {
-      http: ['https://unichain-mainnet.g.alchemy.com/v2'],
+      http: ['https://unichain-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
 }
