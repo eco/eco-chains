@@ -1,3 +1,11 @@
+## [1.0.18](https://github.com/eco/eco-chains/compare/v1.0.17...v1.0.18) (2025-05-21)
+
+
+### Bug Fixes
+
+* adding the quicknode api key to the eco chains class ([ba306ee](https://github.com/eco/eco-chains/commit/ba306eee5d927518fcffa4ebf3c4b4c68c7e6bef))
+* fixing url for celo ([931074a](https://github.com/eco/eco-chains/commit/931074a3bbb667c637a3317d8ad33b626edf16dc))
+
 ## [1.0.17](https://github.com/eco/eco-chains/compare/v1.0.16...v1.0.17) (2025-05-21)
 
 
