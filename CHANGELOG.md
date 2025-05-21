@@ -1,3 +1,10 @@
+## [1.0.19](https://github.com/eco/eco-chains/compare/v1.0.18...v1.0.19) (2025-05-21)
+
+
+### Bug Fixes
+
+* extending Chain with new EcoChain type ([ae958d2](https://github.com/eco/eco-chains/commit/ae958d2968c2ced57e4a18bec1c716d626a3279b))
+
 ## [1.0.18](https://github.com/eco/eco-chains/compare/v1.0.17...v1.0.18) (2025-05-21)
 
 
