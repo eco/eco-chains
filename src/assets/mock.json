@@ -2,5 +2,9 @@
   "3441006": {
     "url": "https://pacific-rpc.sepolia-testnet.manta.network/http",
     "router": "0xC41de2A4243e4304813c36Cd8952366DCb36106a"
+  },
+  "33111": {
+    "url": "https://curtis.rpc.caldera.xyz/${CURTIS_API_KEY}",
+    "router": "0x6f23b0211056035a22430a10fd27ded8547dc377"
   }
 }
