@@ -48,7 +48,7 @@ export const EcoRouteChainMap = EcoRoutesChains.reduce(
     acc[chain.id] = chain
     return acc
   },
-  {} as Record<number, (typeof EcoRoutesChains)[number]>,
+  {} as Record<number, EcoChain>,
 )
 
 export * from './eco.chains'
