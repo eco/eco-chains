@@ -9,7 +9,8 @@ import { b3 as vb3 } from 'viem/chains'
 export const b3: Chain = {
   ...vb3,
   rpcUrls: {
-    default: {
+    ...vb3.rpcUrls,
+    caldera: {
       http: [`TBD`],
       webSocket: [`TBD`],
     },

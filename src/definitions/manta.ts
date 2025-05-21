@@ -12,7 +12,8 @@ import {
 export const manta: Chain = {
   ...vmanta,
   rpcUrls: {
-    default: {
+    ...vmanta.rpcUrls,
+    caldera: {
       http: [`TBD`],
       webSocket: [`TBD`],
     },

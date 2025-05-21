@@ -9,7 +9,8 @@ import { inEVM as vinEVM } from 'viem/chains'
 export const inEVM: Chain = {
   ...vinEVM,
   rpcUrls: {
-    default: {
+    ...vinEVM.rpcUrls,
+    caldera: {
       http: [`TBD`],
       webSocket: [`TBD`],
     },

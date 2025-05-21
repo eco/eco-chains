@@ -9,7 +9,8 @@ import { sanko as vsanko } from 'viem/chains'
 export const sanko: Chain = {
   ...vsanko,
   rpcUrls: {
-    default: {
+    ...vsanko.rpcUrls,
+    caldera: {
       http: [`TBD`],
       webSocket: [`TBD`],
     },

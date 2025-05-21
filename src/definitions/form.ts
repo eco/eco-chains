@@ -9,7 +9,8 @@ import { form as vform, formTestnet as vformTestnet } from 'viem/chains'
 export const form: Chain = {
   ...vform,
   rpcUrls: {
-    default: {
+    ...vform.rpcUrls,
+    caldera: {
       http: [`TBD`],
       webSocket: [`TBD`],
     },
@@ -30,7 +31,8 @@ export const form: Chain = {
 export const formTestnet: Chain = {
   ...vformTestnet,
   rpcUrls: {
-    default: {
+    ...vformTestnet.rpcUrls,
+    caldera: {
       http: [`TBD`],
       webSocket: [`TBD`],
     },

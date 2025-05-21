@@ -9,7 +9,8 @@ import { apeChain as vape } from 'viem/chains'
 export const ape: Chain = {
   ...vape,
   rpcUrls: {
-    default: {
+    ...vape.rpcUrls,
+    caldera: {
       http: [`TBD`],
       webSocket: [`TBD`],
     },
