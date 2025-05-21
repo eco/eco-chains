@@ -98,4 +98,35 @@ export class EcoChains {
 
     return chain
   }
+
+  /**
+   * Retrieves all chain configurations, replacing API keys in RPC URLs
+   * @returns {[Chain, ...Chain[]]} - An array of one or more chain configurations with API keys inserted into RPC URLs
+   */
+  getAllChains(): [Chain, ...Chain[]] {
+    return EcoRoutesChains.map((chain) => this.getChain(chain.id)) as [
+      Chain,
+      ...Chain[],
+    ]
+  }
+
+  /**
+   * Retrieves all mainnet chain configurations, replacing API keys in RPC URLs
+   * @returns {[Chain, ...Chain[]]} - An array of one or more mainnet chain configurations with API keys inserted into RPC URLs
+   */
+  getMainnetChains(): [Chain, ...Chain[]] {
+    return EcoRoutesChains.filter((chain) => !chain.testnet).map((chain) =>
+      this.getChain(chain.id),
+    ) as [Chain, ...Chain[]]
+  }
+
+  /**
+   * Retrieves all testnet chain configurations, replacing API keys in RPC URLs
+   * @returns {[Chain, ...Chain[]]} - An array of one or more testnet chain configurations with API keys inserted into RPC URLs
+   */
+  getTestnetChains(): [Chain, ...Chain[]] {
+    return EcoRoutesChains.filter((chain) => chain.testnet).map((chain) =>
+      this.getChain(chain.id),
+    ) as [Chain, ...Chain[]]
+  }
 }
