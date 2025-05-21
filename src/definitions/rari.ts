@@ -2,7 +2,7 @@ import { defineChain } from 'viem'
 import { chainConfig } from 'viem/op-stack'
 
 // settlement chain
-const sourceId = 1 // Ethereum mainnet
+const sourceId = 42_161 // Arbitrum One mainnet
 
 export const rari = /*#__PURE__*/ defineChain({
   ...chainConfig,
@@ -11,8 +11,8 @@ export const rari = /*#__PURE__*/ defineChain({
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
   rpcUrls: {
     default: {
-      http: ['https://mainnet.rpc.rarichain.org/http'],
-      webSocket: ['wss://mainnet.rpc.rarichain.org/ws'],
+      http: ['https://rari.calderachain.xyz/http'],
+      webSocket: ['wss://rari.calderachain.xyz/ws'],
     },
   },
   blockExplorers: {

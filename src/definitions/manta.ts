@@ -9,6 +9,10 @@ import {
  * Extends viem's manta configuration with Eco-specific RPC URLs and contract addresses
  * Includes Hyperlane Mailbox contract configuration
  */
+
+// settlement chain
+const sourceId = 1 // Ethereum mainnet
+
 export const manta: Chain = {
   ...vmanta,
   rpcUrls: {
@@ -24,7 +28,17 @@ export const manta: Chain = {
       address: '0x3a464f746D23Ab22155710f44dB16dcA53e0775E',
     },
   },
+  sourceId,
 }
+
+/**
+ * Manta Sepolia testnet chain configuration
+ * Extends viem's manta Sepolia configuration with Eco-specific RPC URLs and contract addresses
+ * Includes Hyperlane Mailbox contract configuration for the testnet
+ */
+
+// settlement chain
+const testnetSourceId = 11155111 // Ethereum Sepolia
 
 export const mantaSepolia: Chain = {
   ...vmantaSepolia,
@@ -42,4 +56,5 @@ export const mantaSepolia: Chain = {
       address: '0x6f23b0211056035a22430a10fd27ded8547dc377',
     },
   },
+  sourceId: testnetSourceId,
 }

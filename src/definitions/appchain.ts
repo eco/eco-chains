@@ -11,8 +11,8 @@ export const appchain = /*#__PURE__*/ defineChain({
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
   rpcUrls: {
     default: {
-      http: ['https://appchain.calderachain.xyz/http'],
-      webSocket: ['wss://appchain.calderachain.xyz/ws'],
+      http: ['https://rpc.appchain.xyz/http'],
+      webSocket: ['wss://rpc.appchain.xyz/ws'],
     },
   },
   blockExplorers: {
