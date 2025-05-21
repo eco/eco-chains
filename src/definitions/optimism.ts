@@ -1,7 +1,7 @@
-import { Chain } from 'viem'
 import { optimism as vop, optimismSepolia as vops } from 'viem/chains'
+import { EcoChain } from '../chain.interface'
 
-export const optimism: Chain = {
+export const optimism: EcoChain = {
   ...vop,
   rpcUrls: {
     ...vop.rpcUrls,
@@ -15,9 +15,10 @@ export const optimism: Chain = {
       address: '0xd4C1905BB1D26BC93DAC913e13CaCC278CdCC80D',
     },
   },
+  isCalderaChain: false,
 }
 
-export const optimismSepolia: Chain = {
+export const optimismSepolia: EcoChain = {
   ...vops,
   rpcUrls: {
     ...vops.rpcUrls,
@@ -31,4 +32,5 @@ export const optimismSepolia: Chain = {
       address: '0x6966b0E55883d49BFB24539356a2f8A673E02039',
     },
   },
+  isCalderaChain: false,
 }
