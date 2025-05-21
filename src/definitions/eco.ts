@@ -1,5 +1,6 @@
 import { defineChain } from 'viem'
 import { chainConfig } from 'viem/op-stack'
+import { EcoChain } from '../chain.interface'
 
 // settlement chain
 const sourceId = 84532 //base sepolia
@@ -54,4 +55,5 @@ export const ecoSepolia = /*#__PURE__*/ defineChain({
   },
   sourceId,
   testnet: true,
-})
+  isCalderaChain: true,
+}) as EcoChain

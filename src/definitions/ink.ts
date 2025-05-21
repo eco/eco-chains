@@ -1,11 +1,12 @@
-import { Chain, ink as vink } from 'viem/chains'
+import { ink as vink } from 'viem/chains'
+import { EcoChain } from '../chain.interface'
 
 /**
  * Base Mainnet chain configuration
  * Extends viem's base configuration with Eco-specific RPC URLs and contract addresses
  * Includes Hyperlane Mailbox contract configuration
  */
-export const ink: Chain = {
+export const ink: EcoChain = {
   ...vink,
   rpcUrls: {
     ...vink.rpcUrls,
@@ -19,4 +20,5 @@ export const ink: Chain = {
       address: '0x7f50C5776722630a0024fAE05fDe8b47571D7B39',
     },
   },
+  isCalderaChain: false,
 }

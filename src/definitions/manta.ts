@@ -1,7 +1,7 @@
-import { Chain } from 'viem'
 import { mantaSepoliaTestnet as vmantaSepolia } from 'viem/chains'
+import { EcoChain } from '../chain.interface'
 
-// export const manta: Chain = {
+// export const manta: EcoChain = {
 //   ...vmanta,
 //   contracts: {
 //     ...vmanta.contracts,
@@ -9,9 +9,10 @@ import { mantaSepoliaTestnet as vmantaSepolia } from 'viem/chains'
 //       address: '0xeA87ae93Fa0019a82A727bfd3eBd1cFCa8f64f1D',
 //     },
 //   },
+//   isCalderaChain: true,
 // }
 
-export const mantaSepolia: Chain = {
+export const mantaSepolia: EcoChain = {
   ...vmantaSepolia,
   rpcUrls: {
     ...vmantaSepolia.rpcUrls,
@@ -27,4 +28,5 @@ export const mantaSepolia: Chain = {
       address: '0x6f23b0211056035a22430a10fd27ded8547dc377',
     },
   },
+  isCalderaChain: true,
 }

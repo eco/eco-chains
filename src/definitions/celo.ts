@@ -1,7 +1,7 @@
-import { Chain } from 'viem'
 import { celo as vcelo } from 'viem/chains'
+import { EcoChain } from '../chain.interface'
 
-export const celo: Chain = {
+export const celo: EcoChain = {
   ...vcelo,
   rpcUrls: {
     default: {
@@ -19,4 +19,5 @@ export const celo: Chain = {
       address: '0x50da3B3907A08a24fe4999F4Dcf337E8dC7954bb',
     },
   },
+  isCalderaChain: false,
 }

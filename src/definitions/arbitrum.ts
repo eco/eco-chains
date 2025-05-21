@@ -1,7 +1,7 @@
-import { Chain } from 'viem'
 import { arbitrum as varbitrum } from 'viem/chains'
+import { EcoChain } from '../chain.interface'
 
-export const arbitrum: Chain = {
+export const arbitrum: EcoChain = {
   ...varbitrum,
   rpcUrls: {
     ...varbitrum.rpcUrls,
@@ -15,4 +15,5 @@ export const arbitrum: Chain = {
       address: '0x979Ca5202784112f4738403dBec5D0F3B9daabB9',
     },
   },
+  isCalderaChain: false,
 }

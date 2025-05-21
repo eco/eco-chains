@@ -1,7 +1,7 @@
-import { Chain } from 'viem'
 import { curtis as vcurtis } from 'viem/chains'
+import { EcoChain } from '../chain.interface'
 
-export const curtis: Chain = {
+export const curtis: EcoChain = {
   ...vcurtis,
   rpcUrls: {
     ...vcurtis.rpcUrls,
@@ -15,4 +15,5 @@ export const curtis: Chain = {
       address: '0x6f23b0211056035a22430a10fd27ded8547dc377',
     },
   },
+  isCalderaChain: true,
 }

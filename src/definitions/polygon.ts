@@ -1,7 +1,7 @@
-import { Chain } from 'viem'
 import { polygon as vpolygon } from 'viem/chains'
+import { EcoChain } from '../chain.interface'
 
-export const polygon: Chain = {
+export const polygon: EcoChain = {
   ...vpolygon,
   rpcUrls: {
     ...vpolygon.rpcUrls,
@@ -15,4 +15,5 @@ export const polygon: Chain = {
       address: '0x5d934f4e2f797775e53561bB72aca21ba36B96BB',
     },
   },
+  isCalderaChain: false,
 }
