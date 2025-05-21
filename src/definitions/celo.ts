@@ -6,10 +6,10 @@ export const celo: Chain = {
   rpcUrls: {
     default: {
       http: [
-        `https://responsive-lingering-yard.celo-mainnet.quiknode.pro/{QUICKNODE_API_KEY}`,
+        'https://responsive-lingering-yard.celo-mainnet.quiknode.pro/${QUICKNODE_API_KEY}',
       ],
       webSocket: [
-        `wss://responsive-lingering-yard.celo-mainnet.quiknode.pro/{QUICKNODE_API_KEY}`,
+        'wss://responsive-lingering-yard.celo-mainnet.quiknode.pro/${QUICKNODE_API_KEY}',
       ],
     },
   },
