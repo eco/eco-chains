@@ -100,18 +100,21 @@ export class EcoChains {
   }
 
   getAllChains() {
-    return EcoRoutesChains.map((chain) => this.getChain(chain.id)) as [Chain, ...Chain[]]
+    return EcoRoutesChains.map((chain) => this.getChain(chain.id)) as [
+      Chain,
+      ...Chain[],
+    ]
   }
 
   getMainnetChains() {
-    return EcoRoutesChains.filter(chain => !chain.testnet).map((chain) => this.getChain(chain.id)) as [Chain, ...Chain[]]
+    return EcoRoutesChains.filter((chain) => !chain.testnet).map((chain) =>
+      this.getChain(chain.id),
+    ) as [Chain, ...Chain[]]
   }
 
   getTestnetChains() {
-    return EcoRoutesChains.filter(chain => chain.testnet).map((chain) => this.getChain(chain.id)) as [Chain, ...Chain[]]
-  }
-
-  getChains(filterCallback: (chain: Chain) => boolean = () => true) {
-    return (EcoRoutesChains.map((chain) => this.getChain(chain.id)) as [Chain, ...Chain[]]).filter(filterCallback)
+    return EcoRoutesChains.filter((chain) => chain.testnet).map((chain) =>
+      this.getChain(chain.id),
+    ) as [Chain, ...Chain[]]
   }
 }
