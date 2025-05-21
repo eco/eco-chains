@@ -1,3 +1,10 @@
+## [1.0.20](https://github.com/eco/eco-chains/compare/v1.0.19...v1.0.20) (2025-05-21)
+
+
+### Bug Fixes
+
+* update the muticall3 for curtis ([1c98051](https://github.com/eco/eco-chains/commit/1c98051c8e38dd7cc271cf4fec359caa486a02e1))
+
 ## [1.0.19](https://github.com/eco/eco-chains/compare/v1.0.18...v1.0.19) (2025-05-21)
 
 
