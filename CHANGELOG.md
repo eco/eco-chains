@@ -1,3 +1,10 @@
+## [1.0.17](https://github.com/eco/eco-chains/compare/v1.0.16...v1.0.17) (2025-05-21)
+
+
+### Bug Fixes
+
+* Formatting, removing getChains ([f74de9b](https://github.com/eco/eco-chains/commit/f74de9bb3a8ac09d055e544716b91ea5dfc062ae))
+
 ## [1.0.16](https://github.com/eco/eco-chains/compare/v1.0.15...v1.0.16) (2025-05-20)
 
 
