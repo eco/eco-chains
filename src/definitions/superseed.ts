@@ -15,5 +15,5 @@ export const superseed: EcoChain = {
       address: '0x3a464f746D23Ab22155710f44dB16dcA53e0775E',
     },
   },
-  isCalderaChain: true,
+  isCalderaChain: false,
 }
