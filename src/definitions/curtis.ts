@@ -7,7 +7,7 @@ export const curtis: EcoChain = {
     ...vcurtis.rpcUrls,
     caldera: {
       http: ['https://curtis.rpc.caldera.xyz/${CURTIS_API_KEY}'],
-      webSocket: ['wss://curtis.rpc.caldera.xyz/${CURTIS_API_KEY}'],
+      webSocket: ['wss://curtis.rpc.caldera.xyz/'],
     },
   },
   contracts: {

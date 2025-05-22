@@ -48,9 +48,7 @@ export const mantaSepolia: EcoChain = {
       http: [
         'http://pacific-rpc.sepolia-testnet.manta.network/${MANTA_API_KEY}',
       ],
-      webSocket: [
-        'wss://pacific-rpc.sepolia-testnet.manta.network/${MANTA_API_KEY}',
-      ],
+      webSocket: ['wss://pacific-rpc.sepolia-testnet.manta.network/'],
     },
   },
   contracts: {
