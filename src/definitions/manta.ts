@@ -1,16 +1,44 @@
-import { mantaSepoliaTestnet as vmantaSepolia } from 'viem/chains'
+import { Chain } from 'viem'
+import {
+  manta as vmanta,
+  mantaSepoliaTestnet as vmantaSepolia,
+} from 'viem/chains'
 import { EcoChain } from '../chain.interface'
 
-// export const manta: EcoChain = {
-//   ...vmanta,
-//   contracts: {
-//     ...vmanta.contracts,
-//     metalayerRouter: {
-//       address: '0xeA87ae93Fa0019a82A727bfd3eBd1cFCa8f64f1D',
-//     },
-//   },
-//   isCalderaChain: true,
-// }
+/**
+ * Manta Mainnet chain configuration
+ * Extends viem's manta configuration with Eco-specific RPC URLs and contract addresses
+ * Includes Hyperlane Mailbox contract configuration
+ */
+
+// settlement chain
+const sourceId = 1 // Ethereum mainnet
+
+export const manta: Chain = {
+  ...vmanta,
+  rpcUrls: {
+    ...vmanta.rpcUrls,
+    caldera: {
+      http: [`TBD`],
+      webSocket: [`TBD`],
+    },
+  },
+  contracts: {
+    ...vmanta.contracts,
+    hyperlaneMailbox: {
+      address: '0x3a464f746D23Ab22155710f44dB16dcA53e0775E',
+    },
+  },
+  sourceId,
+}
+
+/**
+ * Manta Sepolia testnet chain configuration
+ * Extends viem's manta Sepolia configuration with Eco-specific RPC URLs and contract addresses
+ * Includes Hyperlane Mailbox contract configuration for the testnet
+ */
+// settlement chain
+const testnetSourceId = 11155111 // Ethereum Sepolia
 
 export const mantaSepolia: EcoChain = {
   ...vmantaSepolia,
@@ -28,5 +56,6 @@ export const mantaSepolia: EcoChain = {
       address: '0x6f23b0211056035a22430a10fd27ded8547dc377',
     },
   },
+  sourceId: testnetSourceId,
   isCalderaChain: true,
 }
