@@ -39,13 +39,11 @@ describe('Eco Chains', () => {
       http: [
         'http://pacific-rpc.sepolia-testnet.manta.network/${MANTA_API_KEY}',
       ],
-      webSocket: [
-        'wss://pacific-rpc.sepolia-testnet.manta.network/${MANTA_API_KEY}',
-      ],
+      webSocket: ['wss://pacific-rpc.sepolia-testnet.manta.network/'],
     }
     curtis = {
       http: ['https://curtis.rpc.caldera.xyz/${CURTIS_API_KEY}'],
-      webSocket: ['wss://curtis.rpc.caldera.xyz/${CURTIS_API_KEY}'],
+      webSocket: ['wss://curtis.rpc.caldera.xyz/'],
     }
     quickNode = {
       http: [
@@ -139,15 +137,13 @@ describe('Eco Chains', () => {
       http: [
         'http://pacific-rpc.sepolia-testnet.manta.network/' + config.mantaKey,
       ],
-      webSocket: [
-        'wss://pacific-rpc.sepolia-testnet.manta.network/' + config.mantaKey,
-      ],
+      webSocket: ['wss://pacific-rpc.sepolia-testnet.manta.network/'],
     }
     expect(chain1.rpcUrls.manta).toEqual(mantaEq)
 
     const curtisEq = {
       http: ['https://curtis.rpc.caldera.xyz/' + config.curtisKey],
-      webSocket: ['wss://curtis.rpc.caldera.xyz/' + config.curtisKey],
+      webSocket: ['wss://curtis.rpc.caldera.xyz/'],
     }
     expect(chain1.rpcUrls.curtis).toEqual(curtisEq)
 
