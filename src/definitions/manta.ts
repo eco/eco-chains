@@ -37,7 +37,6 @@ export const manta: Chain = {
  * Extends viem's manta Sepolia configuration with Eco-specific RPC URLs and contract addresses
  * Includes Hyperlane Mailbox contract configuration for the testnet
  */
-
 // settlement chain
 const testnetSourceId = 11155111 // Ethereum Sepolia
 
