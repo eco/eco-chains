@@ -1,3 +1,10 @@
+## [1.0.26](https://github.com/eco/eco-chains/compare/v1.0.25...v1.0.26) (2025-05-22)
+
+
+### Bug Fixes
+
+* the websocket connection for manta sepolia ([#53](https://github.com/eco/eco-chains/issues/53)) ([98831f3](https://github.com/eco/eco-chains/commit/98831f393da78e4d518c1a99e1263574be28a257))
+
 ## [1.0.25](https://github.com/eco/eco-chains/compare/v1.0.24...v1.0.25) (2025-05-22)
 
 
