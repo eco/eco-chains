@@ -1,3 +1,10 @@
+## [1.0.24](https://github.com/eco/eco-chains/compare/v1.0.23...v1.0.24) (2025-05-22)
+
+
+### Bug Fixes
+
+* fixing the worldchain alchemy url ([#51](https://github.com/eco/eco-chains/issues/51)) ([797da6a](https://github.com/eco/eco-chains/commit/797da6ab0c47e2dbea22e8f72f97c7d45a8d0578))
+
 ## [1.0.23](https://github.com/eco/eco-chains/compare/v1.0.22...v1.0.23) (2025-05-22)
 
 
