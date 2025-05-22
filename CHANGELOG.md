@@ -1,3 +1,10 @@
+## [1.0.25](https://github.com/eco/eco-chains/compare/v1.0.24...v1.0.25) (2025-05-22)
+
+
+### Bug Fixes
+
+* remove api key on websockets for matis and curtis ([#52](https://github.com/eco/eco-chains/issues/52)) ([83f7ae0](https://github.com/eco/eco-chains/commit/83f7ae0113158563fec19b18fe8c9c7e6df0e08e))
+
 ## [1.0.24](https://github.com/eco/eco-chains/compare/v1.0.23...v1.0.24) (2025-05-22)
 
 
