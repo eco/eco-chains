@@ -7,6 +7,7 @@ export const arbitrum: EcoChain = {
     ...varbitrum.rpcUrls,
     alchemy: {
       http: ['https://arb-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://arb-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {

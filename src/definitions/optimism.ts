@@ -7,6 +7,7 @@ export const optimism: EcoChain = {
     ...vop.rpcUrls,
     alchemy: {
       http: ['https://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {
@@ -24,6 +25,7 @@ export const optimismSepolia: EcoChain = {
     ...vops.rpcUrls,
     alchemy: {
       http: ['https://opt-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://opt-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {

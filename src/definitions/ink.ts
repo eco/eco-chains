@@ -12,6 +12,7 @@ export const ink: EcoChain = {
     ...vink.rpcUrls,
     alchemy: {
       http: ['https://ink-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://ink-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {

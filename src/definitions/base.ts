@@ -12,6 +12,7 @@ export const base: EcoChain = {
     ...vbase.rpcUrls,
     alchemy: {
       http: ['https://base-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://base-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {
@@ -33,6 +34,7 @@ export const baseSepolia: EcoChain = {
     ...vbases.rpcUrls,
     alchemy: {
       http: ['https://base-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://base-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {

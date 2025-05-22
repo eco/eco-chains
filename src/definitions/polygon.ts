@@ -7,6 +7,7 @@ export const polygon: EcoChain = {
     ...vpolygon.rpcUrls,
     alchemy: {
       http: ['https://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {
