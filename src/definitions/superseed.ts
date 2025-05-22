@@ -7,6 +7,9 @@ export const superseed: EcoChain = {
     ...vsuperseed.rpcUrls,
     alchemy: {
       http: ['https://superseed-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: [
+        'wss://superseed-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}',
+      ],
     },
   },
   contracts: {

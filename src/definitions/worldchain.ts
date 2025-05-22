@@ -11,7 +11,8 @@ export const worldchain: Chain = {
   rpcUrls: {
     ...vworldchain.rpcUrls,
     alchemy: {
-      http: ['https://worldchain-mainnet.g.alchemy.com/v2'],
+      http: ['https://worldchain-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://worldchain-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {

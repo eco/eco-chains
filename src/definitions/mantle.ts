@@ -7,6 +7,7 @@ export const mantle: EcoChain = {
     ...vmantle.rpcUrls,
     alchemy: {
       http: ['https://mantle-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://mantle-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {

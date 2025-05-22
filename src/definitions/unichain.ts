@@ -7,6 +7,7 @@ export const unichain: EcoChain = {
     ...vunichain.rpcUrls,
     alchemy: {
       http: ['https://unichain-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://unichain-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   isCalderaChain: false,

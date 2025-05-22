@@ -11,6 +11,7 @@ export const ethereum: EcoChain = {
     ...vmainnet.rpcUrls,
     alchemy: {
       http: ['https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {
@@ -32,6 +33,7 @@ export const sepolia: EcoChain = {
     ...vsepolia.rpcUrls,
     alchemy: {
       http: ['https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {
