@@ -11,8 +11,8 @@ export const ape: EcoChain = {
   rpcUrls: {
     ...vape.rpcUrls,
     caldera: {
-      http: [`TBD`],
-      webSocket: [`TBD`],
+      http: ['https://rpc.apechain.com/http'],
+      webSocket: ['wss://rpc.apechain.com/ws'],
     },
   },
   contracts: {

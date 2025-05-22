@@ -18,8 +18,8 @@ export const manta: EcoChain = {
   rpcUrls: {
     ...vmanta.rpcUrls,
     caldera: {
-      http: [`TBD`],
-      webSocket: [`TBD`],
+      http: ['https://manta-pacific.calderachain.xyz/http'],
+      webSocket: ['wss://manta-pacific.calderachain.xyz/ws'],
     },
   },
   contracts: {

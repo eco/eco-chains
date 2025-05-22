@@ -11,8 +11,8 @@ export const b3: EcoChain = {
   rpcUrls: {
     ...vb3.rpcUrls,
     caldera: {
-      http: [`TBD`],
-      webSocket: [`TBD`],
+      http: ['https://mainnet-rpc.b3.fun/http'],
+      webSocket: ['wss://mainnet-rpc.b3.fun/ws'],
     },
   },
   contracts: {

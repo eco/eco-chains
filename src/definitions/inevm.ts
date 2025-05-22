@@ -15,8 +15,8 @@ export const inEVM: EcoChain = {
   rpcUrls: {
     ...vinEVM.rpcUrls,
     caldera: {
-      http: [`TBD`],
-      webSocket: [`TBD`],
+      http: ['https://inevm.calderachain.xyz/http'],
+      webSocket: ['wss://inevm.calderachain.xyz/ws'],
     },
   },
   contracts: {
