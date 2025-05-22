@@ -60,7 +60,7 @@
     "mailbox": "0x6966b0E55883d49BFB24539356a2f8A673E02039"
   },
   "480": {
-    "url": "https://worldchain-mainnet.g.alchemy.com/public",
+    "url": "https://worldchain-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
     "mailbox": "0x2f2aFaE1139Ce54feFC03593FeE8AB2aDF4a85A7"
   },
   "33139": {
