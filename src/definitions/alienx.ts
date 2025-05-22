@@ -46,8 +46,8 @@ export const alienxHalTestnet: EcoChain = {
   rpcUrls: {
     ...valienxHalTestnet.rpcUrls,
     caldera: {
-      http: [`TBD`],
-      webSocket: [`TBD`],
+      http: ['https://hal.hub.caldera.xyz/'],
+      webSocket: ['wss://hal.hub.caldera.xyz/ws'],
     },
   },
   contracts: {
