@@ -11,8 +11,8 @@ export const form: EcoChain = {
   rpcUrls: {
     ...vform.rpcUrls,
     caldera: {
-      http: [`TBD`],
-      webSocket: [`TBD`],
+      http: ['https://rpc.form.network/http'],
+      webSocket: ['wss://rpc.form.network/ws'],
     },
   },
   contracts: {

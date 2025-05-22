@@ -15,8 +15,8 @@ export const sanko: EcoChain = {
   rpcUrls: {
     ...vsanko.rpcUrls,
     caldera: {
-      http: [`TBD`],
-      webSocket: [`TBD`],
+      http: ['https://sanko-mainnet.calderachain.xyz/http'],
+      webSocket: ['wss://sanko-mainnet.calderachain.xyz/ws'],
     },
   },
   contracts: {
