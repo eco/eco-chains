@@ -1,3 +1,10 @@
+## [1.0.23](https://github.com/eco/eco-chains/compare/v1.0.22...v1.0.23) (2025-05-22)
+
+
+### Bug Fixes
+
+* add websocket definitions to chains ([#50](https://github.com/eco/eco-chains/issues/50)) ([d4353dc](https://github.com/eco/eco-chains/commit/d4353dc47e1be59e28696aa60e63f2f2b9030a1c))
+
 ## [1.0.22](https://github.com/eco/eco-chains/compare/v1.0.21...v1.0.22) (2025-05-22)
 
 
