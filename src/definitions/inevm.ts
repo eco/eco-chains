@@ -1,5 +1,5 @@
-import { Chain } from 'viem'
 import { inEVM as vinEVM } from 'viem/chains'
+import { EcoChain } from '../chain.interface'
 
 /**
  * inEVM Mainnet chain configuration
@@ -10,7 +10,7 @@ import { inEVM as vinEVM } from 'viem/chains'
 // settlement chain
 const sourceId = 42_161 // Arbitrum One mainnet
 
-export const inEVM: Chain = {
+export const inEVM: EcoChain = {
   ...vinEVM,
   rpcUrls: {
     ...vinEVM.rpcUrls,
@@ -26,4 +26,5 @@ export const inEVM: Chain = {
     },
   },
   sourceId,
+  isCalderaChain: true,
 }

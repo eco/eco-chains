@@ -1,8 +1,8 @@
-import { Chain } from 'viem'
 import {
   alienx as valienx,
   alienxHalTestnet as valienxHalTestnet,
 } from 'viem/chains'
+import { EcoChain } from '../chain.interface'
 
 /**
  * AlienX Mainnet chain configuration
@@ -13,13 +13,13 @@ import {
 // settlement chain
 const sourceId = 1 // Ethereum mainnet
 
-export const alienx: Chain = {
+export const alienx: EcoChain = {
   ...valienx,
   rpcUrls: {
     ...valienx.rpcUrls,
     caldera: {
-      http: [`TBD`],
-      webSocket: [`TBD`],
+      http: ['https://rpc.alienxchain.io/http'],
+      webSocket: ['wss://rpc.alienxchain.io/ws'],
     },
   },
   contracts: {
@@ -29,6 +29,7 @@ export const alienx: Chain = {
     },
   },
   sourceId,
+  isCalderaChain: true,
 }
 
 /**
@@ -40,7 +41,7 @@ export const alienx: Chain = {
 // settlement chain
 const testnetSourceId = 11155111 // Ethereum Sepolia
 
-export const alienxHalTestnet: Chain = {
+export const alienxHalTestnet: EcoChain = {
   ...valienxHalTestnet,
   rpcUrls: {
     ...valienxHalTestnet.rpcUrls,
@@ -56,6 +57,7 @@ export const alienxHalTestnet: Chain = {
     },
   },
   sourceId: testnetSourceId,
+  isCalderaChain: true,
 }
 
 // TODO no hyperlane mailbox
