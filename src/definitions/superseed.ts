@@ -1,7 +1,7 @@
-import { Chain } from 'viem'
 import { superseed as vsuperseed } from 'viem/chains'
+import { EcoChain } from '../chain.interface'
 
-export const superseed: Chain = {
+export const superseed: EcoChain = {
   ...vsuperseed,
   rpcUrls: {
     ...vsuperseed.rpcUrls,
@@ -15,4 +15,5 @@ export const superseed: Chain = {
       address: '0x3a464f746D23Ab22155710f44dB16dcA53e0775E',
     },
   },
+  isCalderaChain: false,
 }

@@ -1,3 +1,32 @@
+## [1.0.20](https://github.com/eco/eco-chains/compare/v1.0.19...v1.0.20) (2025-05-21)
+
+
+### Bug Fixes
+
+* update the muticall3 for curtis ([1c98051](https://github.com/eco/eco-chains/commit/1c98051c8e38dd7cc271cf4fec359caa486a02e1))
+
+## [1.0.19](https://github.com/eco/eco-chains/compare/v1.0.18...v1.0.19) (2025-05-21)
+
+
+### Bug Fixes
+
+* extending Chain with new EcoChain type ([ae958d2](https://github.com/eco/eco-chains/commit/ae958d2968c2ced57e4a18bec1c716d626a3279b))
+
+## [1.0.18](https://github.com/eco/eco-chains/compare/v1.0.17...v1.0.18) (2025-05-21)
+
+
+### Bug Fixes
+
+* adding the quicknode api key to the eco chains class ([ba306ee](https://github.com/eco/eco-chains/commit/ba306eee5d927518fcffa4ebf3c4b4c68c7e6bef))
+* fixing url for celo ([931074a](https://github.com/eco/eco-chains/commit/931074a3bbb667c637a3317d8ad33b626edf16dc))
+
+## [1.0.17](https://github.com/eco/eco-chains/compare/v1.0.16...v1.0.17) (2025-05-21)
+
+
+### Bug Fixes
+
+* Formatting, removing getChains ([f74de9b](https://github.com/eco/eco-chains/commit/f74de9bb3a8ac09d055e544716b91ea5dfc062ae))
+
 ## [1.0.16](https://github.com/eco/eco-chains/compare/v1.0.15...v1.0.16) (2025-05-20)
 
 

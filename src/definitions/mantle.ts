@@ -1,7 +1,7 @@
-import { Chain } from 'viem'
 import { mantle as vmantle } from 'viem/chains'
+import { EcoChain } from '../chain.interface'
 
-export const mantle: Chain = {
+export const mantle: EcoChain = {
   ...vmantle,
   rpcUrls: {
     ...vmantle.rpcUrls,
@@ -15,4 +15,5 @@ export const mantle: Chain = {
       address: '0x398633D19f4371e1DB5a8EFE90468eB70B1176AA',
     },
   },
+  isCalderaChain: false,
 }

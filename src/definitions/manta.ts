@@ -3,6 +3,7 @@ import {
   manta as vmanta,
   mantaSepoliaTestnet as vmantaSepolia,
 } from 'viem/chains'
+import { EcoChain } from '../chain.interface'
 
 /**
  * Manta Mainnet chain configuration
@@ -40,7 +41,7 @@ export const manta: Chain = {
 // settlement chain
 const testnetSourceId = 11155111 // Ethereum Sepolia
 
-export const mantaSepolia: Chain = {
+export const mantaSepolia: EcoChain = {
   ...vmantaSepolia,
   rpcUrls: {
     ...vmantaSepolia.rpcUrls,
@@ -57,4 +58,5 @@ export const mantaSepolia: Chain = {
     },
   },
   sourceId: testnetSourceId,
+  isCalderaChain: true,
 }

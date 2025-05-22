@@ -17,6 +17,7 @@ import {
   curtis,
 } from './definitions/index'
 import { EcoChains } from './eco.chains'
+import { EcoChain } from './chain.interface'
 
 /**
  * Collection of all chain definitions supported by Eco
@@ -47,11 +48,12 @@ export const EcoRouteChainMap = EcoRoutesChains.reduce(
     acc[chain.id] = chain
     return acc
   },
-  {} as Record<number, any>,
+  {} as Record<number, EcoChain>,
 )
 
 export * from './eco.chains'
 
+export type { EcoChain }
 export default {
   EcoRoutesChains,
   EcoRouteChainMap,

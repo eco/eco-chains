@@ -37,6 +37,20 @@ export interface IChain<
   testnet?: boolean | undefined
 }
 
+/**
+ * Extended Chain interface with Eco-specific attributes
+ * Extends viem's Chain type with additional properties for Eco chains
+ */
+export type EcoChain<
+  formatters extends ChainFormatters | undefined = ChainFormatters | undefined,
+  custom extends Record<string, unknown> | undefined =
+    | Record<string, unknown>
+    | undefined,
+> = Chain<formatters, custom> & {
+  /** Flag indicating if this is a Caldera chain */
+  isCalderaChain: boolean
+}
+
 export interface IChainNativeCurrency {
   /** Human-readable name */
   name: string & tags.MinLength<2> & tags.MaxLength<6>

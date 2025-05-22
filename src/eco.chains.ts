@@ -1,5 +1,5 @@
-import { Chain, extractChain } from 'viem'
-import { EcoRoutesChains } from './index'
+import { extractChain } from 'viem'
+import { EcoRoutesChains, EcoChain } from './index'
 
 /**
  * Regular expressions to identify RPC endpoints that require API keys
@@ -10,6 +10,7 @@ export const ConfigRegex = {
   alchemyKey: /\$\{ALCHEMY_API_KEY\}/, // Matches Alchemy API key placeholder
   infuraKey: /\$\{INFURA_API_KEY\}/, // Matches Infura API key placeholder
   mantaKey: /\$\{MANTA_API_KEY\}/, // Matches Manta API key placeholder
+  quickNodeKey: /\$\{QUICKNODE_API_KEY\}/, // Matches MQUICKNODE_API_KEY key placeholder
   curtisKey: /\$\{CURTIS_API_KEY\}/, // Matches Curtis API key placeholder
 }
 
@@ -47,10 +48,10 @@ export class EcoChains {
    * 4. Handles both HTTP and WebSocket URLs
    *
    * @param {number} chainID - The ID of the chain to retrieve
-   * @returns {Chain} - The chain configuration with API keys inserted into RPC URLs
+   * @returns {EcoChain} - The chain configuration with API keys inserted into RPC URLs
    * @throws Will throw an error if the chain ID is not found in EcoChainDefinitions
    */
-  getChain(chainID: number): Chain {
+  getChain(chainID: number): EcoChain {
     const chain = extractChain({
       chains: EcoRoutesChains,
       id: chainID,
@@ -87,7 +88,6 @@ export class EcoChains {
             )
           }
           // Set a custom RPC URL group with the modified URLs
-          //@ts-expect-error ignore default
           chain.rpcUrls.custom = {
             http: rpcUrlGroup.http,
             webSocket: rpcUrlGroup.webSocket,
@@ -97,5 +97,36 @@ export class EcoChains {
     })
 
     return chain
+  }
+
+  /**
+   * Retrieves all chain configurations, replacing API keys in RPC URLs
+   * @returns {[EcoChain, ...EcoChain[]]} - An array of one or more chain configurations with API keys inserted into RPC URLs
+   */
+  getAllChains(): [EcoChain, ...EcoChain[]] {
+    return EcoRoutesChains.map((chain) => this.getChain(chain.id)) as [
+      EcoChain,
+      ...EcoChain[],
+    ]
+  }
+
+  /**
+   * Retrieves all mainnet chain configurations, replacing API keys in RPC URLs
+   * @returns {[EcoChain, ...EcoChain[]]} - An array of one or more mainnet chain configurations with API keys inserted into RPC URLs
+   */
+  getMainnetChains(): [EcoChain, ...EcoChain[]] {
+    return EcoRoutesChains.filter((chain) => !chain.testnet).map((chain) =>
+      this.getChain(chain.id),
+    ) as [EcoChain, ...EcoChain[]]
+  }
+
+  /**
+   * Retrieves all testnet chain configurations, replacing API keys in RPC URLs
+   * @returns {[EcoChain, ...EcoChain[]]} - An array of one or more testnet chain configurations with API keys inserted into RPC URLs
+   */
+  getTestnetChains(): [EcoChain, ...EcoChain[]] {
+    return EcoRoutesChains.filter((chain) => chain.testnet).map((chain) =>
+      this.getChain(chain.id),
+    ) as [EcoChain, ...EcoChain[]]
   }
 }
