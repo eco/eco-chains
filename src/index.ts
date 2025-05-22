@@ -39,8 +39,8 @@ import { EcoChain } from './chain.interface'
  * Each entry maps a chain name to its configuration
  */
 export const EcoRoutesChains = [
-  alienx,
   alienxHalTestnet,
+  alienx,
   ape,
   appchain,
   arbitrum,
