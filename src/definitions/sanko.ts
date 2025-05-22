@@ -1,5 +1,5 @@
-import { Chain } from 'viem'
 import { sanko as vsanko } from 'viem/chains'
+import { EcoChain } from '../chain.interface'
 
 /**
  * Sanko Mainnet chain configuration
@@ -10,7 +10,7 @@ import { sanko as vsanko } from 'viem/chains'
 // settlement chain
 const sourceId = 42_161 // Arbitrum One mainnet
 
-export const sanko: Chain = {
+export const sanko: EcoChain = {
   ...vsanko,
   rpcUrls: {
     ...vsanko.rpcUrls,
@@ -26,4 +26,5 @@ export const sanko: Chain = {
     },
   },
   sourceId,
+  isCalderaChain: true,
 }

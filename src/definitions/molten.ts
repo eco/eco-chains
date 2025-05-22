@@ -1,5 +1,6 @@
 import { defineChain } from 'viem'
 import { chainConfig } from 'viem/op-stack'
+import { EcoChain } from '../chain.interface'
 
 // settlement chain
 const sourceId = 1 //Ethereum mainnet
@@ -29,4 +30,5 @@ export const molten = /*#__PURE__*/ defineChain({
     },
   },
   sourceId,
-})
+  isCalderaChain: true,
+}) as EcoChain

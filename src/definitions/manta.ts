@@ -1,4 +1,3 @@
-import { Chain } from 'viem'
 import {
   manta as vmanta,
   mantaSepoliaTestnet as vmantaSepolia,
@@ -14,7 +13,7 @@ import { EcoChain } from '../chain.interface'
 // settlement chain
 const sourceId = 1 // Ethereum mainnet
 
-export const manta: Chain = {
+export const manta: EcoChain = {
   ...vmanta,
   rpcUrls: {
     ...vmanta.rpcUrls,
@@ -30,6 +29,7 @@ export const manta: Chain = {
     },
   },
   sourceId,
+  isCalderaChain: true,
 }
 
 /**

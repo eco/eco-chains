@@ -1,12 +1,12 @@
-import { Chain } from 'viem'
 import { worldchain as vworldchain } from 'viem/chains'
+import { EcoChain } from '../chain.interface'
 
 /**
  * Worldchain Mainnet chain configuration
  * Extends viem's worldchain configuration with Eco-specific RPC URLs and contract addresses
  * Includes Hyperlane Mailbox contract configuration
  */
-export const worldchain: Chain = {
+export const worldchain: EcoChain = {
   ...vworldchain,
   rpcUrls: {
     ...vworldchain.rpcUrls,
@@ -23,4 +23,5 @@ export const worldchain: Chain = {
       address: '0x2f2aFaE1139Ce54feFC03593FeE8AB2aDF4a85A7',
     },
   },
+  isCalderaChain: false,
 }

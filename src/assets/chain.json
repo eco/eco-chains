@@ -101,5 +101,8 @@
   "1996": {
     "url": "https://mainnet.sanko.xyz",
     "mailbox": "0x2f2aFaE1139Ce54feFC03593FeE8AB2aDF4a85A7"
+  },
+  "10241024": {
+    "url": "https://rpc.alienxchain.io/http"
   }
 }

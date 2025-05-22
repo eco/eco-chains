@@ -1,5 +1,6 @@
 import { defineChain } from 'viem'
 import { chainConfig } from 'viem/op-stack'
+import { EcoChain } from '../chain.interface'
 
 // settlement chain
 const sourceId = 42_161 // Arbitrum One mainnet
@@ -29,4 +30,5 @@ export const rari = /*#__PURE__*/ defineChain({
     },
   },
   sourceId,
-})
+  isCalderaChain: true,
+}) as EcoChain
