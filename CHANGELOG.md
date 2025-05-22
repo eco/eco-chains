@@ -1,3 +1,10 @@
+## [1.0.22](https://github.com/eco/eco-chains/compare/v1.0.21...v1.0.22) (2025-05-22)
+
+
+### Bug Fixes
+
+* adding router contracts to ape, b3, and rari ([#49](https://github.com/eco/eco-chains/issues/49)) ([be675d2](https://github.com/eco/eco-chains/commit/be675d2a3b26380b899f659299d010eaffe4d15a))
+
 ## [1.0.21](https://github.com/eco/eco-chains/compare/v1.0.20...v1.0.21) (2025-05-22)
 
 ## [1.0.20](https://github.com/eco/eco-chains/compare/v1.0.19...v1.0.20) (2025-05-21)
