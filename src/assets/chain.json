@@ -65,7 +65,8 @@
   },
   "33139": {
     "url": "https://rpc.apechain.com/http",
-    "mailbox": "0x7f50C5776722630a0024fAE05fDe8b47571D7B39"
+    "mailbox": "0x7f50C5776722630a0024fAE05fDe8b47571D7B39",
+    "router": "0x09cE71C24EE2098e351C0cF2dC6431B414d247f3"
   },
   "466": {
     "url": "https://rpc.appchain.xyz/http",
@@ -73,7 +74,8 @@
   },
   "8333": {
     "url": "https://mainnet-rpc.b3.fun/http",
-    "mailbox": "0x3a867fCfFeC2B790970eeBDC9023E75B0a172aa7"
+    "mailbox": "0x3a867fCfFeC2B790970eeBDC9023E75B0a172aa7",
+    "router": "0x09cE71C24EE2098e351C0cF2dC6431B414d247f3"
   },
   "478": {
     "url": "https://rpc.form.network/http",
@@ -93,7 +95,8 @@
   },
   "1380012617": {
     "url": "https://rari.calderachain.xyz/http",
-    "mailbox": "0x65dCf8F6b3f6a0ECEdf3d0bdCB036AEa47A1d615"
+    "mailbox": "0x65dCf8F6b3f6a0ECEdf3d0bdCB036AEa47A1d615",
+    "router": "0x09cE71C24EE2098e351C0cF2dC6431B414d247f3"
   },
   "1996": {
     "url": "https://mainnet.sanko.xyz",
