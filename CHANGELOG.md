@@ -1,3 +1,10 @@
+## [1.0.27](https://github.com/eco/eco-chains/compare/v1.0.26...v1.0.27) (2025-05-22)
+
+
+### Bug Fixes
+
+* curtis wss url ([#54](https://github.com/eco/eco-chains/issues/54)) ([7e6da05](https://github.com/eco/eco-chains/commit/7e6da058503b49cb1a2045a39f5e335c86ef8ea2))
+
 ## [1.0.26](https://github.com/eco/eco-chains/compare/v1.0.25...v1.0.26) (2025-05-22)
 
 
