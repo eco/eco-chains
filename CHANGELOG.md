@@ -1,3 +1,5 @@
+## [1.0.28](https://github.com/eco/eco-chains/compare/v1.0.27...v1.0.28) (2025-05-22)
+
 ## [1.0.27](https://github.com/eco/eco-chains/compare/v1.0.26...v1.0.27) (2025-05-22)
 
 
