@@ -1,3 +1,10 @@
+## [1.0.32](https://github.com/eco/eco-chains/compare/v1.0.31...v1.0.32) (2025-05-23)
+
+
+### Bug Fixes
+
+* router address ([aba6814](https://github.com/eco/eco-chains/commit/aba6814b668e27ac656867ef07a889fc54072838))
+
 ## [1.0.31](https://github.com/eco/eco-chains/compare/v1.0.30...v1.0.31) (2025-05-23)
 
 ## [1.0.30](https://github.com/eco/eco-chains/compare/v1.0.29...v1.0.30) (2025-05-22)
