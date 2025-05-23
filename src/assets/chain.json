@@ -104,10 +104,10 @@
   },
   "1992": {
     "url": "https://sanko-arb-sepolia.rpc.caldera.xyz/http",
-    "mailbox": "0x6F23B0211056035A22430a10fD27DED8547dc377"
+    "router": "0x6F23B0211056035A22430a10fD27DED8547dc377"
   },
   "6524490": {
     "url": "https://testnet.rpc.towns.com/http",
-    "mailbox": "0x6F23B0211056035A22430a10fD27DED8547dc377"
+    "router": "0x6F23B0211056035A22430a10fD27DED8547dc377"
   }
 }
