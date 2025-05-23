@@ -19,6 +19,7 @@
     "prettier:fix": "prettier . --write",
     "format": "pnpm lint:fix && pnpm prettier:fix",
     "format:check": "pnpm lint && pnpm prettier",
+    "tf": "pnpm test && pnpm format",
     "prepare": "ts-patch install && pnpm run build"
   },
   "repository": {

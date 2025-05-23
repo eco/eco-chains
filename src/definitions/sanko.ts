@@ -1,5 +1,6 @@
 import { sanko as vsanko } from 'viem/chains'
 import { EcoChain } from '../chain.interface'
+import { defineChain } from 'viem'
 
 /**
  * Sanko Mainnet chain configuration
@@ -28,3 +29,29 @@ export const sanko: EcoChain = {
   sourceId,
   isCalderaChain: true,
 }
+
+export const sankoSepolia = /*#__PURE__*/ defineChain({
+  id: 1992,
+  name: 'Sanko Sepolia',
+  nativeCurrency: { name: 'tDMT', symbol: 'tDMT', decimals: 18 },
+  rpcUrls: {
+    default: {
+      http: ['https://sanko-arb-sepolia.rpc.caldera.xyz/http'],
+      webSocket: ['wss://sanko-arb-sepolia.rpc.caldera.xyz/ws'],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Sanko Sepolia Explorer',
+      url: 'https://sanko-arb-sepolia.explorer.caldera.xyz/',
+    },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      blockCreated: 3767,
+    },
+  },
+  testnet: true,
+  isCalderaChain: true,
+}) as EcoChain
