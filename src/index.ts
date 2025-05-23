@@ -25,8 +25,10 @@ import {
   polygon,
   rari,
   sanko,
+  sankoSepolia,
   sepolia,
   superseed,
+  townsSepolia,
   unichain,
   worldchain,
 } from './definitions/index'
@@ -65,8 +67,10 @@ export const EcoRoutesChains = [
   polygon,
   rari,
   sanko,
+  sankoSepolia,
   sepolia,
   superseed,
+  townsSepolia,
   unichain,
   worldchain,
 ] as EcoChain[]
