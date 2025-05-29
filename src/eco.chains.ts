@@ -100,7 +100,7 @@ export class EcoChains {
 
   /**
    * Retrieves stables for a specific chain
-   * 
+   *
    * @param chainID - The ID of the chain to retrieve stables for
    * @returns {Record<string, string>} - A record of stablecoin symbols and their addresses for the specified chain
    */
