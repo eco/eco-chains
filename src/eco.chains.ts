@@ -99,6 +99,17 @@ export class EcoChains {
   }
 
   /**
+   * Retrieves stables for a specific chain
+   * 
+   * @param chainID - The ID of the chain to retrieve stables for
+   * @returns {Record<string, string>} - A record of stablecoin symbols and their addresses for the specified chain
+   */
+  getStablesForChain(chainID: number): Record<string, string> {
+    const chain = this.getChain(chainID)
+    return chain.stables || {}
+  }
+
+  /**
    * Retrieves all chain configurations, replacing API keys in RPC URLs
    * @returns {[EcoChain, ...EcoChain[]]} - An array of one or more chain configurations with API keys inserted into RPC URLs
    */
