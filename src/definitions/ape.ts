@@ -24,6 +24,6 @@ export const ape: EcoChain = {
   isCalderaChain: true,
   stables: {
     ApeUSD: '0xA2235d059F80e176D931Ef76b6C51953Eb3fBEf4',
-    USDCe: '0xF1815bd50389c46847f0Bda824eC8da914045D14'
-  }
+    USDCe: '0xF1815bd50389c46847f0Bda824eC8da914045D14',
+  },
 }

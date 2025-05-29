@@ -47,6 +47,6 @@ export const formTestnet: EcoChain = {
   isCalderaChain: true,
   stables: {
     USDC: '0xFBf489bb4783D4B1B2e7D07ba39873Fb8068507D',
-    USDT: '0xFA3198ecF05303a6d96E57a45E6c815055D255b1'
-  }
+    USDT: '0xFA3198ecF05303a6d96E57a45E6c815055D255b1',
+  },
 }

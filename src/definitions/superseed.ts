@@ -22,5 +22,5 @@ export const superseed: EcoChain = {
   stables: {
     USDC: '0xC316C8252B5F2176d0135Ebb0999E99296998F2e',
     oUSDT: '0x1217BfE6c773EEC6cc4A38b5Dc45B92292B6E189',
-  }
+  },
 }

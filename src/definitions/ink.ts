@@ -25,5 +25,5 @@ export const ink: EcoChain = {
   stables: {
     USDC: '0xF1815bd50389c46847f0Bda824eC8da914045D14',
     USDT0: '0x0200C29006150606B650577BBE7B6248F58470c1',
-  }
+  },
 }

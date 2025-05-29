@@ -32,6 +32,6 @@ export const appchain = /*#__PURE__*/ defineChain({
   sourceId,
   isCalderaChain: true,
   stables: {
-    USDC: '0x675C3ce7F43b00045a4Dab954AF36160fb57cB45'
-  }
+    USDC: '0x675C3ce7F43b00045a4Dab954AF36160fb57cB45',
+  },
 }) as EcoChain

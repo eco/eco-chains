@@ -29,8 +29,8 @@ export const sanko: EcoChain = {
   sourceId,
   isCalderaChain: true,
   stables: {
-    USDC: '0x13D675BC5e659b11CFA331594cF35A20815dCF02'
-  }
+    USDC: '0x13D675BC5e659b11CFA331594cF35A20815dCF02',
+  },
 }
 
 export const sankoSepolia = /*#__PURE__*/ defineChain({
@@ -60,5 +60,5 @@ export const sankoSepolia = /*#__PURE__*/ defineChain({
   stables: {
     USDC: '0xC38944D590A3B6E796dE242680259CB1dEcba077',
     USDT: '0xa7ace557347F8b7fc72250e6bc0Abc47dc7902E5',
-  }
+  },
 }) as EcoChain
