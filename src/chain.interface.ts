@@ -1,5 +1,5 @@
 import { tags } from 'typia'
-import { Chain, ChainConfig, ChainFormatters } from 'viem'
+import { Chain, ChainConfig, ChainFormatters, Hex } from 'viem'
 import { WebsocketTag } from './tags'
 
 /**
@@ -9,17 +9,17 @@ import { WebsocketTag } from './tags'
 export interface IChain<
   formatters extends ChainFormatters | undefined = ChainFormatters | undefined,
   custom extends Record<string, unknown> | undefined =
-    | Record<string, unknown>
-    | undefined,
+  | Record<string, unknown>
+  | undefined,
 > extends Chain<formatters, custom>,
-    ChainConfig<formatters, custom> {
+  ChainConfig<formatters, custom> {
   /** Collection of block explorers */
   blockExplorers?:
-    | {
-        [key: string]: IChainBlockExplorer
-        default: IChainBlockExplorer
-      }
-    | undefined
+  | {
+    [key: string]: IChainBlockExplorer
+    default: IChainBlockExplorer
+  }
+  | undefined
   /** ID in number form */
   id: number
   /** Human-readable name */
@@ -44,11 +44,12 @@ export interface IChain<
 export type EcoChain<
   formatters extends ChainFormatters | undefined = ChainFormatters | undefined,
   custom extends Record<string, unknown> | undefined =
-    | Record<string, unknown>
-    | undefined,
+  | Record<string, unknown>
+  | undefined,
 > = Chain<formatters, custom> & {
   /** Flag indicating if this is a Caldera chain */
   isCalderaChain: boolean
+  stables?: Record<string, Hex>
 }
 
 export interface IChainNativeCurrency {

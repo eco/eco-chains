@@ -30,6 +30,10 @@ export const alienx: EcoChain = {
   },
   sourceId,
   isCalderaChain: true,
+  stables: {
+    USDC: '0x14B90E36Ca85D8B563430C0940E80d3A040285cC',
+    USDT: '0x486bee264E0F6EB9A1d5947F5FCB097C5378c8E3',
+  }
 }
 
 /**

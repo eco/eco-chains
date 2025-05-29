@@ -17,6 +17,12 @@ export const optimism: EcoChain = {
     },
   },
   isCalderaChain: false,
+  stables: {
+    USDC: '0x0b2c639c533813f4aa9d7837caf62653d097ff85',
+    USDCe: '0x7F5c764cBc14f9669B88837ca1490cCa17c31607',
+    USDT: '0x94b008aA00579c1307B0EF2c499aD98a8ce58e58',
+    oUSDT: '0x1217bfe6c773eec6cc4a38b5dc45b92292b6e189',
+  }
 }
 
 export const optimismSepolia: EcoChain = {
@@ -35,4 +41,5 @@ export const optimismSepolia: EcoChain = {
     },
   },
   isCalderaChain: false,
+  stables: {}
 }

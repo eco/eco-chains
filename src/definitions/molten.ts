@@ -31,4 +31,7 @@ export const molten = /*#__PURE__*/ defineChain({
   },
   sourceId,
   isCalderaChain: true,
+  stables: {
+    USDC: '0xDf0195C990a94006869959a9c77add160164207e'
+  }
 }) as EcoChain
