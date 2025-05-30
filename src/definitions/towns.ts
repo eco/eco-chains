@@ -25,4 +25,8 @@ export const townsSepolia = /*#__PURE__*/ defineChain({
   },
   testnet: true,
   isCalderaChain: true,
+  stables: {
+    USDC: '0x9030B1b203D7F7aE07aa32a2eFbF5DEE7112FE30',
+    USDT: '0x8b4E19Adb6F4E92d92Dd19e8990d7d076404F3A8',
+  },
 }) as EcoChain

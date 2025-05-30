@@ -30,6 +30,10 @@ export const manta: EcoChain = {
   },
   sourceId,
   isCalderaChain: true,
+  stables: {
+    USDC: '0xb73603C5d87fA094B7314C74ACE2e64D165016fb',
+    USDT: '0xf417F5A458eC102B90352F697D6e2Ac3A3d2851f',
+  },
 }
 
 /**
@@ -59,4 +63,8 @@ export const mantaSepolia: EcoChain = {
   },
   sourceId: testnetSourceId,
   isCalderaChain: true,
+  stables: {
+    USDC: '0x0652aEc2DeE0Fee9D05E614c95Ce8A01a7336cD8',
+    USDT: '0xC040bB09ffF7EBb7FDf38831B7c582afddB2CcFE',
+  },
 }

@@ -1,5 +1,5 @@
 import { tags } from 'typia'
-import { Chain, ChainConfig, ChainFormatters } from 'viem'
+import { Chain, ChainConfig, ChainFormatters, Hex } from 'viem'
 import { WebsocketTag } from './tags'
 
 /**
@@ -49,6 +49,7 @@ export type EcoChain<
 > = Chain<formatters, custom> & {
   /** Flag indicating if this is a Caldera chain */
   isCalderaChain: boolean
+  stables?: Record<string, Hex>
 }
 
 export interface IChainNativeCurrency {

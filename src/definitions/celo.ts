@@ -21,4 +21,8 @@ export const celo: EcoChain = {
     },
   },
   isCalderaChain: false,
+  stables: {
+    USDC: '0xceba9300f2b948710d2653dd7b07f33a8b32118c',
+    USDT: '0x48065fbbe25f71c9282ddf5e1cd6d6a887483d5e',
+  },
 }
