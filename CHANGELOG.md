@@ -1,3 +1,10 @@
+## [1.0.33](https://github.com/eco/eco-chains/compare/v1.0.32...v1.0.33) (2025-05-30)
+
+
+### Bug Fixes
+
+* prettier ([476b956](https://github.com/eco/eco-chains/commit/476b9566bb1e9f238fec2b1890e027e888d1f947))
+
 ## [1.0.32](https://github.com/eco/eco-chains/compare/v1.0.31...v1.0.32) (2025-05-23)
 
 
