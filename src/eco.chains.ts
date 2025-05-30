@@ -1,4 +1,4 @@
-import { extractChain } from 'viem'
+import { extractChain, Hex } from 'viem'
 import { EcoRoutesChains, EcoChain } from './index'
 
 /**
@@ -102,9 +102,9 @@ export class EcoChains {
    * Retrieves stables for a specific chain
    *
    * @param chainID - The ID of the chain to retrieve stables for
-   * @returns {Record<string, string>} - A record of stablecoin symbols and their addresses for the specified chain
+   * @returns {Record<string, Hex>} - A record of stablecoin symbols and their addresses for the specified chain
    */
-  getStablesForChain(chainID: number): Record<string, string> {
+  getStablesForChain(chainID: number): Record<string, Hex> {
     const chain = this.getChain(chainID)
     return chain.stables || {}
   }
