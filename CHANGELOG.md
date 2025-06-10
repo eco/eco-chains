@@ -1,3 +1,10 @@
+## [1.0.35](https://github.com/eco/eco-chains/compare/v1.0.34...v1.0.35) (2025-06-10)
+
+
+### Bug Fixes
+
+* AppChain multicall3 contract ([3d8a635](https://github.com/eco/eco-chains/commit/3d8a635705dc012afe507f8cbe4d4e195429315a))
+
 ## [1.0.34](https://github.com/eco/eco-chains/compare/v1.0.33...v1.0.34) (2025-06-10)
 
 
