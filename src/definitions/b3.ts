@@ -20,6 +20,10 @@ export const b3: EcoChain = {
     hyperlaneMailbox: {
       address: '0x3a867fCfFeC2B790970eeBDC9023E75B0a172aa7',
     },
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      blockCreated: 15363650,
+    },
   },
   isCalderaChain: true,
   stables: {
