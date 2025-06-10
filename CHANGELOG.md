@@ -1,3 +1,10 @@
+## [1.0.36](https://github.com/eco/eco-chains/compare/v1.0.35...v1.0.36) (2025-06-10)
+
+
+### Bug Fixes
+
+* Add multicall3 contract to caldera chains ([1932c58](https://github.com/eco/eco-chains/commit/1932c587e70ac7ab849faf39d8a06e847415960c))
+
 ## [1.0.35](https://github.com/eco/eco-chains/compare/v1.0.34...v1.0.35) (2025-06-10)
 
 
