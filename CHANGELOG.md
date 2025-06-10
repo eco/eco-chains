@@ -1,3 +1,11 @@
+## [1.0.34](https://github.com/eco/eco-chains/compare/v1.0.33...v1.0.34) (2025-06-10)
+
+
+### Bug Fixes
+
+* Renamed USDC to USDCe on ink ([f20bf74](https://github.com/eco/eco-chains/commit/f20bf74942b5ac122d7b94f93e5e77ec439f92bb))
+* Renaming USDT to USDT0 on arbitrum ([3067b4c](https://github.com/eco/eco-chains/commit/3067b4c3eab02bb4ecced9d0120ab7f536ece269))
+
 ## [1.0.33](https://github.com/eco/eco-chains/compare/v1.0.32...v1.0.33) (2025-05-30)
 
 
