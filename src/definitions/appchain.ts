@@ -25,6 +25,10 @@ export const appchain = /*#__PURE__*/ defineChain({
   },
   contracts: {
     ...chainConfig.contracts,
+    multicall3: {
+      address: '0x2055A30B00555e7cAd48b1756eac4f917781489b',
+      blockCreated: 423306,
+    },
     hyperlaneMailbox: {
       address: '0x3a464f746D23Ab22155710f44dB16dcA53e0775E',
     },
