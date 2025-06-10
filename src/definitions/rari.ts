@@ -28,6 +28,10 @@ export const rari = /*#__PURE__*/ defineChain({
     hyperlaneMailbox: {
       address: '0x65dCf8F6b3f6a0ECEdf3d0bdCB036AEa47A1d615',
     },
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      blockCreated: 2422957,
+    },
   },
   sourceId,
   isCalderaChain: true,

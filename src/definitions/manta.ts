@@ -27,6 +27,10 @@ export const manta: EcoChain = {
     hyperlaneMailbox: {
       address: '0x3a464f746D23Ab22155710f44dB16dcA53e0775E',
     },
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      blockCreated: 332890,
+    },
   },
   sourceId,
   isCalderaChain: true,
