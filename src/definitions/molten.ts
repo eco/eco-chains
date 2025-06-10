@@ -28,6 +28,10 @@ export const molten = /*#__PURE__*/ defineChain({
     hyperlaneMailbox: {
       address: '0x4E55aDA3ef1942049EA43E904EB01F4A0a9c39bd',
     },
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      blockCreated: 23655689,
+    },
   },
   sourceId,
   isCalderaChain: true,
