@@ -1,3 +1,10 @@
+## [1.0.37](https://github.com/eco/eco-chains/compare/v1.0.36...v1.0.37) (2025-06-13)
+
+
+### Bug Fixes
+
+* add Metalayer router to more chains ([cdcde7b](https://github.com/eco/eco-chains/commit/cdcde7ba743baa72991c8abd72f8c76ae26e605e))
+
 ## [1.0.36](https://github.com/eco/eco-chains/compare/v1.0.35...v1.0.36) (2025-06-10)
 
 
