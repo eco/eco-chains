@@ -1,3 +1,10 @@
+## [1.0.38](https://github.com/eco/eco-chains/compare/v1.0.37...v1.0.38) (2025-06-13)
+
+
+### Bug Fixes
+
+* add Metalayer router Arb and Base ([8267e74](https://github.com/eco/eco-chains/commit/8267e747189afc2792e932d36f1b81284f174c7f))
+
 ## [1.0.37](https://github.com/eco/eco-chains/compare/v1.0.36...v1.0.37) (2025-06-13)
 
 
