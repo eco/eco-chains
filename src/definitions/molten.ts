@@ -3,13 +3,13 @@ import { chainConfig } from 'viem/op-stack'
 import { EcoChain } from '../chain.interface'
 
 // settlement chain
-const sourceId = 1 //Ethereum mainnet
+const sourceId = 42_161 // Arbitrum One
 
 export const molten = /*#__PURE__*/ defineChain({
   ...chainConfig,
   id: 360,
   name: 'Molten',
-  nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
+  nativeCurrency: { name: 'MOLTEN', symbol: 'MOLTEN', decimals: 18 },
   rpcUrls: {
     default: {
       http: ['https://molten.calderachain.xyz/http'],
