@@ -1,3 +1,10 @@
+## [1.0.39](https://github.com/eco/eco-chains/compare/v1.0.38...v1.0.39) (2025-06-23)
+
+
+### Bug Fixes
+
+* Monten native currency ([882fbbb](https://github.com/eco/eco-chains/commit/882fbbb1a336539f41f7df5a3f47dc243bc13c62))
+
 ## [1.0.38](https://github.com/eco/eco-chains/compare/v1.0.37...v1.0.38) (2025-06-13)
 
 
