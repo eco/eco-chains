@@ -41,5 +41,4 @@ export const optimismSepolia: EcoChain = {
     },
   },
   isCalderaChain: false,
-  stables: {},
 }
