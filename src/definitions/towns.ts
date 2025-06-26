@@ -4,7 +4,7 @@ import { EcoChain } from '../chain.interface'
 export const townsSepolia = /*#__PURE__*/ defineChain({
   id: 6524490,
   name: 'Towns Sepolia',
-  nativeCurrency: { name: 'tDMT', symbol: 'tDMT', decimals: 18 },
+  nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
   rpcUrls: {
     default: {
       http: ['https://testnet.rpc.towns.com/http'],
