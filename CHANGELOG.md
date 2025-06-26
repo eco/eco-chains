@@ -1,3 +1,10 @@
+## [1.0.40](https://github.com/eco/eco-chains/compare/v1.0.39...v1.0.40) (2025-06-26)
+
+
+### Bug Fixes
+
+* Fix stables ([beb82af](https://github.com/eco/eco-chains/commit/beb82afffc928ce679d5e0215ae64ad8a9b45d1a))
+
 ## [1.0.39](https://github.com/eco/eco-chains/compare/v1.0.38...v1.0.39) (2025-06-23)
 
 
