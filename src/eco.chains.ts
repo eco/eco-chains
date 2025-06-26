@@ -63,38 +63,64 @@ export class EcoChains {
       throw new Error(`Chain with ID ${chainID} not found`)
     }
 
+    // Create a new rpcUrls object to avoid modifying the original
+    const newRpcUrls: EcoChain['rpcUrls'] = { ...chain.rpcUrls }
+
     // Iterate over each RPC URL group in the chain
-    // eslint-disable-next-line no-unused-vars
-    Object.entries(chain.rpcUrls).forEach(([key, rpcUrlGroup]) => {
-      // Iterate over the defined regexes in ConfigRegex
-      Object.entries(ConfigRegex).forEach(([regexKey, regexValue]) => {
-        //@ts-expect-error ignore default
-        const apiKeyReplacement = this.configs[regexKey]
-        if (apiKeyReplacement) {
-          // Replace in http array if it exists
-          if (rpcUrlGroup.http) {
-            rpcUrlGroup.http = rpcUrlGroup.http.map((url: any) =>
-              regexValue.test(url)
-                ? url.replace(regexValue, apiKeyReplacement)
-                : url,
-            )
-          }
-          // Replace in webSocket array if it exists
-          if (rpcUrlGroup.webSocket) {
-            rpcUrlGroup.webSocket = rpcUrlGroup.webSocket.map((url: any) =>
-              regexValue.test(url)
-                ? url.replace(regexValue, apiKeyReplacement)
-                : url,
-            )
-          }
-          // Set a custom RPC URL group with the modified URLs
-          chain.rpcUrls.custom = {
-            http: rpcUrlGroup.http,
-            webSocket: rpcUrlGroup.webSocket,
-          }
-        }
-      })
+    Object.entries(newRpcUrls).forEach(([, rpcUrlGroup]) => {
+      // Create new arrays for http and webSocket URLs
+      const newHttp: string[] = []
+      const newWebSocket: string[] = []
+
+      // Replace placeholders in http URLs
+      if (rpcUrlGroup.http) {
+        rpcUrlGroup.http.forEach((url) => {
+          let newUrl = url
+          Object.entries(ConfigRegex).forEach(([key, regex]) => {
+            // @ts-expect-error ignore default
+            const apiKey = this.configs[key]
+            if (apiKey) {
+              newUrl = newUrl.replace(regex, apiKey)
+            }
+          })
+          newHttp.push(newUrl)
+        })
+        rpcUrlGroup.http = newHttp
+      }
+
+      // Replace placeholders in webSocket URLs
+      if (rpcUrlGroup.webSocket) {
+        rpcUrlGroup.webSocket.forEach((url) => {
+          let newUrl = url
+          Object.entries(ConfigRegex).forEach(([key, regex]) => {
+            // @ts-expect-error ignore default
+            const apiKey = this.configs[key]
+            if (apiKey) {
+              newUrl = newUrl.replace(regex, apiKey)
+            }
+          })
+          newWebSocket.push(newUrl)
+        })
+        rpcUrlGroup.webSocket = newWebSocket
+      }
     })
+
+    // Assign the updated rpcUrls back to the chain object
+    chain.rpcUrls = newRpcUrls
+
+    // If a `custom` group is not explicitly defined, create one from the last
+    // available non-default provider to ensure backward compatibility.
+    if (!chain.rpcUrls.custom) {
+      const nonDefaultKeys = Object.keys(chain.rpcUrls).filter(
+        (key) => key !== 'default',
+      )
+
+      if (nonDefaultKeys.length > 0) {
+        const lastProviderKey = nonDefaultKeys[nonDefaultKeys.length - 1]
+        chain.rpcUrls.custom = chain.rpcUrls[lastProviderKey]
+      }
+    }
+
     return chain
   }
 

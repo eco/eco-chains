@@ -14,6 +14,7 @@ describe('Eco Chains', () => {
     mantaKey: 'manta_key_789',
     curtisKey: 'curtis_key_xyz',
     quickNodeKey: 'quick_node_key_456',
+    infuraKey: 'infura_key_abc',
   }
 
   let defaults: any = {},
@@ -21,7 +22,8 @@ describe('Eco Chains', () => {
     infura: any = {},
     manta: any = {},
     curtis: any = {},
-    quickNode: any = {}
+    quickNode: any = {},
+    mixedCustomGroup: any = {}
   beforeEach(() => {
     defaults = {
       http: ['https://etherscan.io/api'],
@@ -51,6 +53,16 @@ describe('Eco Chains', () => {
       ],
       webSocket: [
         'wss://sparkling-wispy-crater.matic.discover.quiknode.pro/${QUICKNODE_API_KEY}',
+      ],
+    }
+    mixedCustomGroup = {
+      http: [
+        'https://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}',
+        'https://mainnet.infura.io/v3/${INFURA_API_KEY}',
+      ],
+      webSocket: [
+        'wss://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}',
+        'wss://mainnet.infura.io/ws/v3/${INFURA_API_KEY}',
       ],
     }
   })
@@ -177,6 +189,63 @@ describe('Eco Chains', () => {
     expect(chain1.rpcUrls).toHaveProperty('custom')
     // The custom group should be set to the QuickNode URLs
     expect(chain1.rpcUrls.custom).toEqual(quickNodeEq)
+  })
+
+  it('should handle a custom group with mixed providers', async () => {
+    const rpcs = getRpcUrls({
+      default: defaults,
+      custom: mixedCustomGroup,
+    })
+    mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+
+    const obj = new EcoChains(config)
+    const chain = obj.getChain(1)
+
+    const expectedCustom = {
+      http: [
+        `https://opt-mainnet.g.alchemy.com/v2/${config.alchemyKey}`,
+        `https://mainnet.infura.io/v3/${config.infuraKey}`,
+      ],
+      webSocket: [
+        `wss://opt-mainnet.g.alchemy.com/v2/${config.alchemyKey}`,
+        `wss://mainnet.infura.io/ws/v3/${config.infuraKey}`,
+      ],
+    }
+
+    expect(chain.rpcUrls.custom).toEqual(expectedCustom)
+    // Also verify default is untouched
+    expect(chain.rpcUrls.default).toEqual(defaults)
+  })
+
+  it('should handle a not overwrite custom group', async () => {
+    const rpcs = getRpcUrls({
+      default: defaults,
+      custom: mixedCustomGroup,
+      alchemy: alchemy,
+    })
+    mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+    const obj = new EcoChains(config)
+    expect(obj).toBeDefined()
+    const chain = obj.getChain(1)
+
+    const expectedCustom = {
+      http: [
+        `https://opt-mainnet.g.alchemy.com/v2/${config.alchemyKey}`,
+        `https://mainnet.infura.io/v3/${config.infuraKey}`,
+      ],
+      webSocket: [
+        `wss://opt-mainnet.g.alchemy.com/v2/${config.alchemyKey}`,
+        `wss://mainnet.infura.io/ws/v3/${config.infuraKey}`,
+      ],
+    }
+
+    const expectedAlchemy = {
+      http: [`https://base-mainnet.g.alchemy.com/v2/${config.alchemyKey}`],
+      webSocket: [`wss://opt-mainnet.g.alchemy.com/v2/${config.alchemyKey}`],
+    }
+
+    expect(chain.rpcUrls.custom).toEqual(expectedCustom)
+    expect(chain.rpcUrls.alchemy).toEqual(expectedAlchemy)
   })
 
   function getRpcUrls(args: any) {
