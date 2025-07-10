@@ -39,6 +39,9 @@ export const helix = /*#__PURE__*/ defineChain({
       address: '0xca11bde05977b3631167028862be2a173976ca11',
       blockCreated: 4286263,
     },
+    metalayerProver: {
+      address: '0x3d529eFAEDb3B999A404c1B8543441aE616cB914',
+    },
     portal: {
       [sourceId]: {
         address: '0x8C3df798e9CA0826Cb9DB3530635aa719EB1E562',

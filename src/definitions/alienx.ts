@@ -1,7 +1,4 @@
-import {
-  alienx as valienx,
-  alienxHalTestnet as valienxHalTestnet,
-} from 'viem/chains'
+import { alienx as valienx } from 'viem/chains'
 import { EcoChain } from '../chain.interface'
 
 /**
@@ -31,6 +28,12 @@ export const alienx: EcoChain = {
       address: '0xca11bde05977b3631167028862be2a173976ca11',
       blockCreated: 2060950,
     },
+    metalayerRouter: {
+      address: '0x09ce71c24ee2098e351c0cf2dc6431b414d247f3',
+    },
+    metalayerProver: {
+      address: '0x3d529eFAEDb3B999A404c1B8543441aE616cB914',
+    },
   },
   sourceId,
   isCalderaChain: true,
@@ -39,33 +42,3 @@ export const alienx: EcoChain = {
     USDT: '0x486bee264E0F6EB9A1d5947F5FCB097C5378c8E3',
   },
 }
-
-/**
- * AlienX Hal Testnet chain configuration
- * Extends viem's AlienX Hal Testnet configuration with Eco-specific RPC URLs and contract addresses
- * Includes Hyperlane Mailbox contract configuration for the testnet
- */
-
-// settlement chain
-const testnetSourceId = 11155111 // Ethereum Sepolia
-
-export const alienxHalTestnet: EcoChain = {
-  ...valienxHalTestnet,
-  rpcUrls: {
-    ...valienxHalTestnet.rpcUrls,
-    caldera: {
-      http: ['https://hal.hub.caldera.xyz/'],
-      webSocket: ['wss://hal.hub.caldera.xyz/ws'],
-    },
-  },
-  contracts: {
-    ...valienxHalTestnet.contracts,
-    hyperlaneMailbox: {
-      address: '0x0000000000000000000000000000000000000000', // TBD
-    },
-  },
-  sourceId: testnetSourceId,
-  isCalderaChain: true,
-}
-
-// TODO no hyperlane mailbox
