@@ -1,6 +1,5 @@
 import {
   alienx,
-  alienxHalTestnet,
   ape,
   appchain,
   arbitrum,
@@ -42,7 +41,6 @@ import { EcoChain } from './chain.interface'
  */
 export const EcoRoutesChains = [
   alienx,
-  alienxHalTestnet,
   ape,
   appchain,
   arbitrum,

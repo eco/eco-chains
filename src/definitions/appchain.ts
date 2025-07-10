@@ -32,6 +32,9 @@ export const appchain = /*#__PURE__*/ defineChain({
     hyperlaneMailbox: {
       address: '0x3a464f746D23Ab22155710f44dB16dcA53e0775E',
     },
+    metalayerProver: {
+      address: '0x3d529eFAEDb3B999A404c1B8543441aE616cB914',
+    },
   },
   sourceId,
   isCalderaChain: true,

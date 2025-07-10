@@ -28,6 +28,9 @@ export const inEVM: EcoChain = {
       address: '0xca11bde05977b3631167028862be2a173976ca11',
       blockCreated: 118606,
     },
+    metalayerProver: {
+      address: '0x3d529eFAEDb3B999A404c1B8543441aE616cB914',
+    },
   },
   sourceId,
   isCalderaChain: true,
