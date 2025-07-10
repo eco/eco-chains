@@ -1,3 +1,11 @@
+## [1.0.41](https://github.com/eco/eco-chains/compare/v1.0.40...v1.0.41) (2025-07-10)
+
+
+### Bug Fixes
+
+* adding or updating alienx, worldchain, bsc, and sonic. removing the alienx sepolia as no hper or meta prover exists there ([#75](https://github.com/eco/eco-chains/issues/75)) ([2c992ac](https://github.com/eco/eco-chains/commit/2c992ac173b58756967bac9ad13aebd1815183a3))
+* updating the chain.json file for new chains ([#76](https://github.com/eco/eco-chains/issues/76)) ([8866bc9](https://github.com/eco/eco-chains/commit/8866bc9be86e5836253ce277a2f4fc0c706aac25))
+
 ## [1.0.40](https://github.com/eco/eco-chains/compare/v1.0.39...v1.0.40) (2025-06-26)
 
 
