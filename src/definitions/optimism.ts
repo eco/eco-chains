@@ -5,9 +5,15 @@ export const optimism: EcoChain = {
   ...vop,
   rpcUrls: {
     ...vop.rpcUrls,
-    alchemy: {
-      http: ['https://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
-      webSocket: ['wss://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+    custom: {
+      http: [
+        'https://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}',
+        'https://optimism-mainnet.infura.io/v3/${INFURA_API_KEY}',
+      ],
+      webSocket: [
+        'wss://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}',
+        'wss://optimism-mainnet.infura.io/ws/v3/${INFURA_API_KEY}',
+      ],
     },
   },
   contracts: {
@@ -29,9 +35,15 @@ export const optimismSepolia: EcoChain = {
   ...vops,
   rpcUrls: {
     ...vops.rpcUrls,
-    alchemy: {
-      http: ['https://opt-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
-      webSocket: ['wss://opt-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+    custom: {
+      http: [
+        'https://opt-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}',
+        'https://optimism-sepolia.infura.io/v3/${INFURA_API_KEY}',
+      ],
+      webSocket: [
+        'wss://opt-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}',
+        'wss://optimism-sepolia.infura.io/v3/${INFURA_API_KEY}',
+      ],
     },
   },
   contracts: {
