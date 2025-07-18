@@ -47,11 +47,6 @@
     "url": "https://worldchain-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
     "mailbox": "0x2f2aFaE1139Ce54feFC03593FeE8AB2aDF4a85A7"
   },
-  "999": {
-    "url": "https://rpc.hyperliquid.xyz/evm",
-    "mailbox": "0x3a464f746D23Ab22155710f44dB16dcA53e0775E",
-    "gasMultiplier": 2
-  },
   "1992": {
     "url": "https://sanko-arb-sepolia.rpc.caldera.xyz/http",
     "metaProver": true
