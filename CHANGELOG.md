@@ -1,3 +1,10 @@
+## [1.0.43](https://github.com/eco/eco-chains/compare/v1.0.42...v1.0.43) (2025-07-18)
+
+
+### Bug Fixes
+
+* trigger patch release for appchain meta updates ([7121f50](https://github.com/eco/eco-chains/commit/7121f50f46a0dbf9e3561e75a61ff6a5f4d43b33))
+
 ## [1.0.42](https://github.com/eco/eco-chains/compare/v1.0.41...v1.0.42) (2025-07-18)
 
 
