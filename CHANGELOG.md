@@ -1,3 +1,10 @@
+## [1.0.45](https://github.com/eco/eco-chains/compare/v1.0.44...v1.0.45) (2025-07-18)
+
+
+### Bug Fixes
+
+* remove hyperevm ([1a3c742](https://github.com/eco/eco-chains/commit/1a3c742158a393530115ceb6619d62b32de4b5ae))
+
 ## [1.0.44](https://github.com/eco/eco-chains/compare/v1.0.43...v1.0.44) (2025-07-18)
 
 
