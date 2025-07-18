@@ -1,3 +1,10 @@
+## [1.0.44](https://github.com/eco/eco-chains/compare/v1.0.43...v1.0.44) (2025-07-18)
+
+
+### Bug Fixes
+
+* add hyperevm and gas multiplier ([#81](https://github.com/eco/eco-chains/issues/81)) ([c964a8e](https://github.com/eco/eco-chains/commit/c964a8e566ec1d8db9c0aca932e09521bae394eb))
+
 ## [1.0.43](https://github.com/eco/eco-chains/compare/v1.0.42...v1.0.43) (2025-07-18)
 
 
