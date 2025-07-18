@@ -49,7 +49,8 @@
   },
   "999": {
     "url": "https://rpc.hyperliquid.xyz/evm",
-    "mailbox": "0x3a464f746D23Ab22155710f44dB16dcA53e0775E"
+    "mailbox": "0x3a464f746D23Ab22155710f44dB16dcA53e0775E",
+    "gasMultiplier": 2
   },
   "1992": {
     "url": "https://sanko-arb-sepolia.rpc.caldera.xyz/http",
