@@ -1,3 +1,10 @@
+## [1.0.42](https://github.com/eco/eco-chains/compare/v1.0.41...v1.0.42) (2025-07-18)
+
+
+### Bug Fixes
+
+* changing appchain to a meta prover from hyperprover ([#79](https://github.com/eco/eco-chains/issues/79)) ([696f3d6](https://github.com/eco/eco-chains/commit/696f3d6190d18f7de6f666d9dc4c71f8be3d86ed))
+
 ## [1.0.41](https://github.com/eco/eco-chains/compare/v1.0.40...v1.0.41) (2025-07-10)
 
 
