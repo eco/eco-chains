@@ -36,7 +36,7 @@
   },
   "466": {
     "url": "https://rpc.appchain.xyz/http",
-    "mailbox": "0x3a464f746D23Ab22155710f44dB16dcA53e0775E"
+    "metaProver": true
   },
   "478": {
     "url": "https://rpc.form.network/http",
