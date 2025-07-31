@@ -39,8 +39,8 @@ export const rari = /*#__PURE__*/ defineChain({
   sourceId,
   isCalderaChain: true,
   stables: {
-    USDC: '0x46B991aCbD9290967a3A9e02f14895c2F9FE809A',
-    USDT: '0x362FAE9A75B27BBc550aAc28a7c1F96C8D483120',
-    USDCe: '0xFbDa5F676cB37624f28265A144A48B0d6e87d3b6',
+    USDC: { address: '0x46B991aCbD9290967a3A9e02f14895c2F9FE809A', decimals: 6 },
+    USDT: { address: '0x362FAE9A75B27BBc550aAc28a7c1F96C8D483120', decimals: 6 },
+    USDCe: { address: '0xFbDa5F676cB37624f28265A144A48B0d6e87d3b6', decimals: 6 },
   },
 }) as EcoChain

@@ -18,8 +18,8 @@ export const arbitrum: EcoChain = {
   },
   isCalderaChain: false,
   stables: {
-    USDC: '0xaf88d065e77c8cc2239327c5edb3a432268e5831',
-    USDCe: '0xff970a61a04b1ca14834a43f5de4533ebddb5cc8',
-    USDT0: '0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9',
+    USDC: { address: '0xaf88d065e77c8cc2239327c5edb3a432268e5831', decimals: 6 },
+    USDCe: { address: '0xff970a61a04b1ca14834a43f5de4533ebddb5cc8', decimals: 6 },
+    USDT0: { address: '0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9', decimals: 6 },
   },
 }
