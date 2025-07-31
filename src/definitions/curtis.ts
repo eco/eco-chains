@@ -25,6 +25,9 @@ export const curtis: EcoChain = {
   },
   isCalderaChain: true,
   stables: {
-    USDC: { address: '0xE0356B8aD7811dC3e4d61cFD6ac7653e0D31b096', decimals: 6 },
+    USDC: {
+      address: '0xE0356B8aD7811dC3e4d61cFD6ac7653e0D31b096',
+      decimals: 6,
+    },
   },
 }

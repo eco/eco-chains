@@ -35,7 +35,13 @@ export const inEVM: EcoChain = {
   sourceId,
   isCalderaChain: true,
   stables: {
-    USDC: { address: '0x8358D8291e3bEDb04804975eEa0fe9fe0fAfB147', decimals: 6 },
-    USDT: { address: '0x97423A68BAe94b5De52d767a17aBCc54c157c0E5', decimals: 6 },
+    USDC: {
+      address: '0x8358D8291e3bEDb04804975eEa0fe9fe0fAfB147',
+      decimals: 6,
+    },
+    USDT: {
+      address: '0x97423A68BAe94b5De52d767a17aBCc54c157c0E5',
+      decimals: 6,
+    },
   },
 }

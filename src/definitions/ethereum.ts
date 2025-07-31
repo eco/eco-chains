@@ -22,9 +22,18 @@ export const ethereum: EcoChain = {
   },
   isCalderaChain: false,
   stables: {
-    USDC: { address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48', decimals: 6 },
-    USDT: { address: '0xdac17f958d2ee523a2206206994597c13d831ec7', decimals: 6 },
-    oUSDT: { address: '0x1217bfe6c773eec6cc4a38b5dc45b92292b6e189', decimals: 6 },
+    USDC: {
+      address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+      decimals: 6,
+    },
+    USDT: {
+      address: '0xdac17f958d2ee523a2206206994597c13d831ec7',
+      decimals: 6,
+    },
+    oUSDT: {
+      address: '0x1217bfe6c773eec6cc4a38b5dc45b92292b6e189',
+      decimals: 6,
+    },
   },
 }
 

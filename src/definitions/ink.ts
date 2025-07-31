@@ -23,7 +23,13 @@ export const ink: EcoChain = {
   },
   isCalderaChain: false,
   stables: {
-    USDCe: { address: '0xF1815bd50389c46847f0Bda824eC8da914045D14', decimals: 6 },
-    USDT0: { address: '0x0200C29006150606B650577BBE7B6248F58470c1', decimals: 6 },
+    USDCe: {
+      address: '0xF1815bd50389c46847f0Bda824eC8da914045D14',
+      decimals: 6,
+    },
+    USDT0: {
+      address: '0x0200C29006150606B650577BBE7B6248F58470c1',
+      decimals: 6,
+    },
   },
 }

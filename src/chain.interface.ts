@@ -49,7 +49,7 @@ export type EcoChain<
 > = Chain<formatters, custom> & {
   /** Flag indicating if this is a Caldera chain */
   isCalderaChain: boolean
-  stables?: Record<string, Hex>
+  stables?: Record<string, { address: Hex; decimals: number }>
 }
 
 export interface IChainNativeCurrency {

@@ -28,7 +28,7 @@
   },
   "author": "Stoyan Dimitrov<s.dimitrov19@gmail.com>",
   "license": "MIT",
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.14.0",
   "devDependencies": {
     "@eslint/js": "^9.23.0",
     "@semantic-release/changelog": "^6.0.3",

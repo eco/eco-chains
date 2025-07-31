@@ -30,8 +30,14 @@ export const form: EcoChain = {
   },
   isCalderaChain: true,
   stables: {
-    USDC: { address: '0xFBf489bb4783D4B1B2e7D07ba39873Fb8068507D', decimals: 6 },
-    USDT: { address: '0xFA3198ecF05303a6d96E57a45E6c815055D255b1', decimals: 6 },
+    USDC: {
+      address: '0xFBf489bb4783D4B1B2e7D07ba39873Fb8068507D',
+      decimals: 6,
+    },
+    USDT: {
+      address: '0xFA3198ecF05303a6d96E57a45E6c815055D255b1',
+      decimals: 6,
+    },
   },
 }
 

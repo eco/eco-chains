@@ -20,7 +20,13 @@ export const superseed: EcoChain = {
   },
   isCalderaChain: false,
   stables: {
-    USDC: { address: '0xC316C8252B5F2176d0135Ebb0999E99296998F2e', decimals: 6 },
-    oUSDT: { address: '0x1217BfE6c773EEC6cc4A38b5Dc45B92292B6E189', decimals: 6 },
+    USDC: {
+      address: '0xC316C8252B5F2176d0135Ebb0999E99296998F2e',
+      decimals: 6,
+    },
+    oUSDT: {
+      address: '0x1217BfE6c773EEC6cc4A38b5Dc45B92292B6E189',
+      decimals: 6,
+    },
   },
 }

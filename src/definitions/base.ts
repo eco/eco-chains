@@ -23,9 +23,18 @@ export const base: EcoChain = {
   },
   isCalderaChain: false,
   stables: {
-    USDC: { address: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913', decimals: 6 },
-    USDbC: { address: '0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA', decimals: 6 },
-    oUSDT: { address: '0x1217bfe6c773eec6cc4a38b5dc45b92292b6e189', decimals: 6 },
+    USDC: {
+      address: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+      decimals: 6,
+    },
+    USDbC: {
+      address: '0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA',
+      decimals: 6,
+    },
+    oUSDT: {
+      address: '0x1217bfe6c773eec6cc4a38b5dc45b92292b6e189',
+      decimals: 6,
+    },
   },
 }
 /**

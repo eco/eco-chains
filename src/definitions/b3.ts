@@ -30,6 +30,9 @@ export const b3: EcoChain = {
   },
   isCalderaChain: true,
   stables: {
-    USDC: { address: '0x2Af198A85F9AA11cd6042A0596FbF23978514DA3', decimals: 6 },
+    USDC: {
+      address: '0x2Af198A85F9AA11cd6042A0596FbF23978514DA3',
+      decimals: 6,
+    },
   },
 }
