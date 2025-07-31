@@ -130,7 +130,9 @@ export class EcoChains {
    * @param chainID - The ID of the chain to retrieve stables for
    * @returns {Record<string, Hex>} - A record of stablecoin symbols and their addresses for the specified chain
    */
-  getStablesForChain(chainID: number): Record<string, Hex> {
+  getStablesForChain(
+    chainID: number,
+  ): Record<string, { address: Hex; decimals: number }> {
     const chain = this.getChain(chainID)
     return chain.stables || {}
   }

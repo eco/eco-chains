@@ -18,8 +18,17 @@ export const polygon: EcoChain = {
   },
   isCalderaChain: false,
   stables: {
-    USDC: '0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359',
-    USDCe: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
-    USDT: '0xc2132d05d31c914a87c6611c10748aeb04b58e8f',
+    USDC: {
+      address: '0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359',
+      decimals: 6,
+    },
+    USDCe: {
+      address: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
+      decimals: 6,
+    },
+    USDT: {
+      address: '0xc2132d05d31c914a87c6611c10748aeb04b58e8f',
+      decimals: 6,
+    },
   },
 }
