@@ -1,4 +1,4 @@
-import { extractChain, Hex } from 'viem'
+import { extractChain, fallback, Hex, http, Transport, webSocket } from 'viem'
 import { EcoRoutesChains, EcoChain } from './index'
 
 /**
@@ -22,6 +22,14 @@ export const ConfigRegex = {
 export type EcoChainConfigs = {
   // eslint-disable-next-line no-unused-vars
   [key in keyof typeof ConfigRegex]?: string
+}
+
+/**
+ * Options for RPC URL or Transport retrieval
+ * isWebSocketEnabled: Flag to enable or disable WebSocket URLs
+ */
+export type RpcOptions = {
+  isWebSocketEnabled?: boolean // Flag to enable or disable WebSocket URLs
 }
 
 /**
@@ -135,6 +143,69 @@ export class EcoChains {
   ): Record<string, { address: Hex; decimals: number }> {
     const chain = this.getChain(chainID)
     return chain.stables || {}
+  }
+
+  /**
+   * Retrieves RPC URLs for a specific chain, optionally filtering by WebSocket support
+   *
+   * @param chainID - The ID of the chain to retrieve RPC URLs for
+   * @param opts - Options for filtering RPC URLs
+   * @returns {string[]} - An array of RPC URLs for the specified chain
+   */
+  getRpcUrlsForChain(chainID: number, opts: RpcOptions = {}): string[] {
+    const { isWebSocketEnabled = true } = opts
+    const rpcChain = this.getChain(chainID)
+    const custom = rpcChain.rpcUrls.custom
+    const def = rpcChain.rpcUrls.default
+
+    let rpcUrls: string[] = []
+    if (isWebSocketEnabled) {
+      rpcUrls.push(...(custom?.webSocket || []), ...(def?.webSocket || []))
+    }
+    rpcUrls.push(...(custom?.http || []), ...(def?.http || []))
+
+    return rpcUrls
+  }
+
+  /**
+   * Retrieves transports for a specific chain, creating WebSocket or HTTP transports
+   * based on the RPC URLs available for that chain.
+   *
+   * @param chainID - The ID of the chain to retrieve transports for
+   * @param opts - Options for filtering RPC URLs
+   * @returns {Transport[]} - An array of Transport objects for the specified chain
+   */
+  getTransportsForChain(chainID: number, opts: RpcOptions = {}): Transport[] {
+    const rpcUrls = this.getRpcUrlsForChain(chainID, opts)
+    return rpcUrls.reduce<Transport[]>((acc, url) => {
+      if (url.startsWith('ws://') || url.startsWith('wss://')) {
+        acc.push(webSocket(url))
+      } else if (url.startsWith('http://') || url.startsWith('https://')) {
+        acc.push(http(url))
+      }
+      return acc
+    }, [])
+  }
+
+  /**
+   * Retrieves transports for all chains, creating a fallback transport for each chain
+   * based on the available RPC URLs.
+   *
+   * @param chains - An array of EcoChain objects to retrieve transports for
+   * @param opts - Options for filtering RPC URLs
+   * @returns {Record<number, Transport>} - A record mapping chain IDs to Transport objects
+   */
+  getTransports(
+    chains: EcoChain[],
+    opts: RpcOptions = {},
+  ): Record<number, Transport> {
+    return chains.reduce<Record<number, Transport>>((acc, chain) => {
+      const transports = this.getTransportsForChain(chain.id, opts)
+      if (transports.length > 0) {
+        acc[chain.id] = fallback(transports)
+      }
+      return acc
+    }, {})
   }
 
   /**
