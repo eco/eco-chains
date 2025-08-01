@@ -1,4 +1,4 @@
-import { extractChain, fallback, Hex, http, Transport, TransportConfig, webSocket } from 'viem'
+import { extractChain, fallback, Hex, http, Transport, webSocket } from 'viem'
 import { EcoRoutesChains, EcoChain } from './index'
 
 /**
@@ -195,7 +195,10 @@ export class EcoChains {
    * @param opts - Options for filtering RPC URLs
    * @returns {Record<number, Transport>} - A record mapping chain IDs to Transport objects
    */
-  getTransports(chains: EcoChain[], opts: RpcOptions = {}): Record<number, Transport> {
+  getTransports(
+    chains: EcoChain[],
+    opts: RpcOptions = {},
+  ): Record<number, Transport> {
     return chains.reduce<Record<number, Transport>>((acc, chain) => {
       const transports = this.getTransportsForChain(chain.id, opts)
       if (transports.length > 0) {
