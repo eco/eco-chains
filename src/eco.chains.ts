@@ -145,6 +145,13 @@ export class EcoChains {
     return chain.stables || {}
   }
 
+  /**
+   * Retrieves RPC URLs for a specific chain, optionally filtering by WebSocket support
+   *
+   * @param chainID - The ID of the chain to retrieve RPC URLs for
+   * @param opts - Options for filtering RPC URLs
+   * @returns {string[]} - An array of RPC URLs for the specified chain
+   */
   getRpcUrlsForChain(chainID: number, opts: RpcOptions): string[] {
     const { isWebSocketEnabled = true } = opts
     const rpcChain = this.getChain(chainID)
@@ -160,6 +167,14 @@ export class EcoChains {
     return rpcUrls
   }
 
+  /**
+   * Retrieves transports for a specific chain, creating WebSocket or HTTP transports
+   * based on the RPC URLs available for that chain.
+   *
+   * @param chainID - The ID of the chain to retrieve transports for
+   * @param opts - Options for filtering RPC URLs
+   * @returns {Transport[]} - An array of Transport objects for the specified chain
+   */
   getTransportsForChain(chainID: number, opts: RpcOptions): Transport[] {
     const rpcUrls = this.getRpcUrlsForChain(chainID, opts)
     return rpcUrls.reduce<Transport[]>((acc, url) => {
@@ -172,6 +187,14 @@ export class EcoChains {
     }, [])
   }
 
+  /**
+   * Retrieves transports for all chains, creating a fallback transport for each chain
+   * based on the available RPC URLs.
+   *
+   * @param chains - An array of EcoChain objects to retrieve transports for
+   * @param opts - Options for filtering RPC URLs
+   * @returns {Record<number, Transport>} - A record mapping chain IDs to Transport objects
+   */
   getTransports(chains: EcoChain[], opts: RpcOptions): Record<number, Transport> {
     return chains.reduce<Record<number, Transport>>((acc, chain) => {
       const transports = this.getTransportsForChain(chain.id, opts)
