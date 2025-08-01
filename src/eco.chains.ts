@@ -152,7 +152,7 @@ export class EcoChains {
    * @param opts - Options for filtering RPC URLs
    * @returns {string[]} - An array of RPC URLs for the specified chain
    */
-  getRpcUrlsForChain(chainID: number, opts: RpcOptions): string[] {
+  getRpcUrlsForChain(chainID: number, opts: RpcOptions = {}): string[] {
     const { isWebSocketEnabled = true } = opts
     const rpcChain = this.getChain(chainID)
     const custom = rpcChain.rpcUrls.custom
@@ -175,7 +175,7 @@ export class EcoChains {
    * @param opts - Options for filtering RPC URLs
    * @returns {Transport[]} - An array of Transport objects for the specified chain
    */
-  getTransportsForChain(chainID: number, opts: RpcOptions): Transport[] {
+  getTransportsForChain(chainID: number, opts: RpcOptions = {}): Transport[] {
     const rpcUrls = this.getRpcUrlsForChain(chainID, opts)
     return rpcUrls.reduce<Transport[]>((acc, url) => {
       if (url.startsWith('ws://') || url.startsWith('wss://')) {
@@ -195,7 +195,7 @@ export class EcoChains {
    * @param opts - Options for filtering RPC URLs
    * @returns {Record<number, Transport>} - A record mapping chain IDs to Transport objects
    */
-  getTransports(chains: EcoChain[], opts: RpcOptions): Record<number, Transport> {
+  getTransports(chains: EcoChain[], opts: RpcOptions = {}): Record<number, Transport> {
     return chains.reduce<Record<number, Transport>>((acc, chain) => {
       const transports = this.getTransportsForChain(chain.id, opts)
       if (transports.length > 0) {
