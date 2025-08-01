@@ -1,4 +1,4 @@
-import { extractChain, Hex } from 'viem'
+import { extractChain, fallback, Hex, http, Transport, TransportConfig, webSocket } from 'viem'
 import { EcoRoutesChains, EcoChain } from './index'
 
 /**
@@ -22,6 +22,14 @@ export const ConfigRegex = {
 export type EcoChainConfigs = {
   // eslint-disable-next-line no-unused-vars
   [key in keyof typeof ConfigRegex]?: string
+}
+
+/**
+ * Options for RPC URL or Transport retrieval
+ * isWebSocketEnabled: Flag to enable or disable WebSocket URLs
+ */
+export type RpcOptions = {
+  isWebSocketEnabled?: boolean // Flag to enable or disable WebSocket URLs
 }
 
 /**
@@ -135,6 +143,43 @@ export class EcoChains {
   ): Record<string, { address: Hex; decimals: number }> {
     const chain = this.getChain(chainID)
     return chain.stables || {}
+  }
+
+  getRpcUrlsForChain(chainID: number, opts: RpcOptions): string[] {
+    const { isWebSocketEnabled = true } = opts
+    const rpcChain = this.getChain(chainID)
+    const custom = rpcChain.rpcUrls.custom
+    const def = rpcChain.rpcUrls.default
+
+    let rpcUrls: string[] = []
+    if (isWebSocketEnabled) {
+      rpcUrls.push(...(custom?.webSocket || []), ...(def?.webSocket || []))
+    }
+    rpcUrls.push(...(custom?.http || []), ...(def?.http || []))
+
+    return rpcUrls
+  }
+
+  getTransportsForChain(chainID: number, opts: RpcOptions): Transport[] {
+    const rpcUrls = this.getRpcUrlsForChain(chainID, opts)
+    return rpcUrls.reduce<Transport[]>((acc, url) => {
+      if (url.startsWith('ws://') || url.startsWith('wss://')) {
+        acc.push(webSocket(url))
+      } else if (url.startsWith('http://') || url.startsWith('https://')) {
+        acc.push(http(url))
+      }
+      return acc
+    }, [])
+  }
+
+  getTransports(chains: EcoChain[], opts: RpcOptions): Record<number, Transport> {
+    return chains.reduce<Record<number, Transport>>((acc, chain) => {
+      const transports = this.getTransportsForChain(chain.id, opts)
+      if (transports.length > 0) {
+        acc[chain.id] = fallback(transports)
+      }
+      return acc
+    }, {})
   }
 
   /**
