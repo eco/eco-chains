@@ -19,10 +19,7 @@ export const ConfigRegex = {
  * Keys correspond to provider names defined in ConfigRegex
  * Values are the API keys to be inserted into the RPC URLs
  */
-export type EcoChainConfigs = {
-  // eslint-disable-next-line no-unused-vars
-  [key in keyof typeof ConfigRegex]?: string
-}
+export type EcoChainConfigs = Partial<Record<keyof typeof ConfigRegex, string>>
 
 /**
  * Options for RPC URL or Transport retrieval
