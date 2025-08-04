@@ -46,6 +46,40 @@ export class EcoChains {
   }
 
   /**
+   * Processes an array of RPC URLs, replacing API key placeholders and filtering out
+   * URLs that require API keys but don't have them configured.
+   *
+   * @param urls - Array of RPC URLs to process
+   * @returns Array of processed URLs with API keys replaced and unauthenticated URLs filtered out
+   */
+  processRpcUrls(urls: readonly string[]): string[] {
+    const processedUrls: string[] = []
+
+    urls.forEach((url) => {
+      let newUrl = url
+      let shouldIncludeUrl = true
+
+      Object.entries(ConfigRegex).forEach(([key, regex]) => {
+        const apiKey = this.configs[key as keyof EcoChainConfigs]
+        if (regex.test(url)) {
+          if (apiKey) {
+            newUrl = newUrl.replace(regex, apiKey)
+          } else {
+            // URL requires API key but no key was provided, exclude it
+            shouldIncludeUrl = false
+          }
+        }
+      })
+
+      if (shouldIncludeUrl) {
+        processedUrls.push(newUrl)
+      }
+    })
+
+    return processedUrls
+  }
+
+  /**
    * Retrieves the chain configuration for a given chain ID, replacing API keys
    * in the RPC URLs based on the provided regex patterns.
    *
@@ -75,41 +109,15 @@ export class EcoChains {
     const newRpcUrls: EcoChain['rpcUrls'] = { ...chain.rpcUrls }
 
     // Iterate over each RPC URL group in the chain
-    Object.entries(newRpcUrls).forEach(([, rpcUrlGroup]) => {
-      // Create new arrays for http and webSocket URLs
-      const newHttp: string[] = []
-      const newWebSocket: string[] = []
-
-      // Replace placeholders in http URLs
+    Object.values(newRpcUrls).forEach((rpcUrlGroup) => {
+      // Process http URLs
       if (rpcUrlGroup.http) {
-        rpcUrlGroup.http.forEach((url) => {
-          let newUrl = url
-          Object.entries(ConfigRegex).forEach(([key, regex]) => {
-            // @ts-expect-error ignore default
-            const apiKey = this.configs[key]
-            if (apiKey) {
-              newUrl = newUrl.replace(regex, apiKey)
-            }
-          })
-          newHttp.push(newUrl)
-        })
-        rpcUrlGroup.http = newHttp
+        rpcUrlGroup.http = this.processRpcUrls(rpcUrlGroup.http)
       }
 
-      // Replace placeholders in webSocket URLs
+      // Process webSocket URLs
       if (rpcUrlGroup.webSocket) {
-        rpcUrlGroup.webSocket.forEach((url) => {
-          let newUrl = url
-          Object.entries(ConfigRegex).forEach(([key, regex]) => {
-            // @ts-expect-error ignore default
-            const apiKey = this.configs[key]
-            if (apiKey) {
-              newUrl = newUrl.replace(regex, apiKey)
-            }
-          })
-          newWebSocket.push(newUrl)
-        })
-        rpcUrlGroup.webSocket = newWebSocket
+        rpcUrlGroup.webSocket = this.processRpcUrls(rpcUrlGroup.webSocket)
       }
     })
 
