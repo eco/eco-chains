@@ -1,4 +1,7 @@
 const mockViemExtract = jest.fn()
+const mockHttp = jest.fn()
+const mockWebSocket = jest.fn()
+const mockFallback = jest.fn()
 import { cloneDeep } from 'lodash'
 import { EcoChains } from '../eco.chains'
 
@@ -6,6 +9,9 @@ jest.mock('viem', () => {
   return {
     ...jest.requireActual('viem'),
     extractChain: mockViemExtract,
+    http: mockHttp,
+    webSocket: mockWebSocket,
+    fallback: mockFallback,
   }
 })
 describe('Eco Chains', () => {
@@ -25,6 +31,12 @@ describe('Eco Chains', () => {
     quickNode: any = {},
     mixedCustomGroup: any = {}
   beforeEach(() => {
+    // Reset all mocks
+    mockViemExtract.mockReset()
+    mockHttp.mockReset()
+    mockWebSocket.mockReset()
+    mockFallback.mockReset()
+
     defaults = {
       http: ['https://etherscan.io/api'],
       webSocket: ['wss://etherscan.io/api'],
@@ -246,6 +258,193 @@ describe('Eco Chains', () => {
 
     expect(chain.rpcUrls.custom).toEqual(expectedCustom)
     expect(chain.rpcUrls.alchemy).toEqual(expectedAlchemy)
+  })
+
+  it('should process URLs with API keys when keys are provided', () => {
+    const obj = new EcoChains(config)
+    const urls = [
+      'https://base-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}',
+      'https://base-mainnet.g.infura.io/v3/${INFURA_API_KEY}',
+      'https://etherscan.io/api',
+    ]
+    const processed = obj.processRpcUrls(urls)
+    expect(processed).toEqual([
+      `https://base-mainnet.g.alchemy.com/v2/${config.alchemyKey}`,
+      `https://base-mainnet.g.infura.io/v3/${config.infuraKey}`,
+      'https://etherscan.io/api',
+    ])
+  })
+
+  it('should not return urls where api key is required but not provided', () => {
+    const obj = new EcoChains({ alchemyKey: config.alchemyKey })
+    const urls = [
+      'https://base-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}',
+      'https://base-mainnet.g.infura.io/v3/${INFURA_API_KEY}',
+      'https://etherscan.io/api',
+    ]
+    const processed = obj.processRpcUrls(urls)
+    expect(processed).toEqual([
+      `https://base-mainnet.g.alchemy.com/v2/${config.alchemyKey}`,
+      'https://etherscan.io/api',
+    ])
+  })
+
+  it('should return combined RPC URLs with WebSocket enabled by default', () => {
+    const rpcs = getRpcUrls({ default: defaults, alchemy })
+    mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+    const obj = new EcoChains(config)
+    
+    const urls = obj.getRpcUrlsForChain(1)
+    
+    expect(urls).toContain(`wss://opt-mainnet.g.alchemy.com/v2/${config.alchemyKey}`)
+    expect(urls).toContain('wss://etherscan.io/api')
+    expect(urls).toContain(`https://base-mainnet.g.alchemy.com/v2/${config.alchemyKey}`)
+    expect(urls).toContain('https://etherscan.io/api')
+  })
+
+  it('should filter out websocket urls when websocket is disabled', () => {
+    const rpcs = getRpcUrls({ default: defaults, alchemy })
+    mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+    const obj = new EcoChains(config)
+    
+    const urls = obj.getRpcUrlsForChain(1, { isWebSocketEnabled: false })
+    
+    expect(urls).not.toContain(`wss://opt-mainnet.g.alchemy.com/v2/${config.alchemyKey}`)
+    expect(urls).not.toContain('wss://etherscan.io/api')
+    expect(urls).toContain(`https://base-mainnet.g.alchemy.com/v2/${config.alchemyKey}`)
+    expect(urls).toContain('https://etherscan.io/api')
+  })
+
+  it('should prioritize custom RPC URLs over default', () => {
+    const rpcs = getRpcUrls({ default: defaults, alchemy })
+    mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+    const obj = new EcoChains(config)
+    
+    const urls = obj.getRpcUrlsForChain(1)
+    
+    // Custom URLs should come first
+    const alchemyHttpIndex = urls.indexOf(`https://base-mainnet.g.alchemy.com/v2/${config.alchemyKey}`)
+    const defaultHttpIndex = urls.indexOf('https://etherscan.io/api')
+    expect(alchemyHttpIndex).toBeLessThan(defaultHttpIndex)
+  })
+
+  it('should create http transports for https URLs', () => {
+    const rpcs = getRpcUrls({ 
+      default: {
+        http: ['https://etherscan.io/api']
+      }
+    })
+    mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+    mockHttp.mockReturnValue('http-transport')
+    const obj = new EcoChains(config)
+    
+    const transports = obj.getTransportsForChain(1, { isWebSocketEnabled: false })
+    
+    expect(mockHttp).toHaveBeenCalledWith('https://etherscan.io/api')
+    expect(transports).toEqual(['http-transport'])
+  })
+
+  it('should create websocket transports for wss URLs', () => {
+    const rpcs = getRpcUrls({ 
+      default: {
+        webSocket: ['wss://etherscan.io/api']
+      }
+    })
+    mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+    mockWebSocket.mockReturnValue('websocket-transport')
+    const obj = new EcoChains(config)
+    
+    const transports = obj.getTransportsForChain(1)
+    
+    expect(mockWebSocket).toHaveBeenCalledWith('wss://etherscan.io/api')
+    expect(transports).toEqual(['websocket-transport'])
+  })
+
+  it('should handle mixed protocol URLs in transports', () => {
+    const rpcs = getRpcUrls({ 
+      default: {
+        http: ['http://example.com', 'https://secure.example.com'],
+        webSocket: ['ws://example.com', 'wss://secure.example.com']
+      }
+    })
+    mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+    mockHttp.mockReturnValue('http-transport')
+    mockWebSocket.mockReturnValue('websocket-transport')
+    const obj = new EcoChains(config)
+    
+    const transports = obj.getTransportsForChain(1)
+    
+    expect(mockWebSocket).toHaveBeenCalledWith('ws://example.com')
+    expect(mockWebSocket).toHaveBeenCalledWith('wss://secure.example.com')
+    expect(mockHttp).toHaveBeenCalledWith('http://example.com')
+    expect(mockHttp).toHaveBeenCalledWith('https://secure.example.com')
+    expect(transports).toHaveLength(4)
+  })
+
+  it('should create fallback transports for multiple chains', () => {
+    const rpcs = getRpcUrls({ 
+      default: {
+        http: ['https://etherscan.io/api']
+      }
+    })
+    mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+    mockHttp.mockReturnValue('http-transport')
+    mockFallback.mockReturnValue('fallback-transport')
+    const obj = new EcoChains(config)
+    
+    const chains = [
+      { id: 1, name: 'Ethereum' },
+      { id: 137, name: 'Polygon' }
+    ] as any[]
+    
+    const transports = obj.getTransports(chains)
+    
+    expect(mockFallback).toHaveBeenCalledTimes(2)
+    expect(transports).toEqual({
+      1: 'fallback-transport',
+      137: 'fallback-transport'
+    })
+  })
+
+  it('should skip chains with no available transports in getTransports', () => {
+    const obj = new EcoChains({}) // No API keys
+    
+    // Mock a chain that would have URLs requiring API keys
+    const rpcsWithKeys = getRpcUrls({ 
+      default: {
+        http: ['https://base-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}']
+      }
+    })
+    mockViemExtract.mockReturnValue(cloneDeep(rpcsWithKeys))
+    
+    const chains = [{ id: 1, name: 'Ethereum' }] as any[]
+    
+    const transports = obj.getTransports(chains)
+    
+    expect(mockFallback).not.toHaveBeenCalled()
+    expect(transports).toEqual({})
+  })
+
+  it('should pass websocket options to getTransportsForChain in getTransports', () => {
+    const rpcs = getRpcUrls({ 
+      default: {
+        http: ['https://etherscan.io/api'],
+        webSocket: ['wss://etherscan.io/api']
+      }
+    })
+    mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+    mockHttp.mockReturnValue('http-transport')
+    mockFallback.mockReturnValue('fallback-transport')
+    const obj = new EcoChains(config)
+    
+    const chains = [{ id: 1, name: 'Ethereum' }] as any[]
+    
+    const transports = obj.getTransports(chains, { isWebSocketEnabled: false })
+    
+    expect(mockHttp).toHaveBeenCalledWith('https://etherscan.io/api')
+    expect(mockWebSocket).not.toHaveBeenCalled()
+    expect(mockFallback).toHaveBeenCalledWith(['http-transport'])
+    expect(transports).toEqual({ 1: 'fallback-transport' })
   })
 
   function getRpcUrls(args: any) {
