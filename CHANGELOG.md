@@ -1,3 +1,10 @@
+## [1.0.47](https://github.com/eco/eco-chains/compare/v1.0.46...v1.0.47) (2025-08-06)
+
+
+### Bug Fixes
+
+* release ([a596361](https://github.com/eco/eco-chains/commit/a596361caecc8f865710832fde0c2f9b8b3a1208))
+
 ## [1.0.46](https://github.com/eco/eco-chains/compare/v1.0.45...v1.0.46) (2025-07-31)
 
 
