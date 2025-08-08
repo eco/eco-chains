@@ -18,6 +18,12 @@ export const hyperevm: EcoChain = {
     symbol: 'HYPE',
   },
   rpcUrls: {
+    alchemy: {
+      http: ['https://hyperliquid-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: [
+        'wss://hyperliquid-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}',
+      ],
+    },
     default: {
       http: ['https://rpc.hyperliquid.xyz/evm'],
     },

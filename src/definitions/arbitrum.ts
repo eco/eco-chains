@@ -9,6 +9,10 @@ export const arbitrum: EcoChain = {
       http: ['https://arb-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
       webSocket: ['wss://arb-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
+    infura: {
+      http: ['https://arbitrum-mainnet.infura.io/v3/${INFURA_API_KEY}'],
+      webSocket: ['wss://arbitrum-mainnet.infura.io/ws/v3/${INFURA_API_KEY}'],
+    },
   },
   contracts: {
     ...varbitrum.contracts,

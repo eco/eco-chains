@@ -5,15 +5,13 @@ export const optimism: EcoChain = {
   ...vop,
   rpcUrls: {
     ...vop.rpcUrls,
-    custom: {
-      http: [
-        'https://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}',
-        'https://optimism-mainnet.infura.io/v3/${INFURA_API_KEY}',
-      ],
-      webSocket: [
-        'wss://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}',
-        'wss://optimism-mainnet.infura.io/ws/v3/${INFURA_API_KEY}',
-      ],
+    alchemy: {
+      http: ['https://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+    },
+    infura: {
+      http: ['https://optimism-mainnet.infura.io/v3/${INFURA_API_KEY}'],
+      webSocket: ['wss://optimism-mainnet.infura.io/ws/v3/${INFURA_API_KEY}'],
     },
   },
   contracts: {

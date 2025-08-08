@@ -9,6 +9,10 @@ export const mantle: EcoChain = {
       http: ['https://mantle-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
       webSocket: ['wss://mantle-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
+    infura: {
+      http: ['https://mantle-mainnet.infura.io/v3/${INFURA_API_KEY}'],
+      webSocket: ['wss://mantle-mainnet.infura.io/ws/v3/${INFURA_API_KEY}'],
+    },
   },
   contracts: {
     ...vmantle.contracts,
