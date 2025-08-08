@@ -9,6 +9,9 @@ export const unichain: EcoChain = {
       http: ['https://unichain-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
       webSocket: ['wss://unichain-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
+    infura: {
+      http: ['https://unichain-mainnet.infura.io/v3/${INFURA_API_KEY}'],
+    },
   },
   isCalderaChain: false,
   stables: {

@@ -13,6 +13,10 @@ export const ethereum: EcoChain = {
       http: ['https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
       webSocket: ['wss://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
+    infura: {
+      http: ['https://mainnet.infura.io/v3/${INFURA_API_KEY}'],
+      webSocket: ['wss://mainnet.infura.io/ws/v3/${INFURA_API_KEY}'],
+    },
   },
   contracts: {
     ...vmainnet.contracts,

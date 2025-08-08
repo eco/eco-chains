@@ -9,6 +9,10 @@ export const polygon: EcoChain = {
       http: ['https://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
       webSocket: ['wss://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
+    infura: {
+      http: ['https://polygon-mainnet.infura.io/v3/${INFURA_API_KEY}'],
+      webSocket: ['wss://polygon-mainnet.infura.io/ws/v3/${INFURA_API_KEY}'],
+    },
   },
   contracts: {
     ...vpolygon.contracts,
