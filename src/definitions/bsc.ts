@@ -18,6 +18,10 @@ export const bsc: EcoChain = {
       http: ['https://bnb-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
       webSocket: ['wss://bnb-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
+    infura: {
+      http: ['https://bsc-mainnet.infura.io/v3/${INFURA_API_KEY}'],
+      webSocket: ['wss://bsc-mainnet.infura.io/ws/v3/${INFURA_API_KEY}'],
+    },
   },
   contracts: {
     ...vbsc.contracts,
