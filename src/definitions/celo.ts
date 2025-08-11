@@ -12,14 +12,6 @@ export const celo: EcoChain = {
     infura: {
       http: ['https://celo-mainnet.infura.io/v3/${INFURA_API_KEY}'],
     },
-    quicknode: {
-      http: [
-        'https://cold-polished-violet.celo-mainnet.quiknode.pro/${QUICKNODE_API_KEY}',
-      ],
-      webSocket: [
-        'wss://cold-polished-violet.celo-mainnet.quiknode.pro/${QUICKNODE_API_KEY}',
-      ],
-    },
   },
   contracts: {
     ...vcelo.contracts,
