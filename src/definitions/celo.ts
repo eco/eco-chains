@@ -5,13 +5,12 @@ export const celo: EcoChain = {
   ...vcelo,
   rpcUrls: {
     ...vcelo.rpcUrls,
-    quicknode: {
-      http: [
-        'https://cold-polished-violet.celo-mainnet.quiknode.pro/${QUICKNODE_API_KEY}',
-      ],
-      webSocket: [
-        'wss://cold-polished-violet.celo-mainnet.quiknode.pro/${QUICKNODE_API_KEY}',
-      ],
+    alchemy: {
+      http: ['https://celo-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://celo-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+    },
+    infura: {
+      http: ['https://celo-mainnet.infura.io/v3/${INFURA_API_KEY}'],
     },
   },
   contracts: {

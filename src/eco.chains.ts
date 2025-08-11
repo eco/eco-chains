@@ -10,7 +10,6 @@ export const ConfigRegex = {
   alchemyKey: /\$\{ALCHEMY_API_KEY\}/, // Matches Alchemy API key placeholder
   infuraKey: /\$\{INFURA_API_KEY\}/, // Matches Infura API key placeholder
   mantaKey: /\$\{MANTA_API_KEY\}/, // Matches Manta API key placeholder
-  quickNodeKey: /\$\{QUICKNODE_API_KEY\}/, // Matches MQUICKNODE_API_KEY key placeholder
   curtisKey: /\$\{CURTIS_API_KEY\}/, // Matches Curtis API key placeholder
 }
 

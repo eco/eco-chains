@@ -19,7 +19,6 @@ describe('Eco Chains', () => {
     alchemyKey: 'api_key_123',
     mantaKey: 'manta_key_789',
     curtisKey: 'curtis_key_xyz',
-    quickNodeKey: 'quick_node_key_456',
     infuraKey: 'infura_key_abc',
   }
 
@@ -28,7 +27,6 @@ describe('Eco Chains', () => {
     infura: any = {},
     manta: any = {},
     curtis: any = {},
-    quickNode: any = {},
     mixedCustomGroup: any = {}
   beforeEach(() => {
     // Reset all mocks
@@ -58,14 +56,6 @@ describe('Eco Chains', () => {
     curtis = {
       http: ['https://curtis.rpc.caldera.xyz/${CURTIS_API_KEY}'],
       webSocket: ['wss://curtis.rpc.caldera.xyz/'],
-    }
-    quickNode = {
-      http: [
-        'https://sparkling-wispy-crater.matic.discover.quiknode.pro/${QUICKNODE_API_KEY}',
-      ],
-      webSocket: [
-        'wss://sparkling-wispy-crater.matic.discover.quiknode.pro/${QUICKNODE_API_KEY}',
-      ],
     }
     mixedCustomGroup = {
       http: [
@@ -175,32 +165,6 @@ describe('Eco Chains', () => {
     expect(chain1.rpcUrls).toHaveProperty('custom')
     // Last provider might be manta, curtis or something else - just verify it exists
     expect(chain1.rpcUrls.custom).toEqual(curtisEq)
-  })
-
-  it('should replace QuickNode RPC URLs with API key', async () => {
-    const rpcs = getRpcUrls({ default: defaults, quickNode })
-    mockViemExtract.mockReturnValue(cloneDeep(rpcs))
-    const obj = new EcoChains(config)
-    expect(obj).toBeDefined()
-    const chain1 = obj.getChain(1)
-    expect(chain1.rpcUrls.default).toEqual(rpcs.rpcUrls.default)
-
-    const quickNodeEq = {
-      http: [
-        'https://sparkling-wispy-crater.matic.discover.quiknode.pro/' +
-          config.quickNodeKey,
-      ],
-      webSocket: [
-        'wss://sparkling-wispy-crater.matic.discover.quiknode.pro/' +
-          config.quickNodeKey,
-      ],
-    }
-    expect(chain1.rpcUrls.quickNode).toEqual(quickNodeEq)
-
-    // Verify that the custom RPC group exists
-    expect(chain1.rpcUrls).toHaveProperty('custom')
-    // The custom group should be set to the QuickNode URLs
-    expect(chain1.rpcUrls.custom).toEqual(quickNodeEq)
   })
 
   it('should handle a custom group with mixed providers', async () => {
