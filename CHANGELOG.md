@@ -1,3 +1,10 @@
+## [1.0.48](https://github.com/eco/eco-chains/compare/v1.0.47...v1.0.48) (2025-08-11)
+
+
+### Bug Fixes
+
+* Adding infura rpc urls, removing quicknode ([#86](https://github.com/eco/eco-chains/issues/86)) ([51886c4](https://github.com/eco/eco-chains/commit/51886c46130c4986ad9365ded3ad3fb74541907c))
+
 ## [1.0.47](https://github.com/eco/eco-chains/compare/v1.0.46...v1.0.47) (2025-08-06)
 
 
