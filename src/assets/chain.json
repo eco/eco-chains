@@ -79,10 +79,6 @@
     "mailbox": "0xeA87ae93Fa0019a82A727bfd3eBd1cFCa8f64f1D",
     "metaProver": true
   },
-  "9746": {
-    "url": "https://testnet-rpc.plasma.to",
-    "mailbox": "0x443E56B776F5c8aDBeb7dcF772daCE87775d94fe"
-  },
   "33111": {
     "url": "https://curtis.rpc.caldera.xyz/${CURTIS_API_KEY}",
     "metaProver": true
