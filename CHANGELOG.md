@@ -1,3 +1,10 @@
+## [1.0.50](https://github.com/eco/eco-chains/compare/v1.0.49...v1.0.50) (2025-08-21)
+
+
+### Bug Fixes
+
+* deploy 1.0.50 ([f99a36d](https://github.com/eco/eco-chains/commit/f99a36dd6c6df84ab561956c16fb9ea8e85fb389))
+
 ## [1.0.49](https://github.com/eco/eco-chains/compare/v1.0.48...v1.0.49) (2025-08-21)
 
 
