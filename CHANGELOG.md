@@ -1,3 +1,10 @@
+## [1.0.49](https://github.com/eco/eco-chains/compare/v1.0.48...v1.0.49) (2025-08-21)
+
+
+### Bug Fixes
+
+* adding plasma testnet to the build ([#87](https://github.com/eco/eco-chains/issues/87)) ([6f677f1](https://github.com/eco/eco-chains/commit/6f677f141de7f63a2368c3c6fcb880be0b599c6e))
+
 ## [1.0.48](https://github.com/eco/eco-chains/compare/v1.0.47...v1.0.48) (2025-08-11)
 
 
