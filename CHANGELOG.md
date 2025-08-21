@@ -1,3 +1,10 @@
+## [1.0.51](https://github.com/eco/eco-chains/compare/v1.0.50...v1.0.51) (2025-08-21)
+
+
+### Bug Fixes
+
+* add multicall3 address ([a7dd7fb](https://github.com/eco/eco-chains/commit/a7dd7fbfa0cdcddfbe2c41860436c2aceb1c7a70))
+
 ## [1.0.50](https://github.com/eco/eco-chains/compare/v1.0.49...v1.0.50) (2025-08-21)
 
 
