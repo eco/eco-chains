@@ -423,6 +423,124 @@ describe('Eco Chains', () => {
     expect(transports).toEqual({ 1: 'fallback-transport' })
   })
 
+  it('should preserve alchemy and infura RPCs from actual base chain definition', () => {
+    // Import the actual base chain definition
+    const { base } = require('../definitions/base')
+
+    // Mock extractChain to return the actual base chain
+    mockViemExtract.mockReturnValue(cloneDeep(base))
+
+    const config = {
+      alchemyKey: 'test_alchemy_key',
+      infuraKey: 'test_infura_key',
+    }
+
+    const ecoChains = new EcoChains(config)
+    const result = ecoChains.getChain(8453) // Base mainnet chain ID
+
+    // Verify Alchemy RPCs are processed correctly
+    expect(result.rpcUrls.alchemy).toBeDefined()
+    expect(result.rpcUrls.alchemy.http).toEqual([
+      'https://base-mainnet.g.alchemy.com/v2/test_alchemy_key',
+    ])
+    expect(result.rpcUrls.alchemy.webSocket).toEqual([
+      'wss://base-mainnet.g.alchemy.com/v2/test_alchemy_key',
+    ])
+
+    // Verify Infura RPCs are processed correctly
+    expect(result.rpcUrls.infura).toBeDefined()
+    expect(result.rpcUrls.infura.http).toEqual([
+      'https://base-mainnet.infura.io/v3/test_infura_key',
+    ])
+    expect(result.rpcUrls.infura.webSocket).toEqual([
+      'wss://base-mainnet.infura.io/ws/v3/test_infura_key',
+    ])
+
+    // Verify custom field is set to the last non-default provider
+    expect(result.rpcUrls.custom).toBeDefined()
+    // Since infura comes after alchemy in the base definition, it should be the custom
+    expect(result.rpcUrls.custom).toEqual(result.rpcUrls.infura)
+
+    // Verify stables are preserved
+    expect(result.stables).toBeDefined()
+    expect(result.stables?.USDC).toEqual({
+      address: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+      decimals: 6,
+    })
+
+    // Verify contracts are preserved
+    expect(result.contracts?.hyperlaneMailbox).toEqual({
+      address: '0xeA87ae93Fa0019a82A727bfd3eBd1cFCa8f64f1D',
+    })
+  })
+
+  it('should handle custom field when last provider returns empty RPCs', () => {
+    // Create a chain with two custom providers where the last one will return empty
+    const chainWithMixedProviders = getRpcUrls({
+      default: defaults,
+      alchemy: {
+        http: ['https://base-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+        webSocket: ['wss://base-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      },
+      infura: {
+        // This provider requires API keys but none will be provided
+        http: ['https://base-mainnet.infura.io/v3/${INFURA_API_KEY}'],
+        webSocket: ['wss://base-mainnet.infura.io/ws/v3/${INFURA_API_KEY}'],
+      },
+    })
+
+    mockViemExtract.mockReturnValue(cloneDeep(chainWithMixedProviders))
+
+    // Provide only alchemy key, so infura URLs will be filtered out (empty)
+    const ecoChains = new EcoChains({ alchemyKey: 'test_key' })
+    const result = ecoChains.getChain(1)
+
+    // Alchemy should have processed URLs
+    expect(result.rpcUrls.alchemy.http).toEqual([
+      'https://base-mainnet.g.alchemy.com/v2/test_key',
+    ])
+    expect(result.rpcUrls.alchemy.webSocket).toEqual([
+      'wss://base-mainnet.g.alchemy.com/v2/test_key',
+    ])
+
+    // Infura should be empty since no API key was provided
+    expect(result.rpcUrls.infura.http).toEqual([])
+    expect(result.rpcUrls.infura.webSocket).toEqual([])
+
+    // Custom should be set to alchemy (the last provider with valid URLs)
+    // since infura has empty URLs and should be filtered out
+    expect(result.rpcUrls.custom).toEqual(result.rpcUrls.alchemy)
+  })
+
+  it('should not set custom field when all providers have empty RPCs', () => {
+    // Create a chain where all providers require API keys but none are provided
+    const chainWithOnlyKeyUrls = getRpcUrls({
+      default: {
+        http: ['https://base-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+        webSocket: ['wss://base-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      },
+      infura: {
+        http: ['https://base-mainnet.infura.io/v3/${INFURA_API_KEY}'],
+        webSocket: ['wss://base-mainnet.infura.io/ws/v3/${INFURA_API_KEY}'],
+      },
+    })
+
+    mockViemExtract.mockReturnValue(cloneDeep(chainWithOnlyKeyUrls))
+
+    // No API keys provided - all URLs will be filtered out
+    const ecoChains = new EcoChains({})
+    const result = ecoChains.getChain(1)
+
+    // All RPC URLs should be empty
+    expect(result.rpcUrls.default.http).toEqual([])
+    expect(result.rpcUrls.default.webSocket).toEqual([])
+    expect(result.rpcUrls.infura.http).toEqual([])
+    expect(result.rpcUrls.infura.webSocket).toEqual([])
+
+    // Custom should not be set since no providers have valid URLs
+    expect(result.rpcUrls.custom).toBeUndefined()
+  })
+
   function getRpcUrls(args: any) {
     return {
       rpcUrls: {

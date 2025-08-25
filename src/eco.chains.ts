@@ -121,11 +121,18 @@ export class EcoChains {
     chain.rpcUrls = newRpcUrls
 
     // If a `custom` group is not explicitly defined, create one from the last
-    // available non-default provider to ensure backward compatibility.
+    // available non-default provider that has valid RPCs to ensure backward compatibility.
     if (!chain.rpcUrls.custom) {
-      const nonDefaultKeys = Object.keys(chain.rpcUrls).filter(
-        (key) => key !== 'default',
-      )
+      const nonDefaultKeys = Object.keys(chain.rpcUrls)
+        .filter((key) => key !== 'default')
+        .filter((key) => {
+          const provider = chain.rpcUrls[key]
+          // Check if provider has at least one non-empty URL array
+          return (
+            (provider.http && provider.http.length > 0) ||
+            (provider.webSocket && provider.webSocket.length > 0)
+          )
+        })
 
       if (nonDefaultKeys.length > 0) {
         const lastProviderKey = nonDefaultKeys[nonDefaultKeys.length - 1]
