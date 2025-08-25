@@ -31,7 +31,9 @@ export type RpcOptions = {
 /**
  * The EcoChains class is used to manage and retrieve chain configurations
  * for various blockchain networks. It allows for the replacement of API keys
- * in RPC URLs based on predefined regex patterns.
+ * in RPC URLs based on predefined regex patterns. This ensures that the correct
+ * API keys are used for each provider when making requests, but if no api keys are given it
+ * defaults to the public RPC endpoints.
  */
 export class EcoChains {
   // The configuration object containing API keys for RPC URLs for each provider
