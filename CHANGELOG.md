@@ -1,3 +1,10 @@
+## [1.0.52](https://github.com/eco/eco-chains/compare/v1.0.51...v1.0.52) (2025-08-25)
+
+
+### Bug Fixes
+
+* filter out providers with empty RPCs when setting custom field ([#90](https://github.com/eco/eco-chains/issues/90)) ([901e469](https://github.com/eco/eco-chains/commit/901e4698936d82baca938606c94073e3eff510b5))
+
 ## [1.0.51](https://github.com/eco/eco-chains/compare/v1.0.50...v1.0.51) (2025-08-21)
 
 
