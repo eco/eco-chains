@@ -31,7 +31,9 @@ export type RpcOptions = {
 /**
  * The EcoChains class is used to manage and retrieve chain configurations
  * for various blockchain networks. It allows for the replacement of API keys
- * in RPC URLs based on predefined regex patterns.
+ * in RPC URLs based on predefined regex patterns. This ensures that the correct
+ * API keys are used for each provider when making requests, but if no api keys are given it
+ * defaults to the public RPC endpoints.
  */
 export class EcoChains {
   // The configuration object containing API keys for RPC URLs for each provider
@@ -121,11 +123,18 @@ export class EcoChains {
     chain.rpcUrls = newRpcUrls
 
     // If a `custom` group is not explicitly defined, create one from the last
-    // available non-default provider to ensure backward compatibility.
+    // available non-default provider that has valid RPCs to ensure backward compatibility.
     if (!chain.rpcUrls.custom) {
-      const nonDefaultKeys = Object.keys(chain.rpcUrls).filter(
-        (key) => key !== 'default',
-      )
+      const nonDefaultKeys = Object.keys(chain.rpcUrls)
+        .filter((key) => key !== 'default')
+        .filter((key) => {
+          const provider = chain.rpcUrls[key]
+          // Check if provider has at least one non-empty URL array
+          return (
+            (provider.http && provider.http.length > 0) ||
+            (provider.webSocket && provider.webSocket.length > 0)
+          )
+        })
 
       if (nonDefaultKeys.length > 0) {
         const lastProviderKey = nonDefaultKeys[nonDefaultKeys.length - 1]
