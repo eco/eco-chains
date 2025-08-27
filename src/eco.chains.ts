@@ -23,9 +23,13 @@ export type EcoChainConfigs = Partial<Record<keyof typeof ConfigRegex, string>>
 /**
  * Options for RPC URL or Transport retrieval
  * isWebSocketEnabled: Flag to enable or disable WebSocket URLs
+ * preferredProviders: Array of provider names in priority order (e.g., ['alchemy', 'infura'])
+ * useCustomOnly: If true, only use custom providers and don't fallback to default
  */
 export type RpcOptions = {
   isWebSocketEnabled?: boolean // Flag to enable or disable WebSocket URLs
+  preferredProviders?: string[] // Array of provider names in priority order
+  useCustomOnly?: boolean // If true, only use custom providers
 }
 
 /**
@@ -160,22 +164,64 @@ export class EcoChains {
 
   /**
    * Retrieves RPC URLs for a specific chain, optionally filtering by WebSocket support
+   * and allowing selection of preferred providers
    *
    * @param chainID - The ID of the chain to retrieve RPC URLs for
-   * @param opts - Options for filtering RPC URLs
+   * @param opts - Options for filtering RPC URLs and selecting providers
    * @returns {string[]} - An array of RPC URLs for the specified chain
    */
   getRpcUrlsForChain(chainID: number, opts: RpcOptions = {}): string[] {
-    const { isWebSocketEnabled = true } = opts
+    const {
+      isWebSocketEnabled = true,
+      preferredProviders = [],
+      useCustomOnly = false,
+    } = opts
     const rpcChain = this.getChain(chainID)
-    const custom = rpcChain.rpcUrls.custom
-    const def = rpcChain.rpcUrls.default
 
     let rpcUrls: string[] = []
-    if (isWebSocketEnabled) {
-      rpcUrls.push(...(custom?.webSocket || []), ...(def?.webSocket || []))
+
+    // If preferredProviders is specified, use provider priority
+    if (preferredProviders.length > 0) {
+      for (const provider of preferredProviders) {
+        const providerRpcs = rpcChain.rpcUrls[provider]
+        if (providerRpcs) {
+          if (isWebSocketEnabled && providerRpcs.webSocket) {
+            rpcUrls.push(...providerRpcs.webSocket)
+          }
+          if (providerRpcs.http) {
+            rpcUrls.push(...providerRpcs.http)
+          }
+        }
+      }
+
+      // If useCustomOnly is false, fallback to default after preferred providers
+      if (!useCustomOnly) {
+        const def = rpcChain.rpcUrls.default
+        if (def) {
+          if (isWebSocketEnabled && def.webSocket) {
+            rpcUrls.push(...def.webSocket)
+          }
+          if (def.http) {
+            rpcUrls.push(...def.http)
+          }
+        }
+      }
+    } else {
+      // Original logic: custom first, then default
+      const custom = rpcChain.rpcUrls.custom
+      const def = rpcChain.rpcUrls.default
+
+      if (isWebSocketEnabled) {
+        rpcUrls.push(...(custom?.webSocket || []))
+        if (!useCustomOnly) {
+          rpcUrls.push(...(def?.webSocket || []))
+        }
+      }
+      rpcUrls.push(...(custom?.http || []))
+      if (!useCustomOnly) {
+        rpcUrls.push(...(def?.http || []))
+      }
     }
-    rpcUrls.push(...(custom?.http || []), ...(def?.http || []))
 
     return rpcUrls
   }

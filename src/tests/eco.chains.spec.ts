@@ -541,6 +541,86 @@ describe('Eco Chains', () => {
     expect(result.rpcUrls.custom).toBeUndefined()
   })
 
+  describe('preferred provider selection', () => {
+    it('should prioritize preferred providers in order', () => {
+      const rpcs = getRpcUrls({
+        default: {
+          http: ['https://default.com'],
+        },
+        alchemy: {
+          http: ['https://alchemy-processed.com'],
+        },
+        infura: {
+          http: ['https://infura-processed.com'],
+        },
+      })
+      mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+      const obj = new EcoChains(config)
+
+      const urls = obj.getRpcUrlsForChain(1, {
+        preferredProviders: ['alchemy', 'infura'],
+        isWebSocketEnabled: false,
+      })
+
+      expect(urls).toEqual([
+        'https://alchemy-processed.com',
+        'https://infura-processed.com',
+        'https://default.com',
+      ])
+    })
+
+    it('should respect useCustomOnly flag', () => {
+      const rpcs = getRpcUrls({
+        default: {
+          http: ['https://default.com'],
+        },
+        alchemy: {
+          http: ['https://alchemy-processed.com'],
+        },
+        infura: {
+          http: ['https://infura-processed.com'],
+        },
+      })
+      mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+      const obj = new EcoChains(config)
+
+      const urls = obj.getRpcUrlsForChain(1, {
+        preferredProviders: ['alchemy', 'infura'],
+        useCustomOnly: true,
+        isWebSocketEnabled: false,
+      })
+
+      expect(urls).toEqual([
+        'https://alchemy-processed.com',
+        'https://infura-processed.com',
+      ])
+      expect(urls).not.toContain('https://default.com')
+    })
+
+    it('should skip non-existent preferred providers', () => {
+      const rpcs = getRpcUrls({
+        default: {
+          http: ['https://default.com'],
+        },
+        alchemy: {
+          http: ['https://alchemy-processed.com'],
+        },
+      })
+      mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+      const obj = new EcoChains(config)
+
+      const urls = obj.getRpcUrlsForChain(1, {
+        preferredProviders: ['alchemy', 'nonexistent', 'infura'],
+        isWebSocketEnabled: false,
+      })
+
+      expect(urls).toEqual([
+        'https://alchemy-processed.com',
+        'https://default.com',
+      ])
+    })
+  })
+
   function getRpcUrls(args: any) {
     return {
       rpcUrls: {
