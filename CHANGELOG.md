@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/eco/eco-chains/compare/v1.0.52...v1.1.0) (2025-08-27)
+
+
+### Features
+
+* add preferred provider selection for RPC URLs ([08a2c24](https://github.com/eco/eco-chains/commit/08a2c249f1b4c9e5f9c8e6f8e8b8e8b8e8b8e8b8))
+
+
+### Bug Fixes
+
+* improve provider selection and RPC handling ([61e8a6e](https://github.com/eco/eco-chains/commit/61e8a6e8f8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8))
+
 ## [1.0.52](https://github.com/eco/eco-chains/compare/v1.0.51...v1.0.52) (2025-08-25)
 
 
