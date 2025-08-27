@@ -544,14 +544,14 @@ describe('Eco Chains', () => {
   describe('preferred provider selection', () => {
     it('should prioritize preferred providers in order', () => {
       const rpcs = getRpcUrls({
-        default: { 
-          http: ['https://default.com'] 
+        default: {
+          http: ['https://default.com'],
         },
-        alchemy: { 
-          http: ['https://alchemy-processed.com'] 
+        alchemy: {
+          http: ['https://alchemy-processed.com'],
         },
-        infura: { 
-          http: ['https://infura-processed.com'] 
+        infura: {
+          http: ['https://infura-processed.com'],
         },
       })
       mockViemExtract.mockReturnValue(cloneDeep(rpcs))
@@ -565,20 +565,20 @@ describe('Eco Chains', () => {
       expect(urls).toEqual([
         'https://alchemy-processed.com',
         'https://infura-processed.com',
-        'https://default.com'
+        'https://default.com',
       ])
     })
 
     it('should respect useCustomOnly flag', () => {
       const rpcs = getRpcUrls({
-        default: { 
-          http: ['https://default.com'] 
+        default: {
+          http: ['https://default.com'],
         },
-        alchemy: { 
-          http: ['https://alchemy-processed.com'] 
+        alchemy: {
+          http: ['https://alchemy-processed.com'],
         },
-        infura: { 
-          http: ['https://infura-processed.com'] 
+        infura: {
+          http: ['https://infura-processed.com'],
         },
       })
       mockViemExtract.mockReturnValue(cloneDeep(rpcs))
@@ -592,18 +592,18 @@ describe('Eco Chains', () => {
 
       expect(urls).toEqual([
         'https://alchemy-processed.com',
-        'https://infura-processed.com'
+        'https://infura-processed.com',
       ])
       expect(urls).not.toContain('https://default.com')
     })
 
     it('should skip non-existent preferred providers', () => {
       const rpcs = getRpcUrls({
-        default: { 
-          http: ['https://default.com'] 
+        default: {
+          http: ['https://default.com'],
         },
-        alchemy: { 
-          http: ['https://alchemy-processed.com'] 
+        alchemy: {
+          http: ['https://alchemy-processed.com'],
         },
       })
       mockViemExtract.mockReturnValue(cloneDeep(rpcs))
@@ -616,7 +616,7 @@ describe('Eco Chains', () => {
 
       expect(urls).toEqual([
         'https://alchemy-processed.com',
-        'https://default.com'
+        'https://default.com',
       ])
     })
   })

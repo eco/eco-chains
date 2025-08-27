@@ -171,9 +171,13 @@ export class EcoChains {
    * @returns {string[]} - An array of RPC URLs for the specified chain
    */
   getRpcUrlsForChain(chainID: number, opts: RpcOptions = {}): string[] {
-    const { isWebSocketEnabled = true, preferredProviders = [], useCustomOnly = false } = opts
+    const {
+      isWebSocketEnabled = true,
+      preferredProviders = [],
+      useCustomOnly = false,
+    } = opts
     const rpcChain = this.getChain(chainID)
-    
+
     let rpcUrls: string[] = []
 
     // If preferredProviders is specified, use provider priority
@@ -189,7 +193,7 @@ export class EcoChains {
           }
         }
       }
-      
+
       // If useCustomOnly is false, fallback to default after preferred providers
       if (!useCustomOnly) {
         const def = rpcChain.rpcUrls.default
