@@ -1,3 +1,47 @@
+# [2.0.0](https://github.com/eco/eco-chains/compare/v1.0.52...v2.0.0) (2025-08-27)
+
+
+* Select default ([#91](https://github.com/eco/eco-chains/issues/91)) ([8cc608a](https://github.com/eco/eco-chains/commit/8cc608a709311de4ceff43c4686ed5d7876a95a5))
+
+
+### BREAKING CHANGES
+
+* Enhanced getRpcUrlsForChain to support custom provider selection
+
+Features:
+- preferredProviders: Array to specify provider priority (e.g., ['alchemy', 'infura'])
+- useCustomOnly: Flag to disable fallback to default providers
+- Maintains backward compatibility when no options specified
+
+Usage:
+// Prioritize Alchemy, then Infura, then fallback to defaults
+getRpcUrlsForChain(8453, { preferredProviders: ['alchemy', 'infura'] })
+
+// Use only custom providers, no default fallback
+getRpcUrlsForChain(8453, { preferredProviders: ['alchemy'], useCustomOnly: true })
+
+This allows fine-grained control over RPC endpoint selection and fallback behavior,
+preventing rate-limited public endpoints from being used when private ones are available.
+
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+
+* Bump version to 1.1.0 for breaking change
+
+* fix: improve provider selection and RPC handling
+
+- Add preferred provider selection functionality
+- Filter out providers with empty RPCs
+- Enhance custom RPC configuration
+
+* fix: update changelog for manual 1.1.0 release
+
+- Add 1.1.0 changelog entry with provider selection features
+- Ensure semantic-release correctly calculates next version as 1.1.1
+
+* fix: linter
+
 # [1.1.0](https://github.com/eco/eco-chains/compare/v1.0.52...v1.1.0) (2025-08-27)
 
 
