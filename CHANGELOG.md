@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/eco/eco-chains/compare/v2.0.2...v2.0.3) (2025-09-10)
+
+
+### Bug Fixes
+
+* adding legacy key to the plasma chain ([#95](https://github.com/eco/eco-chains/issues/95)) ([e143762](https://github.com/eco/eco-chains/commit/e143762b7ce69830e445124ea35be2e20e17fad3))
+
 ## [2.0.2](https://github.com/eco/eco-chains/compare/v2.0.1...v2.0.2) (2025-09-10)
 
 
