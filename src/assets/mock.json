@@ -11,6 +11,7 @@
   "9746": {
     "url": "https://testnet-rpc.plasma.to",
     "mailbox": "0x443E56B776F5c8aDBeb7dcF772daCE87775d94fe",
+    "legacy": true,
     "verifier": {
       "url": "https://api.routescan.io/v2/network/testnet/evm/9746_4/etherscan",
       "type": "custom"
