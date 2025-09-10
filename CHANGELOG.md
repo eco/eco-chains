@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/eco/eco-chains/compare/v2.0.1...v2.0.2) (2025-09-10)
+
+
+### Bug Fixes
+
+* trigger semantic release ([11c7ea4](https://github.com/eco/eco-chains/commit/11c7ea48216db4576f4ad0cfb8e7673f9a35bb2d))
+
 ## [2.0.1](https://github.com/eco/eco-chains/compare/v2.0.0...v2.0.1) (2025-09-10)
 
 
