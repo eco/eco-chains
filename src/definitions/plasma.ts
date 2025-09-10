@@ -60,5 +60,10 @@ export const plasmaMainnet = /*#__PURE__*/ defineChain({
   },
   isCalderaChain: false,
   testnet: false,
-  stables: {},
+  stables: {
+    fUSDC: {
+      address: '0x8b27342BE5bB0DE1E9Bd361e216ee3D484d87D56',
+      decimals: 6,
+    },
+  },
 }) as EcoChain
