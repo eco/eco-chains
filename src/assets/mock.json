@@ -1,4 +1,12 @@
 {
+  "9745": {
+    "url": "https://rpc.plasma.to",
+    "mailbox": "0x3a464f746D23Ab22155710f44dB16dcA53e0775E",
+    "verifier": {
+      "url": "https://api.routescan.io/v2/network/mainnet/evm/9745/etherscan",
+      "type": "custom"
+    }
+  },
   "9746": {
     "url": "https://testnet-rpc.plasma.to",
     "mailbox": "0x443E56B776F5c8aDBeb7dcF772daCE87775d94fe",
