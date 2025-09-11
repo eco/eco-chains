@@ -1,11 +1,13 @@
 {
   "1": {
     "url": "https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
-    "mailbox": "0xc005dc82818d67AF737725bD4bf75435d065D239"
+    "mailbox": "0xc005dc82818d67AF737725bD4bf75435d065D239",
+    "crossL2proverV2": "0x95ccEAE71605c5d97A0AC0EA13013b058729d075"
   },
   "10": {
     "url": "https://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
-    "mailbox": "0xd4C1905BB1D26BC93DAC913e13CaCC278CdCC80D"
+    "mailbox": "0xd4C1905BB1D26BC93DAC913e13CaCC278CdCC80D",
+    "crossL2proverV2": "0x95ccEAE71605c5d97A0AC0EA13013b058729d075"
   },
   "56": {
     "url": "https://bnb-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
@@ -14,15 +16,18 @@
   },
   "130": {
     "url": "https://unichain-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
-    "mailbox": "0x3a464f746D23Ab22155710f44dB16dcA53e0775E"
+    "mailbox": "0x3a464f746D23Ab22155710f44dB16dcA53e0775E",
+    "crossL2proverV2": "0x95ccEAE71605c5d97A0AC0EA13013b058729d075"
   },
   "137": {
     "url": "https://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
-    "mailbox": "0x5d934f4e2f797775e53561bB72aca21ba36B96BB"
+    "mailbox": "0x5d934f4e2f797775e53561bB72aca21ba36B96BB",
+    "crossL2proverV2": "0x95ccEAE71605c5d97A0AC0EA13013b058729d075"
   },
   "146": {
     "url": "https://sonic-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
-    "mailbox": "0x3a464f746D23Ab22155710f44dB16dcA53e0775E"
+    "mailbox": "0x3a464f746D23Ab22155710f44dB16dcA53e0775E",
+    "crossL2proverV2": "0x95ccEAE71605c5d97A0AC0EA13013b058729d075"
   },
   "169": {
     "url": "https://manta-pacific.calderachain.xyz/http",
@@ -45,7 +50,8 @@
   },
   "480": {
     "url": "https://worldchain-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
-    "mailbox": "0x2f2aFaE1139Ce54feFC03593FeE8AB2aDF4a85A7"
+    "mailbox": "0x2f2aFaE1139Ce54feFC03593FeE8AB2aDF4a85A7",
+    "crossL2proverV2": "0x95ccEAE71605c5d97A0AC0EA13013b058729d075"
   },
   "1992": {
     "url": "https://sanko-arb-sepolia.rpc.caldera.xyz/http",
@@ -77,7 +83,8 @@
   "8453": {
     "url": "https://base-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
     "mailbox": "0xeA87ae93Fa0019a82A727bfd3eBd1cFCa8f64f1D",
-    "metaProver": true
+    "metaProver": true,
+    "crossL2proverV2": "0x95ccEAE71605c5d97A0AC0EA13013b058729d075"
   },
   "9745": {
     "url": "https://rpc.plasma.to",
@@ -100,15 +107,18 @@
   "42161": {
     "url": "https://arb-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
     "mailbox": "0x979Ca5202784112f4738403dBec5D0F3B9daabB9",
-    "metaProver": true
+    "metaProver": true,
+    "crossL2proverV2": "0x95ccEAE71605c5d97A0AC0EA13013b058729d075"
   },
   "42220": {
     "url": "https://celo-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
-    "mailbox": "0x50da3B3907A08a24fe4999F4Dcf337E8dC7954bb"
+    "mailbox": "0x50da3B3907A08a24fe4999F4Dcf337E8dC7954bb",
+    "crossL2proverV2": "0x95ccEAE71605c5d97A0AC0EA13013b058729d075"
   },
   "57073": {
     "url": "https://ink-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
-    "mailbox": "0x7f50C5776722630a0024fAE05fDe8b47571D7B39"
+    "mailbox": "0x7f50C5776722630a0024fAE05fDe8b47571D7B39",
+    "crossL2proverV2": "0x95ccEAE71605c5d97A0AC0EA13013b058729d075"
   },
   "84532": {
     "url": "https://base-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
