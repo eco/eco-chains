@@ -89,6 +89,7 @@
   "9745": {
     "url": "https://rpc.plasma.to",
     "mailbox": "0x3a464f746D23Ab22155710f44dB16dcA53e0775E",
+    "crossL2proverV2": "0x95ccEAE71605c5d97A0AC0EA13013b058729d075",
     "legacy": true,
     "verifier": {
       "url": "https://api.routescan.io/v2/network/mainnet/evm/9745/etherscan",
