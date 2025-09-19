@@ -621,6 +621,134 @@ describe('Eco Chains', () => {
     })
   })
 
+  it('should return alchemy URLs when alchemyKey is provided for getRpcUrlsForChain', () => {
+    // Import the actual ethereum chain definition
+    const { ethereum } = require('../definitions/ethereum')
+
+    // Mock extractChain to return the actual ethereum chain
+    mockViemExtract.mockReturnValue(cloneDeep(ethereum))
+
+    const ecoChains = new EcoChains({ alchemyKey: 'test_alchemy_key_123' })
+    const urls = ecoChains.getRpcUrlsForChain(1) // Ethereum mainnet chain ID
+
+    // Should contain the processed alchemy URLs
+    expect(urls).toContain('https://eth-mainnet.g.alchemy.com/v2/test_alchemy_key_123')
+    expect(urls).toContain('wss://eth-mainnet.g.alchemy.com/v2/test_alchemy_key_123')
+  })
+
+  describe('default provider priority behavior', () => {
+    it('should return alchemy, infura, and default URLs in correct order when all keys provided', () => {
+      const rpcs = getRpcUrls({
+        default: defaults,
+        alchemy,
+        infura,
+      })
+      mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+      const obj = new EcoChains(config)
+
+      const urls = obj.getRpcUrlsForChain(1)
+
+      const expectedOrder = [
+        `wss://opt-mainnet.g.alchemy.com/v2/${config.alchemyKey}`,
+        `https://base-mainnet.g.alchemy.com/v2/${config.alchemyKey}`,
+        `wss://base-mainnet.g.infura.io/v3/${config.infuraKey}`,
+        `https://base-mainnet.g.infura.io/v3/${config.infuraKey}`,
+        'wss://etherscan.io/api',
+        'https://etherscan.io/api',
+      ]
+      expect(urls).toEqual(expectedOrder)
+    })
+
+    it('should skip infura when infuraKey not provided but include alchemy and default', () => {
+      const rpcs = getRpcUrls({
+        default: defaults,
+        alchemy,
+        infura,
+      })
+      mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+      const obj = new EcoChains({ alchemyKey: config.alchemyKey })
+
+      const urls = obj.getRpcUrlsForChain(1)
+
+      expect(urls).toEqual([
+        `wss://opt-mainnet.g.alchemy.com/v2/${config.alchemyKey}`,
+        `https://base-mainnet.g.alchemy.com/v2/${config.alchemyKey}`,
+        'wss://etherscan.io/api',
+        'https://etherscan.io/api',
+      ])
+      expect(urls).not.toContain('${INFURA_API_KEY}')
+    })
+
+    it('should skip alchemy when alchemyKey not provided but include infura and default', () => {
+      const rpcs = getRpcUrls({
+        default: defaults,
+        alchemy,
+        infura,
+      })
+      mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+      const obj = new EcoChains({ infuraKey: config.infuraKey })
+
+      const urls = obj.getRpcUrlsForChain(1)
+
+      expect(urls).toEqual([
+        `wss://base-mainnet.g.infura.io/v3/${config.infuraKey}`,
+        `https://base-mainnet.g.infura.io/v3/${config.infuraKey}`,
+        'wss://etherscan.io/api',
+        'https://etherscan.io/api',
+      ])
+      expect(urls).not.toContain('${ALCHEMY_API_KEY}')
+    })
+
+    it('should only return default URLs when no API keys provided', () => {
+      const rpcs = getRpcUrls({
+        default: defaults,
+        alchemy,
+        infura,
+      })
+      mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+      const obj = new EcoChains({})
+
+      const urls = obj.getRpcUrlsForChain(1)
+
+      expect(urls).toEqual([
+        'wss://etherscan.io/api',
+        'https://etherscan.io/api',
+      ])
+    })
+
+    it('should respect useCustomOnly flag with new default behavior', () => {
+      const rpcs = getRpcUrls({
+        default: defaults,
+        alchemy,
+        infura,
+      })
+      mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+      const obj = new EcoChains(config)
+
+      const urls = obj.getRpcUrlsForChain(1, { useCustomOnly: true })
+
+      expect(urls).toEqual([
+        `wss://opt-mainnet.g.alchemy.com/v2/${config.alchemyKey}`,
+        `https://base-mainnet.g.alchemy.com/v2/${config.alchemyKey}`,
+        `wss://base-mainnet.g.infura.io/v3/${config.infuraKey}`,
+        `https://base-mainnet.g.infura.io/v3/${config.infuraKey}`,
+      ])
+      expect(urls).not.toContain('https://etherscan.io/api')
+    })
+
+    it('should maintain backward compatibility with empty preferredProviders array', () => {
+      const rpcs = getRpcUrls({ default: defaults, alchemy })
+      mockViemExtract.mockReturnValue(cloneDeep(rpcs))
+      const obj = new EcoChains(config)
+
+      const urls = obj.getRpcUrlsForChain(1, { preferredProviders: [] })
+
+      // Should use old custom + default logic
+      expect(urls).toContain(`https://base-mainnet.g.alchemy.com/v2/${config.alchemyKey}`)
+      expect(urls).toContain('https://etherscan.io/api')
+    })
+  })
+
   function getRpcUrls(args: any) {
     return {
       rpcUrls: {

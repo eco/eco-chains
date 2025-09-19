@@ -173,14 +173,14 @@ export class EcoChains {
   getRpcUrlsForChain(chainID: number, opts: RpcOptions = {}): string[] {
     const {
       isWebSocketEnabled = true,
-      preferredProviders = [],
+      preferredProviders = ['alchemy', 'infura'],
       useCustomOnly = false,
     } = opts
     const rpcChain = this.getChain(chainID)
 
     let rpcUrls: string[] = []
 
-    // If preferredProviders is specified, use provider priority
+    // Use provider priority (now defaults to ['alchemy', 'infura'])
     if (preferredProviders.length > 0) {
       for (const provider of preferredProviders) {
         const providerRpcs = rpcChain.rpcUrls[provider]
@@ -194,7 +194,7 @@ export class EcoChains {
         }
       }
 
-      // If useCustomOnly is false, fallback to default after preferred providers
+      // Always add default provider as fallback (unless useCustomOnly is true)
       if (!useCustomOnly) {
         const def = rpcChain.rpcUrls.default
         if (def) {
