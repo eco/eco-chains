@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/eco/eco-chains/compare/v2.0.3...v2.0.4) (2025-09-24)
+
+
+### Bug Fixes
+
+* deploy plasma alchemy ([1d490ea](https://github.com/eco/eco-chains/commit/1d490ea8949b1fac4c16cd6fa4548e0a6d725e96))
+
 ## [2.0.3](https://github.com/eco/eco-chains/compare/v2.0.2...v2.0.3) (2025-09-10)
 
 
