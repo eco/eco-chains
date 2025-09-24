@@ -1,18 +1,18 @@
 import { defineChain } from 'viem'
-import { plasmaTestnet as viemPlasmaTestnet } from 'viem/chains'
+import { plasma as pl, plasmaTestnet as plt } from 'viem/chains'
 import { EcoChain } from '../chain.interface'
 
 export const plasmaTestnet = /*#__PURE__*/ defineChain({
-  ...viemPlasmaTestnet,
-  blockExplorers: {
-    ...viemPlasmaTestnet.blockExplorers,
-    default: {
-      name: 'PlasmaTestnet Explorer',
-      url: 'https://testnet.plasmascan.to',
+  ...plt,
+  rpcUrls: {
+    ...plt.rpcUrls,
+    alchemy: {
+      http: ['https://plasma-testnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://plasma-testnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {
-    ...viemPlasmaTestnet.contracts,
+    ...plt.contracts,
     hyperlaneMailbox: {
       address: '0x443E56B776F5c8aDBeb7dcF772daCE87775d94fe',
     },
@@ -31,25 +31,16 @@ export const plasmaTestnet = /*#__PURE__*/ defineChain({
 }) as EcoChain
 
 export const plasmaMainnet = /*#__PURE__*/ defineChain({
-  id: 9745,
-  name: 'Plasma Mainnet',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'XPL',
-    symbol: 'XPL',
-  },
+  ...pl,
   rpcUrls: {
-    default: {
-      http: ['https://rpc.plasma.to'],
-    },
-  },
-  blockExplorers: {
-    default: {
-      name: 'Plasma Explorer',
-      url: 'https://plasmascan.to',
+    ...pl.rpcUrls,
+    alchemy: {
+      http: ['https://plasma-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
+      webSocket: ['wss://plasma-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
     },
   },
   contracts: {
+    ...pl.contracts,
     hyperlaneMailbox: {
       address: '0x3a464f746D23Ab22155710f44dB16dcA53e0775E',
     },
@@ -61,8 +52,8 @@ export const plasmaMainnet = /*#__PURE__*/ defineChain({
   isCalderaChain: false,
   testnet: false,
   stables: {
-    fUSDC: {
-      address: '0x8b27342BE5bB0DE1E9Bd361e216ee3D484d87D56',
+    USDT0: {
+      address: '0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb',
       decimals: 6,
     },
   },
