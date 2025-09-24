@@ -68,7 +68,7 @@
   },
   "dependencies": {
     "typia": "^8.0.4",
-    "viem": "^2.37.5"
+    "viem": "^2.37.8"
   },
   "publishConfig": {
     "access": "public"
