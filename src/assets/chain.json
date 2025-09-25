@@ -135,7 +135,6 @@
   },
   "10241024": {
     "url": "https://rpc.alienxchain.io/http",
-    "mailbox": "0x0000000000000000000000000000000000000000",
     "metaProver": true
   },
   "11155111": {
