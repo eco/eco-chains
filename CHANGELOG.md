@@ -1,3 +1,10 @@
+## [2.0.5](https://github.com/eco/eco-chains/compare/v2.0.4...v2.0.5) (2025-10-08)
+
+
+### Bug Fixes
+
+* adding hyperevm to the lib ([#101](https://github.com/eco/eco-chains/issues/101)) ([f758f5b](https://github.com/eco/eco-chains/commit/f758f5b4cdff7e2984f0ae280b87fb9b3a4c8f10))
+
 ## [2.0.4](https://github.com/eco/eco-chains/compare/v2.0.3...v2.0.4) (2025-09-24)
 
 
