@@ -9,7 +9,7 @@ export const ronin: EcoChain = {
     alchemy: {
       http: ['https://ronin-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
       webSocket: ['wss://ronin-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}'],
-    }
+    },
   },
   contracts: {
     ...vronin.contracts,
