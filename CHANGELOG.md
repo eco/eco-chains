@@ -1,3 +1,10 @@
+## [2.0.8](https://github.com/eco/eco-chains/compare/v2.0.7...v2.0.8) (2025-11-14)
+
+
+### Bug Fixes
+
+* Adding ronin chain ([#103](https://github.com/eco/eco-chains/issues/103)) ([35de820](https://github.com/eco/eco-chains/commit/35de820b8e471dbd59b1c66de1e48e5b7b7724ef))
+
 ## [2.0.7](https://github.com/eco/eco-chains/compare/v2.0.6...v2.0.7) (2025-11-14)
 
 
