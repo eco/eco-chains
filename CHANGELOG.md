@@ -1,3 +1,10 @@
+## [2.0.7](https://github.com/eco/eco-chains/compare/v2.0.6...v2.0.7) (2025-11-14)
+
+
+### Bug Fixes
+
+* Adding HyperEVM USDC stable ([#102](https://github.com/eco/eco-chains/issues/102)) ([8a3fc21](https://github.com/eco/eco-chains/commit/8a3fc21d193c6fef47421657cdd2e46e740af579))
+
 ## [2.0.6](https://github.com/eco/eco-chains/compare/v2.0.5...v2.0.6) (2025-10-08)
 
 
