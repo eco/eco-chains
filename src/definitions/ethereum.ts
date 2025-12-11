@@ -38,6 +38,10 @@ export const ethereum: EcoChain = {
       address: '0x1217bfe6c773eec6cc4a38b5dc45b92292b6e189',
       decimals: 6,
     },
+    USDG: {
+      address: '0xe343167631d89B6Ffc58B88d6b7fB0228795491D',
+      decimals: 6,
+    },
   },
 }
 
