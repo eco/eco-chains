@@ -31,5 +31,9 @@ export const ink: EcoChain = {
       address: '0x0200C29006150606B650577BBE7B6248F58470c1',
       decimals: 6,
     },
+    USDG: {
+      address: '0xe343167631d89B6Ffc58B88d6b7fB0228795491D',
+      decimals: 6,
+    },
   },
 }
