@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/eco/eco-chains/compare/v2.0.8...v2.1.0) (2025-12-11)
+
+
+### Features
+
+* add USDG to Ink and Eth ([68e6fa1](https://github.com/eco/eco-chains/commit/68e6fa195d583282d4165d93a9386357ae3481d8))
+
 ## [2.0.8](https://github.com/eco/eco-chains/compare/v2.0.7...v2.0.8) (2025-11-14)
 
 
