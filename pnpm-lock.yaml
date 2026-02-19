@@ -95,7 +95,7 @@ devDependencies:
     specifier: ^4.17.21
     version: 4.17.21
   prettier:
-    specifier: ^3.5.2
+    specifier: 3.6.2
     version: 3.6.2
   rimraf:
     specifier: ^6.0.1
