@@ -1,3 +1,15 @@
+# [2.3.0](https://github.com/eco/eco-chains/compare/v2.2.0...v2.3.0) (2026-02-20)
+
+
+### Bug Fixes
+
+* **ci:** move provenance config to package.json publishConfig ([1e26695](https://github.com/eco/eco-chains/commit/1e266959621f9a7363c57236e48dc304e3c3005a))
+
+
+### Features
+
+* **ci:** migrate to npm granular tokens and enable provenance ([932b12b](https://github.com/eco/eco-chains/commit/932b12bb12f8cd2766acf9d2ddfbeb28ad05416b))
+
 # [2.2.0](https://github.com/eco/eco-chains/compare/v2.1.0...v2.2.0) (2026-02-20)
 
 
