@@ -1,3 +1,11 @@
+# [2.2.0](https://github.com/eco/eco-chains/compare/v2.1.0...v2.2.0) (2026-02-20)
+
+
+### Features
+
+* **definitions:** add bsc ([b561c19](https://github.com/eco/eco-chains/commit/b561c199d8d63a26a18bef22886dde4c74c654e2))
+* **definitions:** add bsc to chain config ([c50281b](https://github.com/eco/eco-chains/commit/c50281b32eac203a950f2989885fb7f08cc78141))
+
 # [2.1.0](https://github.com/eco/eco-chains/compare/v2.0.8...v2.1.0) (2025-12-11)
 
 
