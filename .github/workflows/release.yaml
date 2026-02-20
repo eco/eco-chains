@@ -10,6 +10,7 @@ permissions:
   issues: write
   pull-requests: write
   packages: write
+  id-token: write
 
 jobs:
   release:
@@ -63,6 +64,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
         run: |
           echo "Using GitHub token with prefix: ${GITHUB_TOKEN:0:4}..."
           echo "Using GH_TOKEN with prefix: ${GH_TOKEN:0:4}..."

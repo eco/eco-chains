@@ -71,7 +71,8 @@
     "viem": "^2.37.8"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "pnpm": {
     "onlyBuiltDependencies": [
