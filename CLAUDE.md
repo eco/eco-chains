@@ -13,6 +13,7 @@ This document defines the universal planning methodology only. Domain knowledge,
 1. YOU MUST ALWAYS analyze requirements COMPREHENSIVELY before execution begins
 2. YOU SHALL IMMEDIATELY request clarification when requirements lack precision
 3. YOU ARE REQUIRED TO DETERMINE the appropriate plan type based on scope:
+
    - CREATE a Project Plan for major architectural components or high-level designs
    - CREATE an Implementation Plan for specific components or features
    - CONSULT `/plans/index.md` for existing related plans before creating new ones
@@ -34,11 +35,13 @@ This document defines the universal planning methodology only. Domain knowledge,
 1. YOU MUST NEVER implement ANY plan without explicit user approval
 2. YOU SHALL CONSISTENTLY track progress through your defined checkpoint structure
 3. YOU MUST IMPLEMENT TEST-DRIVEN DEVELOPMENT:
+
    - Write tests BEFORE implementing functionality
    - Aim for 100% test coverage on all changes
    - Only mark steps complete when fully tested
 
 4. YOU SHALL MAINTAIN execution momentum:
+
    - Continue to next step automatically when current step succeeds
    - Handle test failures with incremental resolution
    - Document all test failures and solutions in the plan
@@ -52,6 +55,7 @@ This document defines the universal planning methodology only. Domain knowledge,
 
 1. YOU MUST EXECUTE each task in its own dedicated git branch with name format
    `<type>/<component>/<description>`, where:
+
    - Type: `feat`, `fix`, `refactor`, `docs`, `test`, `perf`, or `security`
    - Component: System component affected (e.g., `auth`, `template`, `compiler`)
    - Description: Brief hyphenated description in kebab-case
@@ -71,6 +75,7 @@ This document defines the universal planning methodology only. Domain knowledge,
 #### Commit Strategy
 
 1. YOU MUST IMPLEMENT atomic, incremental commits:
+
    - Each commit MUST represent a SINGLE logical change
    - ALWAYS run `pnpm test && pnpm format` before committing
    - Commit all changed files after EACH subtask completion with 100% test coverage
@@ -106,6 +111,7 @@ This document defines the universal planning methodology only. Domain knowledge,
 #### Task Execution Continuity
 
 1. WHEN RESUMING a task:
+
    - ALWAYS read `/plans/index.md` to understand ALL current plan relationships
    - Analyze the task plan and git history: `git log --oneline`
    - Verify branch and state match plan's "Last Position"
@@ -125,6 +131,7 @@ This document defines the universal planning methodology only. Domain knowledge,
 #### High-Risk Operations
 
 1. YOU MUST ALWAYS display explicit warnings before potentially destructive operations:
+
    - Git operations (restore, reset, checkout)
    - File deletions or replacements
    - Database modifications
@@ -156,10 +163,12 @@ This document defines the universal planning methodology only. Domain knowledge,
 #### Plan Hierarchy Architecture
 
 1. YOU MUST MAINTAIN a consistent plan hierarchy with these specific plan types:
+
    - **Project Plans**: High-level plans defining overall architecture and components
    - **Implementation Plans**: Detailed execution plans for specific components
 
 2. YOU SHALL UNDERSTAND that all references to "plan" refer explicitly to files in the `/plans/` directory:
+
    - NEVER create plans in other directories
    - ALWAYS use the established templates and formats
 
@@ -172,11 +181,13 @@ This document defines the universal planning methodology only. Domain knowledge,
 #### Plan Index Management
 
 1. YOU MUST ALWAYS examine `/plans/index.md` at the start of ANY plan-related task:
+
    - Read index.md to understand ALL current plans and their relationships
    - If index.md doesn't exist, initialize it from templates/index-template.md
    - IMMEDIATELY create index.md if missing: `cp /plans/templates/index-template.md /plans/index.md`
 
 2. YOU SHALL UPDATE index.md whenever plan status changes:
+
    - Add new plans to the appropriate section
    - Update plan status when it changes
    - Maintain bidirectional references between related plans
@@ -205,12 +216,14 @@ This document defines the universal planning methodology only. Domain knowledge,
 #### Decision Architecture
 
 1. YOU MUST PRESENT architectural decisions using "Decision Points" with:
+
    - Concrete, actionable questions
    - 2-4 mutually exclusive options presented as checkboxes
    - Comprehensive pros/cons addressing: performance, security, maintenance, complexity
    - Your definitive recommendation with technical justification
 
 2. YOU ARE REQUIRED TO ENFORCE these decision validation rules:
+
    - EXACTLY ONE option selected per decision point
    - ALL decision points resolved before implementation
    - NO contradictory selections permitted
@@ -224,6 +237,7 @@ This document defines the universal planning methodology only. Domain knowledge,
 #### Change Control System
 
 1. For interruptions, YOU MUST:
+
    - IMMEDIATELY PAUSE execution
    - LOG in "User Interruption Log" with exact timestamp
    - DOCUMENT in "Mid-Execution Change Request":
@@ -234,6 +248,7 @@ This document defines the universal planning methodology only. Domain knowledge,
    - OBTAIN explicit approval before resuming
 
 2. For scope changes, YOU ARE REQUIRED TO CREATE "Scope Change Assessment" with:
+
    - Original vs. New Scope comparison matrix
    - Exhaustive Added/Removed Functionality
    - Precise Timeline Impact
@@ -266,12 +281,14 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
 #### Issue Classification System
 
 1. **Debugging Issues**: Problems resolvable within scope
+
    - YOU SHALL DOCUMENT in "🛑 ERROR ENCOUNTERED" section
    - YOU ARE REQUIRED TO CREATE "Debugging Plan" with testable hypotheses
    - YOU MUST NEVER FIX without receiving explicit user approval
    - YOU SHALL LINK each change to specific hypothesis
 
 2. **Blocking Issues**: Fundamental problems requiring approach reconfiguration
+
    - YOU MUST IMMEDIATELY STOP EXECUTION
    - YOU ARE REQUIRED TO CREATE a "BLOCKING ISSUE" section
    - YOU SHALL WAIT for user to select exactly one solution
@@ -290,6 +307,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
 #### Development Discipline
 
 1. YOU MUST IMPLEMENT:
+
    - Small, independently testable increments
    - 100% test coverage for every subtask before committing
    - Comprehensive tests covering all edge cases and branches
@@ -297,6 +315,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
    - Resolution of ALL compiler warnings before considering any subtask complete
 
 2. YOU SHALL EXECUTE steps sequentially without pausing:
+
    - Continue automatically through successful steps
    - Report progress at significant milestones
    - Preserve existing tests when possible
@@ -310,6 +329,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
 #### Code Quality Enforcement
 
 1. YOU MUST RUN tests, formatting and linting before any commit:
+
    - ALWAYS execute `pnpm test` to run unit tests before committing
    - ALWAYS execute `pnpm format` to fix code style issues before commits
    - These commands ensure functionality and code quality
@@ -318,6 +338,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
    - VERIFY both test and formatting success before proceeding with commit
 
 2. YOU SHALL FOLLOW this TODO management system:
+
    - Format: `// TODO: [action] - [reason/context]`
    - Categories: Critical (must resolve) or Future (can remain)
    - Track in standardized table with file, line, type, description
@@ -328,6 +349,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
      ```
 
 3. YOU MUST MANAGE temporary files:
+
    - List exhaustively in "Temporary Files" section
    - Document precise purpose
    - Track cleanup in final stage
@@ -346,6 +368,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
 ### BatchTool-Driven Execution Architecture
 
 1. YOU MUST MAXIMIZE parallel execution using built-in tools:
+
    - ALWAYS use BatchTool for any operation that can run in parallel
    - ANALYZE tasks thoroughly to identify parallelization opportunities
    - IDENTIFY parallel execution paths: [Task A, Task B] should execute SIMULTANEOUSLY
@@ -358,6 +381,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
    - NEVER assume dependencies without explicit verification
 
 2. YOU SHALL DESIGN all tasks for optimal BatchTool parallelization:
+
    - USE BatchTool to run MULTIPLE operations SIMULTANEOUSLY:
      ```javascript
      BatchTool({
@@ -388,6 +412,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
 ### Resource and Boundary Management
 
 1. YOU MUST DEFINE clear resource boundaries for each parallel task:
+
    - EXPLICITLY specify resource boundaries for EACH parallel task:
      ```javascript
      {
@@ -417,6 +442,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
 ### Parallel Workflow Phases
 
 1. YOU MUST IMPLEMENT PHASE 1: PARALLEL RESEARCH:
+
    - ALL of these research operations should execute SIMULTANEOUSLY in a SINGLE BatchTool call:
      - Operation 1: Use dispatch_agent to search code patterns
      - Operation 2: Use dispatch_agent to analyze test requirements
@@ -425,6 +451,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
    - NEVER perform these research operations sequentially when they can be parallel
 
 2. YOU MUST IMPLEMENT PHASE 2: PARALLEL IN-MEMORY IMPLEMENTATION:
+
    - ALL of these implementation operations should execute SIMULTANEOUSLY in a SINGLE BatchTool call:
      - Operation 1: Use dispatch_agent to generate component A implementation file
      - Operation 2: Use dispatch_agent to generate component B implementation file
@@ -433,6 +460,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
    - NEVER wait for one component implementation before starting another
 
 3. YOU MUST IMPLEMENT PHASE 3: SEQUENTIAL IMPLEMENTATION:
+
    - THIS PHASE IS SEQUENTIAL, not parallel
    - Use Edit/Replace to implement the complete code snippets returned by dispatch_agent
    - Minimal thinking time required as implementation details were solved in parallel
@@ -449,6 +477,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
 ### Integration and Sequential Boundaries
 
 1. YOU MUST ESTABLISH clear integration points for parallel work:
+
    - DEFINE explicit integration points where parallel work streams converge:
      ```javascript
      {
@@ -475,6 +504,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
 ### Post-Implementation Analysis
 
 1. YOU MUST CONDUCT comprehensive retrospective analysis after each completed plan:
+
    - IDENTIFY optimization opportunities:
      - Code quality improvements
      - Performance enhancements
@@ -498,6 +528,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
 ### Knowledge Expansion Process
 
 1. YOU MUST ENHANCE the knowledge base with each implementation:
+
    - EXTRACT reusable patterns from successful implementations
    - DOCUMENT complex algorithms with detailed explanations
    - CATALOG engineering decisions with rationales
@@ -512,6 +543,7 @@ YOU MUST DOCUMENT all issues with these mandatory elements:
 ### Adaptive Improvement Cycle
 
 1. YOU MUST ESTABLISH continuous feedback loops:
+
    - SOLICIT specific feedback at key milestones
    - ANALYZE feedback for actionable insights
    - IMPLEMENT improvements in subsequent tasks
