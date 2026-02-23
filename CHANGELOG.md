@@ -1,3 +1,10 @@
+## [2.3.2](https://github.com/eco/eco-chains/compare/v2.3.1...v2.3.2) (2026-02-23)
+
+
+### Bug Fixes
+
+* publish ([32b656d](https://github.com/eco/eco-chains/commit/32b656dd7099495a8b41f298a985d62d0e6bf65c))
+
 ## [2.3.1](https://github.com/eco/eco-chains/compare/v2.3.0...v2.3.1) (2026-02-23)
 
 
