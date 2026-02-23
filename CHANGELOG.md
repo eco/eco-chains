@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/eco/eco-chains/compare/v2.3.0...v2.3.1) (2026-02-23)
+
+
+### Bug Fixes
+
+* bsc stables use 18 decimals ([#109](https://github.com/eco/eco-chains/issues/109)) ([7d2f1d0](https://github.com/eco/eco-chains/commit/7d2f1d0b0dcbedb2459892f9d9685ace7cbd6c50))
+
 # [2.3.0](https://github.com/eco/eco-chains/compare/v2.2.0...v2.3.0) (2026-02-20)
 
 
