@@ -34,6 +34,10 @@ export const optimism: EcoChain = {
       address: '0x94b008aA00579c1307B0EF2c499aD98a8ce58e58',
       decimals: 6,
     },
+    USDT0: {
+      address: '0x01bff41798a0bcf287b996046ca68b395dbc1071',
+      decimals: 6,
+    },
     oUSDT: {
       address: '0x1217bfe6c773eec6cc4a38b5dc45b92292b6e189',
       decimals: 6,
