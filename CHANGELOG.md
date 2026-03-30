@@ -1,3 +1,10 @@
+## [2.3.3](https://github.com/eco/eco-chains/compare/v2.3.2...v2.3.3) (2026-03-30)
+
+
+### Bug Fixes
+
+* Add OP USDT0 ([#110](https://github.com/eco/eco-chains/issues/110)) ([a66e35c](https://github.com/eco/eco-chains/commit/a66e35c6ad80c82b33bd57a4bd8e37ace928549e))
+
 ## [2.3.2](https://github.com/eco/eco-chains/compare/v2.3.1...v2.3.2) (2026-02-23)
 
 
