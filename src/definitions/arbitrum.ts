@@ -19,6 +19,9 @@ export const arbitrum: EcoChain = {
     hyperlaneMailbox: {
       address: '0x979Ca5202784112f4738403dBec5D0F3B9daabB9',
     },
+    layerZeroEndpointV2: {
+      address: '0x1a44076050125825900e736c501f859c50fE728c',
+    },
   },
   isCalderaChain: false,
   stables: {

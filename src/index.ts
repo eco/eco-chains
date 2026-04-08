@@ -35,6 +35,7 @@ import {
   superseed,
   townsSepolia,
   tron,
+  tronShasta,
   unichain,
   worldchain,
 } from './definitions/index'
@@ -83,6 +84,7 @@ export const EcoRoutesChains = [
   superseed,
   townsSepolia,
   tron,
+  tronShasta,
   unichain,
   worldchain,
 ] as EcoChain[]
