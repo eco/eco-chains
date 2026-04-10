@@ -22,6 +22,9 @@ export const optimism: EcoChain = {
     layerZeroEndpointV2: {
       address: '0x1a44076050125825900e736c501f859c50fE728c',
     },
+    layerZeroProver: {
+      address: '0xf64eaca0D1cF874ea34b8E73127f0Fe535c6be41',
+    },
   },
   isCalderaChain: false,
   stables: {

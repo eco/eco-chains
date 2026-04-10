@@ -12,6 +12,12 @@ export const tron: EcoChain = {
     layerZeroEndpointV2: {
       address: '0x0Af59750D5dB5460E5d89E268C474d5F7407c061',
     },
+    layerZeroProver: {
+      address: '0xf8b5348d6e1e4c47de4abc2d9946963a7a37f2c8',
+    },
+    portal: {
+      address: '0xbbe65c636a745ccb12fb0a8376f5ed089a86983a',
+    },
   },
   isCalderaChain: false,
   stables: {
