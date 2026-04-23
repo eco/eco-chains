@@ -27,12 +27,6 @@ export const base: EcoChain = {
     layerZeroEndpointV2: {
       address: '0x1a44076050125825900e736c501f859c50fE728c',
     },
-    layerZeroProver: {
-      address: '0xf64eaca0D1cF874ea34b8E73127f0Fe535c6be41',
-    },
-    portal: {
-      address: '0x399Dbd5DF04f83103F77A58cBa2B7c4d3cdede97',
-    },
   },
   isCalderaChain: false,
   stables: {
