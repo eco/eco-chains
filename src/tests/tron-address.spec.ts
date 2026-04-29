@@ -14,12 +14,9 @@ const KNOWN = [
 ]
 
 describe('toTronBase58', () => {
-  it.each(KNOWN)(
-    'converts hex $hex to base58 $base58',
-    ({ hex, base58 }) => {
-      expect(toTronBase58(hex)).toBe(base58)
-    },
-  )
+  it.each(KNOWN)('converts hex $hex to base58 $base58', ({ hex, base58 }) => {
+    expect(toTronBase58(hex)).toBe(base58)
+  })
 
   it('throws on a hex address shorter than 20 bytes', () => {
     expect(() => toTronBase58('0xdeadbeef' as any)).toThrow(
@@ -34,12 +31,9 @@ describe('toTronBase58', () => {
 })
 
 describe('fromTronBase58', () => {
-  it.each(KNOWN)(
-    'converts base58 $base58 to hex $hex',
-    ({ base58, hex }) => {
-      expect(fromTronBase58(base58).toLowerCase()).toBe(hex.toLowerCase())
-    },
-  )
+  it.each(KNOWN)('converts base58 $base58 to hex $hex', ({ base58, hex }) => {
+    expect(fromTronBase58(base58).toLowerCase()).toBe(hex.toLowerCase())
+  })
 
   it('throws on an invalid base58 string', () => {
     expect(() => fromTronBase58('notavalidaddress')).toThrow()
@@ -57,14 +51,11 @@ describe('fromTronBase58', () => {
 })
 
 describe('round-trip', () => {
-  it.each(KNOWN)(
-    'hex → base58 → hex is identity for $hex',
-    ({ hex }) => {
-      expect(fromTronBase58(toTronBase58(hex)).toLowerCase()).toBe(
-        hex.toLowerCase(),
-      )
-    },
-  )
+  it.each(KNOWN)('hex → base58 → hex is identity for $hex', ({ hex }) => {
+    expect(fromTronBase58(toTronBase58(hex)).toLowerCase()).toBe(
+      hex.toLowerCase(),
+    )
+  })
 
   it.each(KNOWN)(
     'base58 → hex → base58 is identity for $base58',

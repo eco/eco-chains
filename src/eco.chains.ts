@@ -306,9 +306,9 @@ export class EcoChains {
    * @returns {EcoChain[]} - All chains except Tron mainnet and Tron Shasta
    */
   getEvmChains(): EcoChain[] {
-    return EcoRoutesChains.filter(
-      (chain) => !TRON_CHAIN_IDS.has(chain.id),
-    ).map((chain) => this.getChain(chain.id))
+    return EcoRoutesChains.filter((chain) => !TRON_CHAIN_IDS.has(chain.id)).map(
+      (chain) => this.getChain(chain.id),
+    )
   }
 
   /**
