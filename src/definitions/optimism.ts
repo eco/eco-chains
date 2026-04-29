@@ -19,6 +19,9 @@ export const optimism: EcoChain = {
     hyperlaneMailbox: {
       address: '0xd4C1905BB1D26BC93DAC913e13CaCC278CdCC80D',
     },
+    layerZeroEndpointV2: {
+      address: '0x1a44076050125825900e736c501f859c50fE728c',
+    },
   },
   isCalderaChain: false,
   stables: {

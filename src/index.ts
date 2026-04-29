@@ -34,6 +34,8 @@ import {
   sepolia,
   superseed,
   townsSepolia,
+  tron,
+  tronShasta,
   unichain,
   worldchain,
 } from './definitions/index'
@@ -81,6 +83,8 @@ export const EcoRoutesChains = [
   sonic,
   superseed,
   townsSepolia,
+  tron,
+  tronShasta,
   unichain,
   worldchain,
 ] as EcoChain[]
@@ -94,6 +98,7 @@ export const EcoRouteChainMap = EcoRoutesChains.reduce(
 )
 
 export * from './eco.chains'
+export * from './tron-address'
 
 export type { EcoChain }
 export default {
