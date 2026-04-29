@@ -98,6 +98,7 @@ export const EcoRouteChainMap = EcoRoutesChains.reduce(
 )
 
 export * from './eco.chains'
+export * from './tron-address'
 
 export type { EcoChain }
 export default {
