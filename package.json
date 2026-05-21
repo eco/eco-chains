@@ -67,6 +67,7 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
+    "bs58check": "^4.0.0",
     "typia": "^8.0.4",
     "viem": "^2.37.8"
   },

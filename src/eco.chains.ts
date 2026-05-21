@@ -1,5 +1,8 @@
 import { extractChain, fallback, Hex, http, Transport, webSocket } from 'viem'
+import { tron as vtron, tronShasta as vtronShasta } from 'viem/chains'
 import { EcoRoutesChains, EcoChain } from './index'
+
+const TRON_CHAIN_IDS = new Set<number>([vtron.id, vtronShasta.id])
 
 /**
  * Regular expressions to identify RPC endpoints that require API keys
@@ -296,5 +299,61 @@ export class EcoChains {
     return EcoRoutesChains.filter((chain) => chain.testnet).map((chain) =>
       this.getChain(chain.id),
     ) as [EcoChain, ...EcoChain[]]
+  }
+
+  /**
+   * Retrieves all non-Tron (EVM) chain configurations
+   * @returns {EcoChain[]} - All chains except Tron mainnet and Tron Shasta
+   */
+  getEvmChains(): EcoChain[] {
+    return EcoRoutesChains.filter((chain) => !TRON_CHAIN_IDS.has(chain.id)).map(
+      (chain) => this.getChain(chain.id),
+    )
+  }
+
+  /**
+   * Retrieves all EVM mainnet chain configurations
+   * @returns {EcoChain[]} - Non-Tron chains where testnet is falsy
+   */
+  getEvmMainnetChains(): EcoChain[] {
+    return EcoRoutesChains.filter(
+      (chain) => !TRON_CHAIN_IDS.has(chain.id) && !chain.testnet,
+    ).map((chain) => this.getChain(chain.id))
+  }
+
+  /**
+   * Retrieves all EVM testnet chain configurations
+   * @returns {EcoChain[]} - Non-Tron chains where testnet is true
+   */
+  getEvmTestnetChains(): EcoChain[] {
+    return EcoRoutesChains.filter(
+      (chain) => !TRON_CHAIN_IDS.has(chain.id) && chain.testnet,
+    ).map((chain) => this.getChain(chain.id))
+  }
+
+  /**
+   * Retrieves both Tron chain configurations (mainnet and testnet)
+   * @returns {EcoChain[]} - Tron mainnet and Tron Shasta
+   */
+  getTronChains(): EcoChain[] {
+    return EcoRoutesChains.filter((chain) => TRON_CHAIN_IDS.has(chain.id)).map(
+      (chain) => this.getChain(chain.id),
+    )
+  }
+
+  /**
+   * Retrieves the Tron mainnet chain configuration
+   * @returns {EcoChain} - Tron mainnet
+   */
+  getTronMainnetChain(): EcoChain {
+    return this.getChain(vtron.id)
+  }
+
+  /**
+   * Retrieves the Tron Shasta testnet chain configuration
+   * @returns {EcoChain} - Tron Shasta
+   */
+  getTronTestnetChain(): EcoChain {
+    return this.getChain(vtronShasta.id)
   }
 }

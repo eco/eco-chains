@@ -24,6 +24,9 @@ export const base: EcoChain = {
     hyperlaneMailbox: {
       address: '0xeA87ae93Fa0019a82A727bfd3eBd1cFCa8f64f1D',
     },
+    layerZeroEndpointV2: {
+      address: '0x1a44076050125825900e736c501f859c50fE728c',
+    },
   },
   isCalderaChain: false,
   stables: {
