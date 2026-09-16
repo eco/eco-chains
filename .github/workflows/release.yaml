@@ -1,3 +1,23 @@
+# Release on every push to main, driven by semantic-release:
+#   conventional commits -> next version -> CHANGELOG.md + package.json commit
+#   -> vX.Y.Z tag -> GitHub Release -> `npm stage publish`.
+#
+# THE LAST STEP DOES NOT PUBLISH. `npm stage publish` uploads the tarball to
+# npm in a pending state nobody can install. A green run means the version is
+# QUEUED; a maintainer promotes it, which costs a 2FA challenge:
+#
+#   npm stage list @eco-foundation/chains
+#   npm stage approve <stage-id>          # or: npm stage reject <stage-id>
+#
+# The split is deliberate: npm removes direct publish from granular access
+# tokens in January 2027, and no CI credential -- token or OIDC -- can satisfy
+# an approval. A stolen runner token can queue a release; it can never ship
+# one. Same promotion model as eco/eco-api-schemas, with semantic-release kept
+# for versioning, changelog, tag and GitHub Release.
+#
+# Secrets: GH_TOKEN (GitHub App token; pushes the release commit + tag and
+# creates the Release) and NPM_TOKEN (granular token scoped to
+# @eco-foundation/chains with "Read and write (stage only)", no 2FA bypass).
 name: Release
 
 on:
@@ -9,8 +29,6 @@ permissions:
   contents: write
   issues: write
   pull-requests: write
-  packages: write
-  id-token: write
 
 jobs:
   release:
@@ -24,12 +42,6 @@ jobs:
           persist-credentials: true
           token: ${{ secrets.GH_TOKEN }}
 
-      - name: Get commit info
-        id: commit-info
-        run: |
-          echo "sha=${{ github.sha }}" >> $GITHUB_OUTPUT
-          echo "Using commit SHA: ${{ github.sha }}"
-
       - name: Install pnpm
         uses: pnpm/action-setup@v4
 
@@ -40,8 +52,14 @@ jobs:
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
+      # `npm stage` landed in npm 11.15.0; the npm bundled with the .nvmrc Node
+      # predates it. Upgrading npm in this job alone leaves every other job on
+      # the pinned Node's bundled npm.
+      - name: Upgrade npm for `npm stage`
+        run: npm install -g npm@^11.15.0
+
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Lint
         run: pnpm format:check
@@ -57,54 +75,9 @@ jobs:
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
 
-      - name: Release
-        id: semantic-release
+      - name: Release (version, changelog, tag, GitHub Release, npm stage)
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
-        run: |
-          echo "Using GitHub token with prefix: ${GITHUB_TOKEN:0:4}..."
-          echo "Using GH_TOKEN with prefix: ${GH_TOKEN:0:4}..."
-          echo "Commit SHA: ${{ steps.commit-info.outputs.sha }}"
-          echo "Current branch: $(git branch --show-current)"
-          echo "Current git status: $(git status)"
-          echo "Current version in package.json: $(node -p "require('./package.json').version")"
-          echo "Last 3 commits:"
-          git log -3 --oneline
-
-          # Run semantic-release with output capture
-          OUTPUT=$(npx semantic-release --debug)
-          echo "$OUTPUT"
-
-          # Extract the version number and release type from semantic-release output
-          if echo "$OUTPUT" | grep -q "The next release version is"; then
-            VERSION=$(echo "$OUTPUT" | grep "The next release version is" | sed -E 's/.*The next release version is ([0-9]+\.[0-9]+\.[0-9]+).*/\1/')
-            echo "new_version=$VERSION" >> $GITHUB_OUTPUT
-            echo "Released version $VERSION"
-
-            # Extract release type directly from semantic-release output
-            if echo "$OUTPUT" | grep -q "Release type: major"; then
-              RELEASE_TYPE="major"
-            elif echo "$OUTPUT" | grep -q "Release type: minor"; then
-              RELEASE_TYPE="minor"
-            else
-              RELEASE_TYPE="patch"
-            fi
-
-            echo "release_type=$RELEASE_TYPE" >> $GITHUB_OUTPUT
-            echo "Release type: $RELEASE_TYPE"
-          else
-            echo "No new version was released"
-          fi
-
-      - name: Manually Trigger eco-routes Workflow
-        if: steps.semantic-release.outputs.new_version
-        uses: peter-evans/repository-dispatch@v3.0.0
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-          repository: eco/eco-routes
-          event-type: eco-chains-tag-pushed
-          client-payload: '{"tag": "v${{ steps.semantic-release.outputs.new_version }}", "release_type": "${{ steps.semantic-release.outputs.release_type }}", "environment": "mainnet", "repository": "${{ github.repository }}", "sha": "${{ steps.commit-info.outputs.sha }}"}'
+        run: npx semantic-release

@@ -88,15 +88,16 @@ pnpm format
 
 ## Versioning and Releases
 
-This project uses [Semantic Versioning](https://semver.org/) and [Conventional Commits](https://www.conventionalcommits.org/) to automate version management and package releases.
+This project uses [Semantic Versioning](https://semver.org/) and [Conventional Commits](https://www.conventionalcommits.org/): `fix:`/`perf:`/`addChain:` commits cut a patch, `feat:` a minor, `BREAKING CHANGE:` a major.
 
-Releases are automatically created when changes are merged to the `main` branch. The version number is determined by the commit messages:
+On every merge to `main`, semantic-release computes the version, updates `CHANGELOG.md` and `package.json`, tags `vX.Y.Z`, creates the GitHub Release, and **stages** the package on npm with `npm stage publish`. Staged is not published: nobody can install it until a maintainer approves it with a 2FA challenge (npm >= 11.15.0 locally):
 
-- `fix:` or `perf:` commits trigger patch releases (0.0.x)
-- `feat:` commits trigger minor releases (0.x.0)
-- Commits with `BREAKING CHANGE:` in the message trigger major releases (x.0.0)
+```bash
+npm stage list @eco-foundation/chains
+npm stage approve <stage-id>   # or: npm stage reject <stage-id>
+```
 
-For more details on contributing, see [CONTRIBUTING.md](./CONTRIBUTING.md).
+See [CONTRIBUTING.md](./CONTRIBUTING.md#release-process) for the full flow and the token setup.
 
 ## License
 
