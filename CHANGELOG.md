@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/eco/eco-chains/compare/v2.4.0...v2.5.0) (2026-09-16)
+
+
+### Features
+
+* **chains:** add Robinhood Chain mainnet and USDG ([#116](https://github.com/eco/eco-chains/issues/116)) ([1e9d910](https://github.com/eco/eco-chains/commit/1e9d910d2d83d09ba6ca7bd3bb026a1b1e68f433))
+
 # [2.4.0](https://github.com/eco/eco-chains/compare/v2.3.3...v2.4.0) (2026-09-16)
 
 
