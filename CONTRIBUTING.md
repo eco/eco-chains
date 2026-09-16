@@ -78,19 +78,42 @@ When adding a new blockchain to the eco-chains library:
 
 ## Release Process
 
-Releases are automated through GitHub Actions when changes are merged to the `main` branch. The release workflow:
+Releases are automated by semantic-release on every merge to `main`, but the final step is a
+human approval. CI can queue a release; it can never ship one. npm removes direct publish from
+granular access tokens in January 2027, and no CI credential (token or OIDC) can satisfy an
+approval, by design. The promotion model mirrors
+[eco/eco-api-schemas](https://github.com/eco/eco-api-schemas); the versioning stays automated.
 
-1. Determines the next version based on commit messages
-2. Updates the package.json version
-3. Generates a changelog
-4. Creates a GitHub release
-5. Publishes the package to npm
+The `Release` workflow (`.github/workflows/release.yaml`) runs `npx semantic-release`, which:
 
-To ensure correct versioning:
+1. Determines the next version from the commit messages since the last tag
+2. Updates `package.json` and generates the `CHANGELOG.md` entry, and commits both
+   (`chore(release): x.y.z [skip ci]`)
+3. Tags the commit `vx.y.z` and creates the GitHub Release
+4. Runs `npm stage publish`, which uploads the tarball to npm in a **pending** state.
+   The run summary and the GitHub Release body both say the version is staged, not published.
 
-- Bug fixes trigger patch releases (0.0.x)
-- New features trigger minor releases (0.x.0)
-- Breaking changes trigger major releases (x.0.0)
+Then a maintainer with 2FA promotes it (needs npm >= 11.15.0 locally):
+
+```bash
+npm stage list @eco-foundation/chains
+npm stage approve <stage-id>   # or: npm stage reject <stage-id>
+```
+
+Two staging rules: a staged version cannot be staged again until it is approved or rejected, and
+the dist-tag is fixed once staged. A rejected version still has its tag and GitHub Release, and
+semantic-release moves on from that tag, so reject rarely and fix forward with a new commit.
+
+Versioning rules:
+
+- Bug fixes (`fix:`, `perf:`) and `addChain:` commits trigger patch releases (0.0.x)
+- New features (`feat:`) trigger minor releases (0.x.0)
+- Breaking changes (`BREAKING CHANGE:` footer) trigger major releases (x.0.0)
+
+**Secrets.** `GH_TOKEN` is the GitHub App token that pushes the release commit and tag and
+creates the Release. `NPM_TOKEN` must be a granular access token scoped to
+`@eco-foundation/chains` with **"Read and write (stage only)"** permission and no 2FA bypass:
+`gh secret set NPM_TOKEN -R eco/eco-chains` (repo admin).
 
 ## Code Standards
 
