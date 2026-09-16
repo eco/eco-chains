@@ -1,3 +1,12 @@
+# [2.4.0](https://github.com/eco/eco-chains/compare/v2.3.3...v2.4.0) (2026-09-16)
+
+
+### Features
+
+* **ECO-2228:** add Monad mainnet (chain 143) to @eco-foundation/chains ([#113](https://github.com/eco/eco-chains/issues/113)) ([04fb560](https://github.com/eco/eco-chains/commit/04fb5607813fecf6d5ef58f97f16f8af207446dd))
+* **PAR-32:** add Arc mainnet (chain 5042) to @eco-foundation/chains ([#114](https://github.com/eco/eco-chains/issues/114)) ([75bdd50](https://github.com/eco/eco-chains/commit/75bdd5097db9212e62f93365c923316db068a4c2))
+* tron + layerzero prover support ([#111](https://github.com/eco/eco-chains/issues/111)) ([7c5f052](https://github.com/eco/eco-chains/commit/7c5f0521a2e041e587d77e4cca0086d2795f133e))
+
 ## [2.3.3](https://github.com/eco/eco-chains/compare/v2.3.2...v2.3.3) (2026-03-30)
 
 
